@@ -1,4 +1,6 @@
 package publicadores;
+
+import Configuraciones.WebServiceConfiguracion;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -18,16 +20,21 @@ public class publicadorActividadDeportiva {
 	private Fabrica fabrica;
 	private IActividadDeportiva iAct;
 	private Endpoint endpoint;
-
+	private WebServiceConfiguracion configuracion;
 	
 	public publicadorActividadDeportiva() {
 		fabrica = Fabrica.getInstancia();
 		iAct = fabrica.getIActividadDeportiva();
+		try {
+			configuracion = new WebServiceConfiguracion();
+		} catch (Exception ex) {
+			
+		}
 	}
 	
 	@WebMethod(exclude = true)//este no lo queremos accesible desde los web services
     public void publicar(){
-         endpoint = Endpoint.publish("http://localhost:1981/publicado", this); //pregunta para el profe se publica cada servicio en un puerto distinto?
+         endpoint = Endpoint.publish("http://" + configuracion.getConfigOf("#WS_IP") + ":" + configuracion.getConfigOf("#WS_PORT") + "publicado", this); //pregunta para el profe se publica cada servicio en un puerto distinto?
     }
 	/* este podemos o no tenerlo/usuarlo 
 	@WebMethod(exclude = true)

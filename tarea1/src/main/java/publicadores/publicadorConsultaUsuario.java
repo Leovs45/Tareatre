@@ -10,7 +10,7 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 
-
+import Configuraciones.WebServiceConfiguracion;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
 import interfaces.Fabrica;
@@ -26,7 +26,7 @@ public class publicadorConsultaUsuario {
 	private Fabrica fabrica;
 	private  IUsuario iUs;
 	private Endpoint endpoint;
-	
+	private WebServiceConfiguracion configuracion;
 
 	public publicadorConsultaUsuario() {
 		
@@ -37,7 +37,7 @@ public class publicadorConsultaUsuario {
 	
 	@WebMethod(exclude = true)//este no lo queremos accesible desde los web services
 	public void publicar(){
-		endpoint = Endpoint.publish("http://localhost:1980/publicado", this);
+		endpoint = Endpoint.publish("http://" + configuracion.getConfigOf("#WS_IP") + ":" + configuracion.getConfigOf("#WS_PORT") + "publicado", this);
 	}
 	
 	
