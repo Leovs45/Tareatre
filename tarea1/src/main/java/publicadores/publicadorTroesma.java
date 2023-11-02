@@ -71,7 +71,6 @@ public class publicadorTroesma {
 	
 	@WebMethod
 	public DtProfesor getDtProfesor(String nickname){
-		
 		return iUs.getDtProfesor(nickname);
 	}
 		
@@ -88,8 +87,16 @@ public class publicadorTroesma {
 	}
 	
 	@WebMethod
-	public List<DtActividad> getRankingActividades(){
+	public DtActividad[] getRankingActividades(){
+		List<DtActividad> dtactividad = iAct.getRankingActividades();
+		int i = 0;
 		
-		return iAct.getRankingActividades();
+		DtActividad[] ret = new DtActividad[dtactividad.size()];
+		
+		for(DtActividad a: dtactividad) {
+			ret[i]=a;
+			i++;
+		}
+		return ret;
 	}	
 }

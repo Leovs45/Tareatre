@@ -40,17 +40,10 @@ public class GUIPrincipal {
 	private GUIRankingDictadoClase rankingClaseInternalFrame;
 	
 
-	public static void main(String[] args) {
-		
-	//===================== agregado para tarea 3 =====================//
-		publicadorTroesma ptro = new publicadorTroesma();
-	    ptro.publicar();
-	//===================== agregado para tarea 3 =====================//      
+	public static void main(String[] args) {    
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//Tirando_datos td= new Tirando_datos();
-					//td.rellenarDatos();
 					GUIPrincipal window = new GUIPrincipal();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -61,6 +54,8 @@ public class GUIPrincipal {
 	}
 
 	public GUIPrincipal() {
+		publicadorTroesma ptro = new publicadorTroesma();
+	    ptro.publicar();
 		initialize();
 		
 		Fabrica f = Fabrica.getInstancia();
