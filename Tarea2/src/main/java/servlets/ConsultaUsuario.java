@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import datatypes.DtActividad;
 import datatypes.DtClase;
-import datatypes.DtProfesor;
-import datatypes.DtSocio;
+//import datatypes.DtProfesor;
+//import datatypes.DtSocio;
 import datatypes.DtRegistro;
 import logica.Registro;
 import excepciones.UsuarioNoEsProfesorException;
@@ -22,6 +24,12 @@ import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 import interfaces.IUsuario;
 import interfaces.IClase;
+
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
+import publicadores.DtSocio;
+import publicadores.DtProfesor;
+import publicadores.PublicadorTroesma;
 /**
  * Servlet implementation class ConsultaUsuario
  */
@@ -48,8 +56,28 @@ public class ConsultaUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	public boolean esSocio(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.esSocio(nick);
+	}
+	public DtSocio getDtSocio(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.getDtSocio(nick);
+	}
+	
+	public DtProfesor getDtProfesor(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.getDtProfesor(nick);
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		Fabrica fabric = Fabrica.getInstancia();
 	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
@@ -65,8 +93,8 @@ public class ConsultaUsuario extends HttpServlet {
 	    try {
 	    	if (nickname != null) {
 		        // Ahora puedes usar la variable "nickname" en tu servlet
-		    	if (iUs.esSocio(nickname)) {
-			    	DtSocio dtSoc = iUs.getDtSocio(nickname);
+		    	if (esSocio(nickname)) {
+			    	DtSocio dtSoc = getDtSocio(nickname);
 			    	List<DtClase> listaClases = new ArrayList<>();
 			    		List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
 			            for(DtRegistro r: listaRegistros) {
@@ -86,7 +114,7 @@ public class ConsultaUsuario extends HttpServlet {
 			    	 * 
 			    	request.setAttribute("esProfesor", false);*/
 			    } else {
-			    	DtProfesor dtProf = iUs.getDtProfesor(nickname);
+			    	DtProfesor dtProf = getDtProfesor(nickname);
 			    	String intitusion = dtProf.getNombreInstitucion();
 			    	List<DtClase> clasercias = dtProf.getClases();
 			    	

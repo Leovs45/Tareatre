@@ -31,6 +31,8 @@ public class publicadorTroesma {
 	public publicadorTroesma() {
 		fabrica = Fabrica.getInstancia();
 		iAct = fabrica.getIActividadDeportiva();
+		iUs = fabrica.getIUsuario();
+		iCls = fabrica.getIClase();
 	}
 	
 	@WebMethod(exclude = true)//este no lo queremos accesible desde los web services
@@ -98,5 +100,6 @@ public class publicadorTroesma {
 			i++;
 		}
 		return ret;
-	}	
+	}
+	
 }
