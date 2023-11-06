@@ -50,6 +50,24 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.getRankingActividades();
   }
   
+  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.getDtProfesor(arg0);
+  }
+  
+  public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.getDtSocio(arg0);
+  }
+  
+  public boolean existeUsuario(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeUsuario(arg0);
+  }
+  
   public publicadores.DtActividad getDtActividad(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
@@ -62,34 +80,22 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.esSocio(arg0);
   }
   
-  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.existeActividad(arg0);
-  }
-  
-  public boolean existeUsuario(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.existeUsuario(arg0);
-  }
-  
   public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
     return publicadorTroesma.esContrasena(arg0, arg1);
   }
   
-  public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException{
+  public publicadores.DtRegistro[] getRegistros(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getDtSocio(arg0);
+    return publicadorTroesma.getRegistros(arg0);
   }
   
-  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
+  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getDtProfesor(arg0);
+    return publicadorTroesma.existeActividad(arg0);
   }
   
   

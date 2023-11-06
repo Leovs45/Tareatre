@@ -10,6 +10,7 @@ import javax.xml.ws.Endpoint;
 
 import datatypes.DtActividad;
 import datatypes.DtProfesor;
+import datatypes.DtRegistro;
 import datatypes.DtSocio;
 
 import interfaces.Fabrica;
@@ -102,4 +103,13 @@ public class publicadorTroesma {
 		return ret;
 	}
 	
+	@WebMethod
+	public DtRegistro[] getRegistros(String nickname){
+		DtSocio sociardo = iUs.getDtSocio(nickname);
+		List<DtRegistro> dtregistros = sociardo.getRegistros();		
+		DtRegistro[] ret = dtregistros.toArray(new DtRegistro[0]);
+		
+		//Foo[] array = list.toArray(new Foo[0]);
+		return ret;
+	}
 }
