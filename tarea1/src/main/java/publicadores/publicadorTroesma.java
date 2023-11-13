@@ -103,7 +103,7 @@ public class publicadorTroesma {
 		return ret;
 	}
 	
-	@WebMethod
+	/*@WebMethod
 	public DtRegistro[] getRegistros(String nickname){
 		DtSocio sociardo = iUs.getDtSocio(nickname);
 		List<DtRegistro> dtregistros = sociardo.getRegistros();		
@@ -111,5 +111,5 @@ public class publicadorTroesma {
 		
 		//Foo[] array = list.toArray(new Foo[0]);
 		return ret;
-	}
+	}*/
 }

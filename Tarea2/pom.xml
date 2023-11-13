@@ -125,6 +125,13 @@
       <artifactId>tomcat-util-scan</artifactId>
       <version>9.0.80</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-discovery/commons-discovery -->
+	<dependency>
+	    <groupId>commons-discovery</groupId>
+	    <artifactId>commons-discovery</artifactId>
+	    <version>0.2</version>
+	</dependency>
+
   </dependencies>
   <build>
     <plugins>

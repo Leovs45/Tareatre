@@ -44,16 +44,16 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma;
   }
   
-  public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException{
+  public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getRankingActividades();
+    return publicadorTroesma.esSocio(arg0);
   }
   
-  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
+  public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getDtProfesor(arg0);
+    return publicadorTroesma.esContrasena(arg0, arg1);
   }
   
   public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException{
@@ -68,34 +68,28 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.existeUsuario(arg0);
   }
   
+  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeActividad(arg0);
+  }
+  
+  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.getDtProfesor(arg0);
+  }
+  
   public publicadores.DtActividad getDtActividad(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
     return publicadorTroesma.getDtActividad(arg0);
   }
   
-  public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException{
+  public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.esSocio(arg0);
-  }
-  
-  public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.esContrasena(arg0, arg1);
-  }
-  
-  public publicadores.DtRegistro[] getRegistros(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getRegistros(arg0);
-  }
-  
-  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.existeActividad(arg0);
+    return publicadorTroesma.getRankingActividades();
   }
   
   
