@@ -2,24 +2,33 @@ package presentacion;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import interfaces.*;
-import presentacionAltas.*;
-import presentacionConsultas.*;
-import presentacionModificacion.*;
-import java.awt.BorderLayout;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JInternalFrame;
+import interfaces.Fabrica;
+import interfaces.IActividadDeportiva;
+import interfaces.IClase;
+import interfaces.IInstitucionDeportiva;
+import interfaces.IRegistro;
+import interfaces.IUsuario;
+import presentacionAltas.GUIAltaActividad;
+import presentacionAltas.GUIAltaDictadoClase;
+import presentacionAltas.GUIAltaInstitucion;
+import presentacionAltas.GUIAltaUsuario;
+import presentacionAltas.GUIRegistroDictadoClase;
+import presentacionConsultas.GUIConsultaActividadDeportiva;
+import presentacionConsultas.GUIConsultaDictadoClase;
+import presentacionConsultas.GUIConsultaUsuario;
+import presentacionConsultas.GUIRankingActividadDeportiva;
+import presentacionConsultas.GUIRankingDictadoClase;
+import presentacionModificacion.GUIModificarActividad;
+import presentacionModificacion.GUIModificarInstitucion;
+import presentacionModificacion.GUIModificarUsuario;
 import publicadores.publicadorTroesma;
 
 public class GUIPrincipal {
@@ -38,10 +47,11 @@ public class GUIPrincipal {
 	private GUIModificarActividad modificarActividadInternalFrame;
 	private GUIRankingActividadDeportiva rankingActividadInternalFrame;
 	private GUIRankingDictadoClase rankingClaseInternalFrame;
-	
 
-	public static void main(String[] args) {    
+
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					GUIPrincipal window = new GUIPrincipal();
@@ -57,17 +67,17 @@ public class GUIPrincipal {
 		publicadorTroesma ptro = new publicadorTroesma();
 	    ptro.publicar();
 		initialize();
-		
+
 		Fabrica f = Fabrica.getInstancia();
 		IUsuario iUsuario = f.getIUsuario();
 		IInstitucionDeportiva iInstitucion = f.getIInstitucionDeportiva();
 		IActividadDeportiva iActividad = f.getIActividadDeportiva();
 		IRegistro iRegistro = f.getIRegistro();
 		IClase iClase = f.getIClase();
-		
+
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
-		
+
 		// Crea frame de alta Usuario
 		altaUsuarioInternalFrame = new GUIAltaUsuario(iUsuario, iInstitucion);
 		jInternalFrameSize = altaUsuarioInternalFrame.getSize();
@@ -76,31 +86,31 @@ public class GUIPrincipal {
 		altaUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(altaUsuarioInternalFrame);
 		altaUsuarioInternalFrame.getContentPane().setLayout(null);
-		
+
 		// Crea frame de alta institucion
-		altaInstitucionInternalFrame = new GUIAltaInstitucion(iInstitucion); 
+		altaInstitucionInternalFrame = new GUIAltaInstitucion(iInstitucion);
 		jInternalFrameSize = altaInstitucionInternalFrame.getSize();
 		altaInstitucionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		altaInstitucionInternalFrame.setVisible(false);
 		frame.getContentPane().add(altaInstitucionInternalFrame);
-		
+
 		// Crea frame de alta actividad
-		altaActividadInternalFrame = new GUIAltaActividad(iActividad, iInstitucion); 
+		altaActividadInternalFrame = new GUIAltaActividad(iActividad, iInstitucion);
 		jInternalFrameSize = altaActividadInternalFrame.getSize();
 		altaActividadInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		altaActividadInternalFrame.setVisible(false);
 		frame.getContentPane().add(altaActividadInternalFrame);
-		
+
 		// Crea frame de alta clase
-		altaClaseInternalFrame = new GUIAltaDictadoClase(iClase, iInstitucion, iActividad, iUsuario); 
+		altaClaseInternalFrame = new GUIAltaDictadoClase(iClase, iInstitucion, iActividad, iUsuario);
 		jInternalFrameSize = altaClaseInternalFrame.getSize();
 		altaClaseInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		altaClaseInternalFrame.setVisible(false);
 		frame.getContentPane().add(altaClaseInternalFrame);
-		
+
 		// Crea frame de Consulta Usuario
 		consultaUsuarioInternalFrame = new GUIConsultaUsuario(iUsuario);
 		jInternalFrameSize = consultaUsuarioInternalFrame.getSize();
@@ -108,7 +118,7 @@ public class GUIPrincipal {
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		consultaUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(consultaUsuarioInternalFrame);
-		
+
 		//Crea frame de Consulta Actividad Deportiva
 		consultaActividadInternalFrame = new GUIConsultaActividadDeportiva(iActividad, iInstitucion);
 		jInternalFrameSize = consultaActividadInternalFrame.getSize();
@@ -116,7 +126,7 @@ public class GUIPrincipal {
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		consultaActividadInternalFrame.setVisible(false);
 		frame.getContentPane().add(consultaActividadInternalFrame);
-		
+
 		//Crea frame de Registro Dictado de Clase
 		registroDictadoClaseInternalFrame = new GUIRegistroDictadoClase(iRegistro, iUsuario, iInstitucion);
 		jInternalFrameSize = registroDictadoClaseInternalFrame.getSize();
@@ -124,7 +134,7 @@ public class GUIPrincipal {
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		registroDictadoClaseInternalFrame.setVisible(false);
 		frame.getContentPane().add(registroDictadoClaseInternalFrame);
-		
+
 		//Crea frame de modificar usuario
 		modificarUsuarioInternalFrame = new GUIModificarUsuario(iUsuario);
 		jInternalFrameSize = modificarUsuarioInternalFrame.getSize();
@@ -132,7 +142,7 @@ public class GUIPrincipal {
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		modificarUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(modificarUsuarioInternalFrame);
-		
+
 		//Crea frame de modificar institucion
 		modificarInstitucionInternalFrame = new GUIModificarInstitucion(iInstitucion);
 		jInternalFrameSize = modificarInstitucionInternalFrame.getSize();
@@ -141,7 +151,7 @@ public class GUIPrincipal {
 		modificarInstitucionInternalFrame.setVisible(false);
 		modificarInstitucionInternalFrame.getContentPane().setLayout(null);
 		frame.getContentPane().add(modificarInstitucionInternalFrame);
-		
+
 		//Crea frame modificar actividad
 		modificarActividadInternalFrame = new GUIModificarActividad(iActividad);
 		jInternalFrameSize = modificarActividadInternalFrame.getSize();
@@ -150,7 +160,7 @@ public class GUIPrincipal {
 		modificarActividadInternalFrame.setVisible(false);
 		frame.getContentPane().add(modificarActividadInternalFrame);
 		modificarActividadInternalFrame.getContentPane().setLayout(null);
-		
+
 		//Crea fram consulta dictado clase
 		consultaDictadoClaseInternalFrame = new GUIConsultaDictadoClase(iInstitucion);
 		jInternalFrameSize = consultaDictadoClaseInternalFrame.getSize();
@@ -159,17 +169,17 @@ public class GUIPrincipal {
 		consultaDictadoClaseInternalFrame.setVisible(false);
 		frame.getContentPane().add(consultaDictadoClaseInternalFrame);
 		consultaDictadoClaseInternalFrame.getContentPane().setLayout(null);
-		
+
 		//Crea fram ranking Actividad
-		
+
 		rankingActividadInternalFrame = new GUIRankingActividadDeportiva(iActividad);
 		jInternalFrameSize = rankingActividadInternalFrame.getSize();
 		rankingActividadInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		rankingActividadInternalFrame.setVisible(false);
 		frame.getContentPane().add(rankingActividadInternalFrame);
-		rankingActividadInternalFrame.getContentPane().setLayout(null);	
-			
+		rankingActividadInternalFrame.getContentPane().setLayout(null);
+
 		//Crea fram ranking Clase
 		rankingClaseInternalFrame = new GUIRankingDictadoClase(iClase);
 		jInternalFrameSize = rankingClaseInternalFrame.getSize();
@@ -177,24 +187,25 @@ public class GUIPrincipal {
 				,(desktopSize.height - jInternalFrameSize.height)/2);
 		rankingClaseInternalFrame.setVisible(false);
 		frame.getContentPane().add(rankingClaseInternalFrame);
-		rankingClaseInternalFrame.getContentPane().setLayout(null);	
+		rankingClaseInternalFrame.getContentPane().setLayout(null);
 	}
 
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 867, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenu menuAltas = new JMenu("Altas");
 		menuBar.add(menuAltas);
-		
-		
+
+
 		// ALTA USUARIO
 		JMenuItem menuAltaUsuario = new JMenuItem("Alta usuario");
 		menuAltaUsuario.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -209,14 +220,15 @@ public class GUIPrincipal {
 				consultaDictadoClaseInternalFrame.doDefaultCloseAction();
 				rankingActividadInternalFrame.doDefaultCloseAction();
 				rankingClaseInternalFrame.doDefaultCloseAction();
-			
+
 			}
 		});
 		menuAltas.add(menuAltaUsuario);
-		
+
 		// ALTA INSTITUCION
 		JMenuItem menuItemAltaItDeportiva = new JMenuItem("Alta institucion deportiva");
 		menuItemAltaItDeportiva.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -234,10 +246,11 @@ public class GUIPrincipal {
 			}
 		});
 		menuAltas.add(menuItemAltaItDeportiva);
-		
+
 		// ALTA ACTIVIDAD
 		JMenuItem menuItemAltaActDeportiva = new JMenuItem("Alta actividad deportiva");
 		menuItemAltaActDeportiva.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.setVisible(true);
@@ -255,10 +268,11 @@ public class GUIPrincipal {
 			}
 		});
 		menuAltas.add(menuItemAltaActDeportiva);
-		
+
 		// ALTA CLASE
 		JMenuItem menuItemAltaClase = new JMenuItem("Alta dictado de clase");
 		menuItemAltaClase.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.setVisible(true);
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -276,10 +290,11 @@ public class GUIPrincipal {
 			}
 		});
 		menuAltas.add(menuItemAltaClase);
-		
+
 		// ALTA DICTADO CLASE
 		JMenuItem mntmRegistroDeDictado = new JMenuItem("Registro dictado de clase");
 		mntmRegistroDeDictado.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -294,17 +309,18 @@ public class GUIPrincipal {
 				consultaDictadoClaseInternalFrame.doDefaultCloseAction();
 				rankingActividadInternalFrame.doDefaultCloseAction();
 				rankingClaseInternalFrame.doDefaultCloseAction();
-				
+
 			}
 		});
 		menuAltas.add(mntmRegistroDeDictado);
-		
+
 		JMenu menuConsultas = new JMenu("Consultas");
 		menuBar.add(menuConsultas);
-		
+
 		// CONSULTA USUARIO
 		JMenuItem menuItemConsultaUsuario = new JMenuItem("Consultar Usuario");
 		menuItemConsultaUsuario.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -322,10 +338,11 @@ public class GUIPrincipal {
 			}
 		});
 		menuConsultas.add(menuItemConsultaUsuario);
-		
+
 		// CONSULTA ACTIVIDAD
 		JMenuItem menuItemConsultaActividad = new JMenuItem("Consultar Actividad Deportiva");
 		menuItemConsultaActividad.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -343,11 +360,12 @@ public class GUIPrincipal {
 			}
 		});
 		menuConsultas.add(menuItemConsultaActividad);
-		
+
 		// CONSULTA DICTADO DE CLASE
 		JMenuItem menuItemConsultaDictadoClase = new JMenuItem("Consultar Dictado de Clase");
 		menuConsultas.add(menuItemConsultaDictadoClase);
 		menuItemConsultaDictadoClase.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -364,12 +382,13 @@ public class GUIPrincipal {
 				rankingClaseInternalFrame.doDefaultCloseAction();
 			}
 		});
-		
+
 		// RANKING CLASE
-		
+
 		JMenuItem menuConsultarRankingClase = new JMenuItem("Ranking de Dictados de Clase");
 		menuConsultas.add(menuConsultarRankingClase);
 		menuConsultarRankingClase.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -386,12 +405,13 @@ public class GUIPrincipal {
 				rankingClaseInternalFrame.setVisible(true);
 			}
 		});
-		
+
 		//RANKING ACTIVIDADES
-		
+
 		JMenuItem menuConsultarRankingAct = new JMenuItem("Ranking de Actividades Deportivas");
 		menuConsultas.add(menuConsultarRankingAct);
 		menuConsultarRankingAct.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -408,15 +428,16 @@ public class GUIPrincipal {
 				rankingClaseInternalFrame.doDefaultCloseAction();
 			}
 		});
-		
-		
+
+
 		JMenu menuModificaciones = new JMenu("Modificaciones");
 		menuBar.add(menuModificaciones);
-		
+
 		// MODIFICAR USUARIO
 		JMenuItem menuItemModificarUsuario = new JMenuItem("Modificar Usuario");
 		menuModificaciones.add(menuItemModificarUsuario);
 		menuItemModificarUsuario.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -431,15 +452,16 @@ public class GUIPrincipal {
 				consultaDictadoClaseInternalFrame.doDefaultCloseAction();
 				rankingActividadInternalFrame.doDefaultCloseAction();
 				rankingClaseInternalFrame.doDefaultCloseAction();
-				
-				
+
+
 			}
 		});
-		
+
 		// MODIFICAR ACTIVIDAD
 		JMenuItem menuItemModificarActividad = new JMenuItem("Modificar Actividad Deportiva");
 		menuModificaciones.add(menuItemModificarActividad);
 		menuItemModificarActividad.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();
@@ -456,11 +478,12 @@ public class GUIPrincipal {
 				rankingClaseInternalFrame.doDefaultCloseAction();
 			}
 		});
-			
+
 		// MODIFICAR INSTITUCION
 		JMenuItem menuItemModificarInstitucion = new JMenuItem("Modificar Institución Deportiva");
 		menuModificaciones.add(menuItemModificarInstitucion);
 		menuItemModificarInstitucion.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				altaClaseInternalFrame.doDefaultCloseAction();
 				altaActividadInternalFrame.doDefaultCloseAction();

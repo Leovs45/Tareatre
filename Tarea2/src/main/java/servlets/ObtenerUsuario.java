@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
-import datatypes.DtUsuario;
 import interfaces.Fabrica;
 import interfaces.IUsuario;
 
@@ -19,7 +19,7 @@ import interfaces.IUsuario;
 @WebServlet("/ObtenerUsuario")
 public class ObtenerUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,6 +31,7 @@ public class ObtenerUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -39,16 +40,17 @@ public class ObtenerUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
+
 		Fabrica f = Fabrica.getInstancia();
 		IUsuario iUsuario = f.getIUsuario();
-		
+
 		String nicknameUsuario = (String) request.getSession().getAttribute("nickname");
 		String tipoUsuario = (String) request.getSession().getAttribute("tipo");
-		
+
 		if(iUsuario.esSocio(nicknameUsuario)) {
 			DtSocio dtSocio = iUsuario.getDtSocio(nicknameUsuario);
 			request.setAttribute("usuarioObtenido", dtSocio);
@@ -56,7 +58,7 @@ public class ObtenerUsuario extends HttpServlet {
 			DtProfesor dtProfesor = iUsuario.getDtProfesor(nicknameUsuario);
 			request.setAttribute("usuarioObtenido", dtProfesor);
 		}
-		
+
 		request.setAttribute("tipoUsuarioObtenido", tipoUsuario);
 		request.getRequestDispatcher("/ModificarUsuario.jsp").forward(request, response);
 	}

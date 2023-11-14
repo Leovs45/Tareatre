@@ -18,7 +18,7 @@ import interfaces.IUsuario;
 @WebServlet("/InicioSesion")
 public class InicioSesion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,6 +30,7 @@ public class InicioSesion extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
@@ -37,31 +38,32 @@ public class InicioSesion extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+
 		Fabrica f = Fabrica.getInstancia();
 		IUsuario iUsuario = f.getIUsuario();
 		String nicknameUser = request.getParameter("unNickname");
 		String contrasenaUser = request.getParameter("unaPassword");
-		
+
 		try {
 			if(iUsuario.existeUsuario(nicknameUser)) {
 				if(iUsuario.esContrasena(nicknameUser, contrasenaUser)) {
 					boolean esSocio = iUsuario.esSocio(nicknameUser);
 					String tipo;
-					
+
 					if(!esSocio) {
 						tipo = "Profesor";
 					} else {
 						tipo = "Socio";
 					}
-					
+
 					request.getSession().setAttribute("nickname", nicknameUser);
 					request.getSession().setAttribute("tipo", tipo);
 					request.getRequestDispatcher("/index.jsp").forward(request, response);
-					
+
 				} else {
 					throw new NoSuchElementException("No es la contraseña");
 				}

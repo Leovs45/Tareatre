@@ -1,22 +1,27 @@
 package presentacionAltas;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import interfaces.Fabrica;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import datatypes.DtProfesor;
+import excepciones.ClaseRepetidaException;
 import interfaces.IActividadDeportiva;
 import interfaces.IClase;
 import interfaces.IInstitucionDeportiva;
 import interfaces.IUsuario;
-import datatypes.DtProfesor;
-import excepciones.ClaseRepetidaException;
-import datatypes.DtActividad;
-import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ActionEvent;
-import java.text.SimpleDateFormat;
 
 
 
@@ -33,19 +38,19 @@ public class GUIAltaDictadoClase extends JInternalFrame {
     private JLabel lblNewLabel_4;
     private JLabel lblNewLabel_5;
     List<String> instituciones;
-    
+
     private void setupActions(IInstitucionDeportiva iInstitucion) {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				cmbInstituciones.removeAllItems();
 				instituciones = iInstitucion.getListaNombreInstituciones();
-					
+
 				for (String i: instituciones) {
 	                cmbInstituciones.addItem(i);
 	            }
-				
-				cmbInstituciones.setSelectedIndex(-1);	
+
+				cmbInstituciones.setSelectedIndex(-1);
 			}
 		});
 	}
@@ -101,7 +106,7 @@ public class GUIAltaDictadoClase extends JInternalFrame {
         textUrl = new JTextField();
         textUrl.setBounds(120, 100, 200, 20);
         activityPanel.add(textUrl);
-        
+
         cmbProfesor.setBounds(120, 70, 200, 21);
         cmbProfesor.setSelectedIndex(-1);
         activityPanel.add(cmbProfesor);
@@ -110,7 +115,8 @@ public class GUIAltaDictadoClase extends JInternalFrame {
         btnCrear.setBounds(160, 184, 80, 25);
         activityPanel.add(btnCrear);
         btnCrear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            @Override
+			public void actionPerformed(ActionEvent e) {
 
                 if (textNombre.getText().isEmpty() || cmbProfesor.getSelectedIndex() == -1 || textHora.getText().isEmpty() || textUrl.getText().isEmpty()) {
                     // Mostrar un mensaje de error o tomar alguna acción en caso de campos vacíos.
@@ -131,38 +137,39 @@ public class GUIAltaDictadoClase extends JInternalFrame {
             }
         });
 
-       
 
-        
+
+
         lblNewLabel_2 = new JLabel("Nombre Clase:");
         lblNewLabel_2.setBounds(0, 13, 100, 14);
         activityPanel.add(lblNewLabel_2);
-        
+
         lblNewLabel_3 = new JLabel("Hora Inicio:");
         lblNewLabel_3.setBounds(0, 43, 82, 14);
         activityPanel.add(lblNewLabel_3);
-        
+
         lblNewLabel_4 = new JLabel("Profesor:");
         lblNewLabel_4.setBounds(0, 73, 82, 14);
         activityPanel.add(lblNewLabel_4);
-        
+
         lblNewLabel_5 = new JLabel("Url Clase: ");
         lblNewLabel_5.setBounds(0, 103, 82, 14);
         activityPanel.add(lblNewLabel_5);
-        
+
         JLabel lblNewLabel_6 = new JLabel("Fecha :");
         lblNewLabel_6.setBounds(0, 140, 115, 15);
         activityPanel.add(lblNewLabel_6);
-        
-       
-        
+
+
+
         JLabel Lblfecha = new JLabel(fechaFormateada);
         Lblfecha.setBounds(120, 140, 120, 15);
         activityPanel.add(Lblfecha);
 
 
         cmbInstituciones.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            @Override
+			public void actionPerformed(ActionEvent e) {
             	cmbActividades.setSelectedIndex(-1);
                 String institucion = (String) cmbInstituciones.getSelectedItem();
                 cmbActividades.removeAllItems();
@@ -176,22 +183,22 @@ public class GUIAltaDictadoClase extends JInternalFrame {
         });
 
         cmbActividades.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            @Override
+			public void actionPerformed(ActionEvent e) {
             	cmbProfesor.setSelectedIndex(-1);
                 activityPanel.setVisible(true);
                 cmbProfesor.removeAllItems();
-                	
+
                 List<DtProfesor> profesores = iUsuario.getListaProfesores();
-                
+
                 for(DtProfesor p: profesores) {
                 	cmbProfesor.addItem(p.getNickname());
                 }
             }
         });
-        
-        
-        
-	  
+
+
+
+
     }
 }
-    

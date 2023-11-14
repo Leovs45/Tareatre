@@ -1,5 +1,6 @@
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import datatypes.DtClase;
-
-import java.util.ArrayList;
 @Entity
 @Table(name = "Clase")
 public class Clase {
@@ -48,7 +47,7 @@ public class Clase {
 		this.urlClase = urlClase;
 		this.fechaRegistro = fechaRegistro;
 	}
-	
+
 	//Getters & Setters
 	public String getNombreClase() {
 		return nombreClase;
@@ -113,7 +112,7 @@ public class Clase {
 	public void setArrayRegistro(ArrayList<Registro> arrayRegistro) {
 		this.registros = arrayRegistro;
 	}
-	
+
 	public void registroClase(Socio socio, Clase clase) {
 		Date date = new Date();
 		Registro registro = new Registro(date, socio.getNickname(), clase.getNombreClase());
@@ -123,11 +122,11 @@ public class Clase {
 	public void agregarRegistro(Registro registro) {
 		registros.add(registro);
 	}
-	
+
 	public int getCantidadRegistros() {
 		return registros.size();
 	}
-	
+
 	public DtClase getDtClase() {
 		return new DtClase(nombreClase, actividadDeportiva, fechaClase, horaInicio, urlClase, fechaRegistro);
 	}

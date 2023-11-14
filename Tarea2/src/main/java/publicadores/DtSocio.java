@@ -1,80 +1,69 @@
-/**
- * DtSocio.java
- *
- * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
- */
 
 package publicadores;
 
-public class DtSocio  extends publicadores.DtUsuario  implements java.io.Serializable {
-    public DtSocio() {
-    }
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof DtSocio)) return false;
-        DtSocio other = (DtSocio) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
+
+/**
+ * <p>Clase Java para dtSocio complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="dtSocio">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://publicadores/}dtUsuario">
+ *       &lt;sequence>
+ *         &lt;element name="registros" type="{http://publicadores/}dtRegistro" maxOccurs="unbounded" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "dtSocio", propOrder = {
+    "registros"
+})
+public class DtSocio
+    extends DtUsuario
+{
+
+    protected List<DtRegistro> registros;
+
+    /**
+     * Gets the value of the registros property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the registros property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getRegistros().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link DtRegistro }
+     * 
+     * 
+     */
+    public List<DtRegistro> getRegistros() {
+        if (registros == null) {
+            registros = new ArrayList<DtRegistro>();
         }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj);
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(DtSocio.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtSocio"));
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+        return this.registros;
     }
 
 }

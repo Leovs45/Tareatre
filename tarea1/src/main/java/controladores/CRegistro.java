@@ -1,8 +1,4 @@
 package controladores;
-import interfaces.*;
-import persistencia.Conexion;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,21 +6,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import excepciones.RegistroClaseRepetidoException;
-import interfaces.*;
-import logica.*;
-	
+import interfaces.Fabrica;
+import interfaces.IClase;
+import interfaces.IRegistro;
+import interfaces.IUsuario;
+import logica.Clase;
+import logica.Registro;
+import logica.Socio;
+import persistencia.Conexion;
+
 public class CRegistro implements IRegistro {
 	Conexion conexion = Conexion.getInstancia();
 	EntityManager em = conexion.getEntityManager();
 	private static CRegistro instancia = null;
 
-	
+
 	public static CRegistro getInstancia() {
 		if (instancia == null)
 			instancia = new CRegistro();
 		return instancia;
 	}
-	
+
 	@Override
 	public void RegistroDictadoClases(Date FechaRegistro, String unSocio, String unaClase )throws RegistroClaseRepetidoException {
 		Fabrica f = Fabrica.getInstancia();
@@ -54,7 +56,7 @@ public class CRegistro implements IRegistro {
 		TypedQuery<Registro> queryRegistros = em.createQuery(consultaRegistros, Registro.class);
 		queryRegistros.setParameter("nicknameId", socio);
 		queryRegistros.setParameter("nombreClase", clase);
-		List <Registro> registros = queryRegistros.getResultList();	
+		List <Registro> registros = queryRegistros.getResultList();
 		if(registros.size() == 0)
 			return false;
 		else

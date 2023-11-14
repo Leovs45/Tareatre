@@ -8,7 +8,9 @@ public class DtUsuario {
     private String apellido;
     private String correoElectronico;
     private Date fechaNacimiento;
-
+    
+    public DtUsuario() {}
+    
     public DtUsuario(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento) {
         this.nickname = nickname;
         this.nombre = nombre;

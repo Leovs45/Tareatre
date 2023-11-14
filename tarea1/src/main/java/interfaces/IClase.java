@@ -3,10 +3,10 @@ package interfaces;
 import java.util.Date;
 import java.util.List;
 
-import logica.Clase;
 import datatypes.DtActividad;
 import datatypes.DtClase;
 import excepciones.ClaseRepetidaException;
+import logica.Clase;
 
 public interface IClase {
 	public void altaDictadoClase(String nombreClase, DtActividad actividadDeportiva, Date fechaClase, String nombreProfesor,

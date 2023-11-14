@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datatypes.DtActividad;
 import datatypes.DtClase;
 import interfaces.Fabrica;
 import interfaces.IClase;
@@ -20,7 +19,7 @@ import interfaces.IClase;
 @WebServlet("/RankingDictadoClases")
 public class RankingDictadoClases extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,6 +31,7 @@ public class RankingDictadoClases extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -40,6 +40,7 @@ public class RankingDictadoClases extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Fabrica fabric = Fabrica.getInstancia();
@@ -47,19 +48,19 @@ public class RankingDictadoClases extends HttpServlet {
 	    List<DtClase> claseOrdenadas;
 	    claseOrdenadas = iAD.getRankingClases();
 		try {
-			
+
 			if(claseOrdenadas != null) {
 			// Guardar la lista de Dtclases procesada en un atributo de solicitud
-	        request.setAttribute("reqClasesOrdenadas", claseOrdenadas); 
-			
+	        request.setAttribute("reqClasesOrdenadas", claseOrdenadas);
+
 	        // Reenviar la solicitud a la página JSP
 		    request.getRequestDispatcher("/RankingClases.jsp").forward(request, response);
 			}
-		
+
 		}catch(Exception e){
 	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
-	    	}   
+	    	}
 	}
 
 }

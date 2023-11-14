@@ -20,7 +20,7 @@ import interfaces.IActividadDeportiva;
 @WebServlet("/ObtenerClases")
 public class ObtenerClases extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,6 +32,7 @@ public class ObtenerClases extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -40,24 +41,25 @@ public class ObtenerClases extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
+
 		Fabrica f = Fabrica.getInstancia();
 		IActividadDeportiva iActividad = f.getIActividadDeportiva();
-		
+
 		String nombreActividad = request.getParameter("actividades");
-		
+
 		DtActividad actividad = iActividad.getDtActividad(nombreActividad);
-		
+
 		List<DtClase> dtClases = iActividad.getarrDtClase(nombreActividad);
-		
+
 		request.setAttribute("actividadObtenida", actividad);
 		request.setAttribute("listaClases", dtClases);
-		
+
 		request.getRequestDispatcher("/ListadoClases.jsp").forward(request, response);
-		
+
 	}
 
 }

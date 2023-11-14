@@ -1,27 +1,25 @@
 package presentacionConsultas;
 
-import java.util.List;
-import interfaces.IActividadDeportiva;
-import interfaces.IInstitucionDeportiva;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JComboBox;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.awt.event.ActionEvent;
+import java.util.List;
+
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import datatypes.DtActividad;
 import datatypes.DtClase;
-
-import javax.swing.JTable;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import interfaces.IActividadDeportiva;
+import interfaces.IInstitucionDeportiva;
 
 public class GUIConsultaActividadDeportiva extends JInternalFrame {
     JComboBox cmbInstituciones = new JComboBox<>();
@@ -33,19 +31,19 @@ public class GUIConsultaActividadDeportiva extends JInternalFrame {
     private JLabel lblDuracion;
     private JTable tabla;
     List<String> instituciones;
-    
+
     private void setupActions(IInstitucionDeportiva iInstitucion) {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentShown(ComponentEvent e) {
 				cmbInstituciones.removeAllItems();
 				instituciones = iInstitucion.getListaNombreInstituciones();
-					
+
 				for (String i: instituciones) {
 	                cmbInstituciones.addItem(i);
 	            }
-				
-				cmbInstituciones.setSelectedIndex(-1);	
+
+				cmbInstituciones.setSelectedIndex(-1);
 			}
 		});
 	}
@@ -85,26 +83,27 @@ public class GUIConsultaActividadDeportiva extends JInternalFrame {
         getContentPane().add(cmbActividades);
 
         tabla = new JTable();
-    
+
         DefaultTableModel tableModel = (DefaultTableModel) tabla.getModel();
         tableModel.addColumn("Nombre de Clase");
         tableModel.addColumn("URL de Clase");
         JScrollPane scrollPane = new JScrollPane(tabla);
         scrollPane.setBounds(23, 270, 550, 150);
-        
+
         getContentPane().add(scrollPane);
 
         JLabel lblInstitucionDep = new JLabel("Institucion Deportiva:");
         lblInstitucionDep.setBounds(23, 36, 134, 14);
         getContentPane().add(lblInstitucionDep);
-        
+
         JLabel lblNewLabel = new JLabel("Actividades :");
         lblNewLabel.setBounds(23, 83, 108, 14);
         getContentPane().add(lblNewLabel);
-        
-//====================================================================== 
+
+//======================================================================
         cmbInstituciones.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
+            @Override
+			public void actionPerformed(ActionEvent e){
                 String institucion = (String) cmbInstituciones.getSelectedItem();
                 cmbActividades.removeAllItems();
                 cmbActividades.setSelectedIndex(-1);
@@ -118,15 +117,16 @@ public class GUIConsultaActividadDeportiva extends JInternalFrame {
         });
 
         cmbActividades.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            @Override
+			public void actionPerformed(ActionEvent e) {
                 String selectedItemActividades = (String) cmbActividades.getSelectedItem();
                 try {
                    if (selectedItemActividades != null) {
-                	   String institucion = (String) cmbInstituciones.getSelectedItem();                	   
+                	   String institucion = (String) cmbInstituciones.getSelectedItem();
                 	   DtActividad actividadEncontrada = iInstitucion.obtenerActividadDeUnaInstitucion(institucion, selectedItemActividades);
                        lblNombre.setText("Nombre: " + actividadEncontrada.getNombre());
                 	   // Formateando fecha
-                	   SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yy"); 
+                	   SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yy");
                 	   String fecha = dt.format(actividadEncontrada.getFechaRegistro());
                 	   lblFecha.setText("Fecha: " + fecha);
                 	   lblDescrip.setText("Descripción: " + actividadEncontrada.getDescripcion());
@@ -149,7 +149,7 @@ public class GUIConsultaActividadDeportiva extends JInternalFrame {
                 }
             }
         });
-    
+
     //============================================================================================
 
     }

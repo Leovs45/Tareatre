@@ -12,7 +12,7 @@ import logica.InstitucionDeportiva;
 
 public interface IActividadDeportiva {
 	public List<ActividadDeportiva> actividades = new ArrayList<>();
-	
+
 	public void altaActividadDeportiva(InstitucionDeportiva institucion, String nombreActividad, String descripcion, int duracionMinutos,
 			double costo, Date fechaAlta) throws ExisteActividadDepException;
 	public ActividadDeportiva buscarActividadDeportiva(String nombreActividad);

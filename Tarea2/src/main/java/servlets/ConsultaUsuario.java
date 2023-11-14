@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,32 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.rpc.ServiceException;
+import datatypes.*;
 
-import datatypes.DtActividad;
-import datatypes.DtClase;
-//import datatypes.DtProfesor;
-//import datatypes.DtSocio;
-import datatypes.DtRegistro;
-import logica.Registro;
 import excepciones.UsuarioNoEsProfesorException;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
-import interfaces.IUsuario;
 import interfaces.IClase;
-
-import publicadores.PublicadorTroesmaService;
-import publicadores.PublicadorTroesmaServiceLocator;
-import publicadores.DtSocio;
-import publicadores.DtProfesor;
+import interfaces.IUsuario;
 import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+
 /**
  * Servlet implementation class ConsultaUsuario
  */
 @WebServlet("/ConsultaUsuario")
 public class ConsultaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,6 +38,7 @@ public class ConsultaUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -57,27 +48,28 @@ public class ConsultaUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	public boolean esSocio(String nick) throws Exception {
-		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesmaService cpt = new PublicadorTroesmaService();
 		PublicadorTroesma port;
-		port = cpt.getpublicadorTroesmaPort();
+		port = cpt.getPublicadorTroesmaPort();
 		return port.esSocio(nick);
 	}
-	public DtSocio getDtSocio(String nick) throws Exception {
-		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+	public publicadores.DtSocio getDtSocio(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaService();
 		PublicadorTroesma port;
-		port = cpt.getpublicadorTroesmaPort();
+		port = cpt.getPublicadorTroesmaPort();
 		return port.getDtSocio(nick);
 	}
-	
-	public DtProfesor getDtProfesor(String nick) throws Exception {
-		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+
+	public publicadores.DtProfesor getDtProfesor(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaService();
 		PublicadorTroesma port;
-		port = cpt.getpublicadorTroesmaPort();
+		port = cpt.getPublicadorTroesmaPort();
 		return port.getDtProfesor(nick);
 	}
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		doGet(request, response);
 		Fabrica fabric = Fabrica.getInstancia();
 	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
@@ -94,36 +86,36 @@ public class ConsultaUsuario extends HttpServlet {
 	    	if (nickname != null) {
 		        // Ahora puedes usar la variable "nickname" en tu servlet
 		    	if (esSocio(nickname)) {
-			    	DtSocio dtSoc = getDtSocio(nickname);
+			    	publicadores.DtSocio dtSoc = getDtSocio(nickname);
 			    	List<DtClase> listaClases = new ArrayList<>();
-			    		List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
-			            for(DtRegistro r: listaRegistros) {
-			            	listaClases.add(r.getClase());
-			            	System.out.println(r.getClase().getNombre());
-			            }
-			        
+			    	List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
+			    	for (publicadores.DtRegistro registro : dtSoc.getRegistros()) {
+			    	    listaClases.add(registro.getClase());
+			    	    System.out.println(registro.getClase().getNombre());
+			    	}
+
 			    	request.setAttribute("usuario", dtSoc);
 			    	request.setAttribute("listaClasesSoc", listaClases);
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
-			    		
+
 			    	for(DtClase r: listaClases) {
 			            	System.out.println(r.getNombre());
 				    		}
-			    	 
+
 			    	 /*request.setAttribute("esSocio", true);
-			    	 * 
+			    	 *
 			    	request.setAttribute("esProfesor", false);*/
 			    } else {
-			    	DtProfesor dtProf = getDtProfesor(nickname);
+			    	publicadores.DtProfesor dtProf = getDtProfesor(nickname);
 			    	String intitusion = dtProf.getNombreInstitucion();
-			    	List<DtClase> clasercias = dtProf.getClases();
-			    	
-			    
-			    	
+			    	List<publicadores.DtClase> clasercias = dtProf.getClases();
+
+
+
 			    	request.setAttribute("usuario", dtProf);
-			    	
+
 			    	request.setAttribute("listaClasesProf", clasercias);
-			    	
+
 			    	request.setAttribute("nombreIntitusion", intitusion);
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    	/*request.setAttribute("esSocio", false);
