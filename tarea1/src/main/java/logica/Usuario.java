@@ -1,8 +1,10 @@
 package logica;
-import javax.persistence.*;
-
-
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 import datatypes.DtUsuario;
 
@@ -11,7 +13,7 @@ import datatypes.DtUsuario;
 @MappedSuperclass
 @Table(name = "Usuario")
 public abstract class Usuario {
-	
+
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nickname_id")
@@ -26,12 +28,12 @@ public abstract class Usuario {
     private Date fechaNacimiento;
 	@Column
 	private String password;
-    
+
     //cosntructor vacio
-    public Usuario() {};
-    
-    
-    
+    public Usuario() {}
+
+
+
     //Constructor
     public Usuario(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento, String password) {
     	super();
@@ -47,11 +49,11 @@ public abstract class Usuario {
 	public String getNickname() {
 		return nickname;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -65,7 +67,7 @@ public abstract class Usuario {
 	}
 
 	public void setNombre(String nombre) {
-		
+
 		this.nombre = nombre;
 	}
 

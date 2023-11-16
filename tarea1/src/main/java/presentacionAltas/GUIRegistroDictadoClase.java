@@ -1,42 +1,35 @@
 package presentacionAltas;
 
-import java.awt.EventQueue;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import interfaces.IRegistro;
-import interfaces.IInstitucionDeportiva;
-import interfaces.IUsuario;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.event.InternalFrameAdapter;
-import javax.swing.event.InternalFrameEvent;
-
-import datatypes.DtUsuario;
-import excepciones.RegistroClaseRepetidoException;
-import datatypes.DtActividad;
-import datatypes.DtClase;
-import datatypes.DtInstitucion;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Date;
+import java.util.List;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
+
+import datatypes.DtActividad;
+import datatypes.DtClase;
+import datatypes.DtInstitucion;
+import datatypes.DtUsuario;
+import excepciones.RegistroClaseRepetidoException;
+import interfaces.IInstitucionDeportiva;
+import interfaces.IRegistro;
+import interfaces.IUsuario;
 
 public class GUIRegistroDictadoClase extends JInternalFrame {
 	/**
 	 * Create the frame.
-	 * @return 
+	 * @return
 	 */
 	JLabel lblTitulo = new JLabel("ALTA DE REGISTRO A DICTADO DE CLASE");
 	JLabel lblInstitucion = new JLabel("Institucion:");
@@ -67,65 +60,65 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 		setClosable(true);
 		setBounds(100, 100, 450, 400);
 		getContentPane().setLayout(null);
-		List<DtInstitucion> ins = iInstitucion.getInstituciones();        
-        
+		List<DtInstitucion> ins = iInstitucion.getInstituciones();
+
         lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 12));
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         lblTitulo.setBounds(10, 11, 414, 14);
         getContentPane().add(lblTitulo);
-        
-        
+
+
         lblInstitucion.setToolTipText("Seleccione la institucion a traves de la cual se ofrece la actividad deportiva");
         lblInstitucion.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblInstitucion.setBounds(20, 35, 70, 25);
         getContentPane().add(lblInstitucion);
-        
-        
+
+
         cmb_instituciones.setName("Instituciones");
         cmb_instituciones.setBounds(150, 35, 275, 25);
-        getContentPane().add(cmb_instituciones);       
-        
-        
+        getContentPane().add(cmb_instituciones);
+
+
         lblActDep.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblActDep.setToolTipText("Seleccione la actividad para la cual quiere hacer el registro");
         lblActDep.setBounds(20, 75, 120, 25);
         getContentPane().add(lblActDep);
-        
-        
+
+
         cmb_actsdeps.setEnabled(false);
         cmb_actsdeps.setBounds(150, 75, 275, 25);
         getContentPane().add(cmb_actsdeps);
-        
-        
+
+
         lblClases.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblClases.setToolTipText("Lista las clases con su información básica, para la actividad seleccionada en la institución seleccionada");
         lblClases.setBounds(20, 115, 120, 25);
         getContentPane().add(lblClases);
-        
-        
+
+
         cmb_clases.setEnabled(false);
         cmb_clases.setBounds(150, 115, 275, 25);
         getContentPane().add(cmb_clases);
-        
-        
+
+
         lbl_socios.setFont(new Font("Tahoma", Font.BOLD, 11));
         lbl_socios.setToolTipText("Hace una lista de todas las personas asociadas");
         lbl_socios.setBounds(20, 155, 120, 25);
         getContentPane().add(lbl_socios);
-        
-        
+
+
         cmb_socios.setEnabled(false);
         cmb_socios.setBounds(150, 155, 275, 25);
         getContentPane().add(cmb_socios);
-        
-        
+
+
         btnAceptar.setBounds(335, 330, 90, 25);
         btnAceptar.setEnabled(false);
         getContentPane().add(btnAceptar);
-        
+
         btnCancelar.setBounds(235, 330, 90, 25);
         getContentPane().add(btnCancelar);
-        
+
         try {
         	for (DtInstitucion i : ins) {
         		cmb_instituciones.addItem(i.getNombre());
@@ -134,10 +127,11 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 	    	JOptionPane.showMessageDialog(null, "Error al cargar las instituciones", "Error", JOptionPane.ERROR_MESSAGE);
         }
         getContentPane().add(cmb_instituciones);
-        
+
         limpiarCampos();
-        
+
         cmb_instituciones.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				//si elijo una institucion, habilito y lleno activiades deportivas
 				if(cmb_instituciones.getSelectedIndex() != -1) {
@@ -152,7 +146,7 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 						cmb_socios.setEnabled(false);
 						cmb_socios.setSelectedIndex(-1);
 						btnAceptar.setEnabled(false);
-					} 
+					}
 					//si no tengo seleccionada la nada misma, busco las actividades deportivas correspondientes a la institucion seleccionada
 					else {
 						List<DtActividad> actividades = institucion.getActividades();
@@ -163,14 +157,15 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 						//Dejo en teoría el combobox seleccionando la nada misma, pero activado
 						cmb_actsdeps.setSelectedIndex(-1);
 						cmb_actsdeps.setEnabled(true);
-											
+
 					}
 				}
 			}
 		});
-        
+
         cmb_actsdeps.addItemListener(new ItemListener() {
-        	public void itemStateChanged(ItemEvent e) {
+        	@Override
+			public void itemStateChanged(ItemEvent e) {
 				String nombreInstitucion = (String) cmb_instituciones.getSelectedItem();
 				DtInstitucion institucion = iInstitucion.getDtInstitucion(nombreInstitucion);
 				String nombreActividad = (String) cmb_actsdeps.getSelectedItem();
@@ -191,8 +186,9 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 				}
 			}
 		});
-        
+
         cmb_clases.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				String nombreInstitucion = (String) cmb_instituciones.getSelectedItem();
 				DtInstitucion institucion = iInstitucion.getDtInstitucion(nombreInstitucion);
@@ -214,22 +210,24 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 					cmb_socios.setEnabled(false);
 					cmb_socios.setSelectedIndex(-1);
 				}
-				
+
 			}
 		});
-        
+
         cmb_socios.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if(cmb_socios.getSelectedIndex() != -1){
-					btnAceptar.setEnabled(true);			
+					btnAceptar.setEnabled(true);
 				} else {
 					btnAceptar.setEnabled(false);
 					}
 				}
 			});
-        
-        
+
+
         btnAceptar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
 				String clasesel = (String) cmb_clases.getSelectedItem();
@@ -243,16 +241,17 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
             		}
 			}
 		});
-        
+
         btnCancelar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
                 //Limpia los campos
             	limpiarCampos();
 				//Cierra el InternalFrame
                 dispose();
         	}
         });
-        
+
      // Add a window listener to handle the windowClosing event
         addInternalFrameListener(new InternalFrameAdapter() {
             @Override
@@ -260,9 +259,9 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
             	limpiarCampos();
 				dispose();
             }
-            
+
         });
-        
-        
+
+
 	}
 }

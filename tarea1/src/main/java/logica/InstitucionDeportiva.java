@@ -25,8 +25,8 @@ public class InstitucionDeportiva {
 	private List<Profesor> profesores = new ArrayList<>();
 	@OneToMany
 	private List<ActividadDeportiva> actividades = new ArrayList<>();
-	
-		
+
+
 	//Constructor
 	public InstitucionDeportiva (String nombre, String descripcion, String url)
 	{
@@ -83,9 +83,9 @@ public class InstitucionDeportiva {
 
 	public void setAgregarActividad(ActividadDeportiva ad) {
 		this.actividades.add(ad);
-		
+
 	}
-	
+
 	public ActividadDeportiva obtenerActividad(int opt) {
 		ActividadDeportiva ad = null;
 		if (actividades.size() == 0) {
@@ -99,7 +99,7 @@ public class InstitucionDeportiva {
 		}
 		return ad;
 	}
-	
+
 	public ActividadDeportiva buscarActividadDeportiva(String nombreActividad) {
 		ActividadDeportiva actividad = null;
 		if (actividades.size() == 0) {
@@ -113,17 +113,17 @@ public class InstitucionDeportiva {
 		}
 		return actividad;
 	}
-	
+
 	public void agregarActividadDeportiva(ActividadDeportiva actividad) {
 		actividades.add(actividad);
 		Fabrica f = Fabrica.getInstancia();
 		IActividadDeportiva iActividad = f.getIActividadDeportiva();
 	}
-	
+
 	public boolean existenActividades() {
 		return actividades.size() > 0;
 	}
-	
+
 	public DtInstitucion getDtInstitucion() {
 		return new DtInstitucion(nombre, descripcion, url, profesores, actividades);
 	}

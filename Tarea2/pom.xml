@@ -21,8 +21,22 @@
 	    <artifactId>javax.persistence-api</artifactId>
 	    <version>2.2</version>
 	</dependency>
-
-    <!-- jcalendar -->
+	
+	<!-- apache axis -->
+	<dependency>
+        <groupId>org.apache.axis</groupId>
+        <artifactId>axis</artifactId>
+        <version>1.4</version> 
+    </dependency>
+    
+    <!-- java rpc -->
+    <dependency>
+        <groupId>javax.xml</groupId>
+        <artifactId>jaxrpc</artifactId>
+        <version>1.1</version> 
+    </dependency>
+    
+   <!-- jcalendar -->
     <dependency>
       <groupId>com.toedter</groupId>
       <artifactId>jcalendar</artifactId>
@@ -111,6 +125,13 @@
       <artifactId>tomcat-util-scan</artifactId>
       <version>9.0.80</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-discovery/commons-discovery -->
+	<dependency>
+	    <groupId>commons-discovery</groupId>
+	    <artifactId>commons-discovery</artifactId>
+	    <version>0.2</version>
+	</dependency>
+
   </dependencies>
   <build>
     <plugins>

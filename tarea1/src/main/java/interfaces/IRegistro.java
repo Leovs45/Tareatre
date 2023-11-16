@@ -2,7 +2,6 @@ package interfaces;
 import java.util.Date;
 
 import excepciones.RegistroClaseRepetidoException;
-import logica.*;
 
 public interface IRegistro {
 

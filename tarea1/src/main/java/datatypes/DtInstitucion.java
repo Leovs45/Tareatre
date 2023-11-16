@@ -1,12 +1,9 @@
 package datatypes;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import logica.ActividadDeportiva;
-import logica.Clase;
-import logica.InstitucionDeportiva;
 import logica.Profesor;
 
 public class DtInstitucion {
@@ -50,24 +47,24 @@ public class DtInstitucion {
 
     public List<DtProfesor> getProfesores() {
         List<DtProfesor> dtProfesores = new ArrayList<>();
-        
+
         for(Profesor profesor: profesores) {
         	dtProfesores.add(profesor.getDtProfesor());
         }
-        
+
         return dtProfesores;
     }
 
     public List<DtActividad> getActividades() {
     	List<DtActividad> dtActividades = new ArrayList<>();
-        
+
         for(ActividadDeportiva actividad: actividades) {
         	dtActividades.add(actividad.getDtActividad());
         }
-        
+
         return dtActividades;
     }
-    
+
     public DtActividad buscarDtActividad (String nombreActividad) {
 		DtActividad dtAct = null;
 		if (actividades.size() == 0) {
@@ -81,6 +78,6 @@ public class DtInstitucion {
 		}
 		return dtAct;
 	}
-    
+
 }
 

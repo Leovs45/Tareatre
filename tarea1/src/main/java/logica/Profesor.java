@@ -5,12 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,11 +26,11 @@ public class Profesor extends Usuario {
     private String sitioWeb;
 	@OneToMany(mappedBy = "profesor")
     private List<Clase> clases = new ArrayList<>();
-		
+
 
     //Constructor vacio
     public Profesor() {}
-    
+
     //Constructor
     public Profesor(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento, String password,
     		InstitucionDeportiva institucion, String descripcionGeneral, String biografia, String sitioWeb) {
@@ -45,7 +40,7 @@ public class Profesor extends Usuario {
         this.biografia = biografia;
         this.sitioWeb = sitioWeb;
     }
- 
+
     //Getters & Setters
 	public InstitucionDeportiva getInstitucion() {
 		return institucion;
@@ -54,7 +49,7 @@ public class Profesor extends Usuario {
 	public void setInstitucion(InstitucionDeportiva institucion) {
 		this.institucion = institucion;
 	}
-	
+
 	public String getNombreInstitucion() {
 		return institucion.getNombre();
 	}
@@ -82,18 +77,18 @@ public class Profesor extends Usuario {
 	public void setSitioWeb(String sitioWeb) {
 		this.sitioWeb = sitioWeb;
 	}
-	
+
 	public void agregarClase(Clase c) {
 		if (!clases.contains(c)) {
 	        clases.add(c);
 	    }
-		
+
 	}
-	
+
 	public List<Clase> getArrayClases() {
 		return clases;
 	}
-	
+
 	public Clase buscarClase(String nombre) {
 		Clase clase = null;
 		if (clases.size() == 0) {
@@ -108,9 +103,9 @@ public class Profesor extends Usuario {
 
 		return clase;
 	}
-	
+
 	public DtProfesor getDtProfesor() {
 		return new DtProfesor(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), getInstitucion(), getDescripcionGeneral(),getBiografia(), getSitioWeb(), getArrayClases());
 	}
-    
+
 }

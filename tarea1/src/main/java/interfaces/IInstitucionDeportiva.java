@@ -2,12 +2,12 @@ package interfaces;
 
 import java.util.List;
 
-import logica.ActividadDeportiva;
-import logica.InstitucionDeportiva;
 import datatypes.DtActividad;
 import datatypes.DtClase;
 import datatypes.DtInstitucion;
 import excepciones.InstitucionRepetidaException;
+import logica.ActividadDeportiva;
+import logica.InstitucionDeportiva;
 
 
 public interface IInstitucionDeportiva {

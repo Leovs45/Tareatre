@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import excepciones.RegistroClaseRepetidoException;
 import interfaces.Fabrica;
-import interfaces.IClase;
 import interfaces.IRegistro;
 
 /**
@@ -20,7 +19,7 @@ import interfaces.IRegistro;
 @WebServlet("/RegistroClase")
 public class RegistroClase extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,6 +31,7 @@ public class RegistroClase extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -40,19 +40,20 @@ public class RegistroClase extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
+
 		Fabrica f = Fabrica.getInstancia();
 		IRegistro iRegistro = f.getIRegistro();
-		
+
 		String nombreClase = request.getParameter("claseSeleccionada");
 		String nombreUsuario = (String) request.getSession().getAttribute("nickname");
-		
+
 		request.setAttribute("nombreClase", nombreClase);
 		request.setAttribute("nombreUsuario", nombreUsuario);
-		
+
 		try {
 			iRegistro.RegistroDictadoClases(new Date(), nombreUsuario, nombreClase);
 			request.getRequestDispatcher("/RegistroSuccess.jsp").forward(request, response);

@@ -8,9 +8,9 @@ public class Conexion {
 	private static Conexion instancia = null;
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	
+
 	private Conexion(){}
-	
+
 	public static Conexion getInstancia() {
 		if (instancia == null) {
 			instancia = new Conexion();
@@ -19,14 +19,14 @@ public class Conexion {
 		}
 		return instancia;
 	}
-	
+
 	public EntityManager getEntityManager() {
-		return this.em;
+		return Conexion.em;
 	}
-	
+
 	public void close() {
-		this.em.close();
-		this.emf.close();
+		Conexion.em.close();
+		Conexion.emf.close();
 	}
 
 
