@@ -1,69 +1,137 @@
+/**
+ * DtSocio.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
 
 package publicadores;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+public class DtSocio  extends publicadores.DtUsuario  implements java.io.Serializable {
+    private publicadores.DtRegistro[] registros;
 
+    public DtSocio() {
+    }
 
-/**
- * <p>Clase Java para dtSocio complex type.
- * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
- * 
- * <pre>
- * &lt;complexType name="dtSocio">
- *   &lt;complexContent>
- *     &lt;extension base="{http://publicadores/}dtUsuario">
- *       &lt;sequence>
- *         &lt;element name="registros" type="{http://publicadores/}dtRegistro" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dtSocio", propOrder = {
-    "registros"
-})
-public class DtSocio
-    extends DtUsuario
-{
+    public DtSocio(
+           publicadores.DtRegistro[] registros) {
+        this.registros = registros;
+    }
 
-    protected List<DtRegistro> registros;
 
     /**
-     * Gets the value of the registros property.
+     * Gets the registros value for this DtSocio.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the registros property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getRegistros().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DtRegistro }
-     * 
-     * 
+     * @return registros
      */
-    public List<DtRegistro> getRegistros() {
-        if (registros == null) {
-            registros = new ArrayList<DtRegistro>();
+    public publicadores.DtRegistro[] getRegistros() {
+        return registros;
+    }
+
+
+    /**
+     * Sets the registros value for this DtSocio.
+     * 
+     * @param registros
+     */
+    public void setRegistros(publicadores.DtRegistro[] registros) {
+        this.registros = registros;
+    }
+
+    public publicadores.DtRegistro getRegistros(int i) {
+        return this.registros[i];
+    }
+
+    public void setRegistros(int i, publicadores.DtRegistro _value) {
+        this.registros[i] = _value;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DtSocio)) return false;
+        DtSocio other = (DtSocio) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
         }
-        return this.registros;
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = super.equals(obj) && 
+            ((this.registros==null && other.getRegistros()==null) || 
+             (this.registros!=null &&
+              java.util.Arrays.equals(this.registros, other.getRegistros())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = super.hashCode();
+        if (getRegistros() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getRegistros());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getRegistros(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DtSocio.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtSocio"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("registros");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "registros"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
     }
 
 }

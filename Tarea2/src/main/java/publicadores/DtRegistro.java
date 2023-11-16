@@ -1,117 +1,194 @@
+/**
+ * DtRegistro.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
 
 package publicadores;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+public class DtRegistro  implements java.io.Serializable {
+    private publicadores.DtClase clase;
 
+    private java.util.Calendar fechaRegistro;
 
-/**
- * <p>Clase Java para dtRegistro complex type.
- * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
- * 
- * <pre>
- * &lt;complexType name="dtRegistro">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="clase" type="{http://publicadores/}dtClase" minOccurs="0"/>
- *         &lt;element name="fechaRegistro" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="socio" type="{http://publicadores/}dtSocio" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dtRegistro", propOrder = {
-    "clase",
-    "fechaRegistro",
-    "socio"
-})
-public class DtRegistro {
+    private publicadores.DtSocio socio;
 
-    protected DtClase clase;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar fechaRegistro;
-    protected DtSocio socio;
+    public DtRegistro() {
+    }
+
+    public DtRegistro(
+           publicadores.DtClase clase,
+           java.util.Calendar fechaRegistro,
+           publicadores.DtSocio socio) {
+           this.clase = clase;
+           this.fechaRegistro = fechaRegistro;
+           this.socio = socio;
+    }
+
 
     /**
-     * Obtiene el valor de la propiedad clase.
+     * Gets the clase value for this DtRegistro.
      * 
-     * @return
-     *     possible object is
-     *     {@link DtClase }
-     *     
+     * @return clase
      */
-    public DtClase getClase() {
+    public publicadores.DtClase getClase() {
         return clase;
     }
 
-    /**
-     * Define el valor de la propiedad clase.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DtClase }
-     *     
-     */
-    public void setClase(DtClase value) {
-        this.clase = value;
-    }
 
     /**
-     * Obtiene el valor de la propiedad fechaRegistro.
+     * Sets the clase value for this DtRegistro.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     * @param clase
      */
-    public XMLGregorianCalendar getFechaRegistro() {
+    public void setClase(publicadores.DtClase clase) {
+        this.clase = clase;
+    }
+
+
+    /**
+     * Gets the fechaRegistro value for this DtRegistro.
+     * 
+     * @return fechaRegistro
+     */
+    public java.util.Calendar getFechaRegistro() {
         return fechaRegistro;
     }
 
-    /**
-     * Define el valor de la propiedad fechaRegistro.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setFechaRegistro(XMLGregorianCalendar value) {
-        this.fechaRegistro = value;
-    }
 
     /**
-     * Obtiene el valor de la propiedad socio.
+     * Sets the fechaRegistro value for this DtRegistro.
      * 
-     * @return
-     *     possible object is
-     *     {@link DtSocio }
-     *     
+     * @param fechaRegistro
      */
-    public DtSocio getSocio() {
+    public void setFechaRegistro(java.util.Calendar fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+
+    /**
+     * Gets the socio value for this DtRegistro.
+     * 
+     * @return socio
+     */
+    public publicadores.DtSocio getSocio() {
         return socio;
     }
 
+
     /**
-     * Define el valor de la propiedad socio.
+     * Sets the socio value for this DtRegistro.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link DtSocio }
-     *     
+     * @param socio
      */
-    public void setSocio(DtSocio value) {
-        this.socio = value;
+    public void setSocio(publicadores.DtSocio socio) {
+        this.socio = socio;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof DtRegistro)) return false;
+        DtRegistro other = (DtRegistro) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.clase==null && other.getClase()==null) || 
+             (this.clase!=null &&
+              this.clase.equals(other.getClase()))) &&
+            ((this.fechaRegistro==null && other.getFechaRegistro()==null) || 
+             (this.fechaRegistro!=null &&
+              this.fechaRegistro.equals(other.getFechaRegistro()))) &&
+            ((this.socio==null && other.getSocio()==null) || 
+             (this.socio!=null &&
+              this.socio.equals(other.getSocio())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getClase() != null) {
+            _hashCode += getClase().hashCode();
+        }
+        if (getFechaRegistro() != null) {
+            _hashCode += getFechaRegistro().hashCode();
+        }
+        if (getSocio() != null) {
+            _hashCode += getSocio().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(DtRegistro.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("clase");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "clase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("fechaRegistro");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "fechaRegistro"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("socio");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "socio"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtSocio"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
     }
 
 }
