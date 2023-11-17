@@ -2,19 +2,19 @@ package datatypes;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
 
-@XmlRootElement
+@WebService
 public class DtUsuario {
     private String nickname;
     private String nombre;
     private String apellido;
     private String correoElectronico;
     private Date fechaNacimiento;
-    
+
     public DtUsuario() {}
-    
+
     public DtUsuario(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento) {
         this.nickname = nickname;
         this.nombre = nombre;
@@ -23,27 +23,27 @@ public class DtUsuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    @XmlElement
+    @WebMethod
     public String getNickname() {
         return nickname;
     }
 
-    @XmlElement
+    @WebMethod
     public String getNombre() {
         return nombre;
     }
 
-    @XmlElement
+    @WebMethod
     public String getApellido() {
         return apellido;
     }
 
-    @XmlElement
+    @WebMethod
     public String getCorreoElectronico() {
         return correoElectronico;
     }
 
-    @XmlElement
+    @WebMethod
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }

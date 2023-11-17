@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import logica.Clase;
 import logica.InstitucionDeportiva;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
 
-@XmlRootElement
+@WebService
 public class DtActividad{
     private InstitucionDeportiva institucion;
     private String nombre;
@@ -39,48 +39,48 @@ public class DtActividad{
     	this.clases = clases;
     }
 
-    @XmlElement
+    @WebMethod
 	public DtInstitucion getInstitucion() {
 		return institucion.getDtInstitucion();
 	}
 
-    @XmlElement
+    @WebMethod
 	public String getNombre() {
 		return nombre;
 	}
 
-    @XmlElement
+    @WebMethod
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-    @XmlElement
+    @WebMethod
 	public int getDuracionMinutos() {
 		return duracionMinutos;
 	}
 
-    @XmlElement
+    @WebMethod
 	public double getCosto() {
 		return costo;
 	}
 
-    @XmlElement
+    @WebMethod
 	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
-    @XmlElement
+    @WebMethod
 	public int getCantidadDeClases() {
 		return clases.size();
 
 	}
 
-    @XmlElement
+    @WebMethod
 	public int getCantidadClases() {
         return (clases != null) ? clases.size() : 0;
     }
 
-    @XmlElement
+    @WebMethod
 	public List<DtClase> getClases() {
 		List<DtClase> dtClases = new ArrayList<>();
 
@@ -91,7 +91,7 @@ public class DtActividad{
 		return dtClases;
 	}
 
-    @XmlElement
+    @WebMethod
 	public DtClase buscarDtClase(String nombre) {
 		DtClase clase = null;
 		if (clases.size() == 0) {
@@ -106,7 +106,7 @@ public class DtActividad{
 		return clase;
 	}
 
-    @XmlElement
+    @WebMethod
 	public DtClase obtenerDtClase(String nombreClase) {
 		DtClase clase = buscarDtClase(nombreClase);
 		return clase;

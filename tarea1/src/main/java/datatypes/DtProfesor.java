@@ -6,10 +6,10 @@ import java.util.List;
 
 import logica.Clase;
 import logica.InstitucionDeportiva;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
 
-@XmlRootElement
+@WebService
 public class DtProfesor extends DtUsuario {
     private InstitucionDeportiva institucion;
     private String descripcionGeneral;
@@ -28,27 +28,27 @@ public class DtProfesor extends DtUsuario {
         this.clases = clases;
     }
 
-    @XmlElement
+    @WebMethod
     public String getNombreInstitucion() {
         return institucion.getNombre();
     }
 
-    @XmlElement
+    @WebMethod
     public String getDescripcionGeneral() {
         return descripcionGeneral;
     }
 
-    @XmlElement
+    @WebMethod
     public String getBiografia() {
         return biografia;
     }
 
-    @XmlElement
+    @WebMethod
     public String getSitioWeb() {
         return sitioWeb;
     }
 
-    @XmlElement
+    @WebMethod
     public List<DtClase> getClases() {
     	List<DtClase> dtClases = new ArrayList<>();
 

@@ -160,23 +160,9 @@ public class PublicadorTroesmaPortBindingStub extends org.apache.axis.client.Stu
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("http://publicadores/", "dtClase");
-            cachedSerQNames.add(qName);
-            cls = publicadores.DtClase.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://publicadores/", "dtProfesor");
             cachedSerQNames.add(qName);
             cls = publicadores.DtProfesor.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://publicadores/", "dtRegistro");
-            cachedSerQNames.add(qName);
-            cls = publicadores.DtRegistro.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);

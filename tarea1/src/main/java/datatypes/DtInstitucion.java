@@ -3,13 +3,13 @@ package datatypes;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlElement;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
 
 import logica.ActividadDeportiva;
 import logica.Profesor;
 
-@XmlRootElement
+@WebService
 public class DtInstitucion {
     private String nombre;
     private String descripcion;
@@ -27,37 +27,37 @@ public class DtInstitucion {
         this.actividades = actividades;
     }
 
-    @XmlElement
+    @WebMethod
     public String getNombre() {
         return nombre;
     }
 
-    @XmlElement
+    @WebMethod
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    @XmlElement
+    @WebMethod
     public String getDescripcion() {
         return descripcion;
     }
 
-    @XmlElement
+    @WebMethod
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    @XmlElement
+    @WebMethod
     public String getUrl() {
         return url;
     }
 
-    @XmlElement
+    @WebMethod
     public void setUrl(String url) {
         this.url = url;
     }
 
-    @XmlElement
+    @WebMethod
     public List<DtProfesor> getProfesores() {
         List<DtProfesor> dtProfesores = new ArrayList<>();
 
@@ -68,7 +68,7 @@ public class DtInstitucion {
         return dtProfesores;
     }
 
-    @XmlElement
+    @WebMethod
     public List<DtActividad> getActividades() {
     	List<DtActividad> dtActividades = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class DtInstitucion {
         return dtActividades;
     }
 
-    @XmlElement
+    @WebMethod
     public DtActividad buscarDtActividad (String nombreActividad) {
 		DtActividad dtAct = null;
 		if (actividades.size() == 0) {

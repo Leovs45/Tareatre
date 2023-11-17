@@ -8,53 +8,7 @@
 package publicadores;
 
 public class DtSocio  extends publicadores.DtUsuario  implements java.io.Serializable {
-    private publicadores.DtRegistro[] registros;
-
     public DtSocio() {
-    }
-
-    public DtSocio(
-           java.lang.String apellido,
-           java.lang.String correoElectronico,
-           java.util.Calendar fechaNacimiento,
-           java.lang.String nickname,
-           java.lang.String nombre,
-           publicadores.DtRegistro[] registros) {
-        super(
-            apellido,
-            correoElectronico,
-            fechaNacimiento,
-            nickname,
-            nombre);
-        this.registros = registros;
-    }
-
-
-    /**
-     * Gets the registros value for this DtSocio.
-     *
-     * @return registros
-     */
-    public publicadores.DtRegistro[] getRegistros() {
-        return registros;
-    }
-
-
-    /**
-     * Sets the registros value for this DtSocio.
-     *
-     * @param registros
-     */
-    public void setRegistros(publicadores.DtRegistro[] registros) {
-        this.registros = registros;
-    }
-
-    public publicadores.DtRegistro getRegistros(int i) {
-        return this.registros[i];
-    }
-
-    public void setRegistros(int i, publicadores.DtRegistro _value) {
-        this.registros[i] = _value;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -68,10 +22,7 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) &&
-            ((this.registros==null && other.getRegistros()==null) ||
-             (this.registros!=null &&
-              java.util.Arrays.equals(this.registros, other.getRegistros())));
+        _equals = super.equals(obj);
         __equalsCalc = null;
         return _equals;
     }
@@ -83,17 +34,6 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
-        if (getRegistros() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getRegistros());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getRegistros(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -104,14 +44,6 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtSocio"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("registros");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "registros"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
     }
 
     /**
@@ -125,10 +57,10 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType,
-           java.lang.Class _javaType,
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
            javax.xml.namespace.QName _xmlType) {
-        return
+        return 
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -137,10 +69,10 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType,
-           java.lang.Class _javaType,
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
            javax.xml.namespace.QName _xmlType) {
-        return
+        return 
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
