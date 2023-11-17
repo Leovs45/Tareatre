@@ -14,7 +14,18 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
     }
 
     public DtSocio(
+           java.lang.String apellido,
+           java.lang.String correoElectronico,
+           java.util.Calendar fechaNacimiento,
+           java.lang.String nickname,
+           java.lang.String nombre,
            publicadores.DtRegistro[] registros) {
+        super(
+            apellido,
+            correoElectronico,
+            fechaNacimiento,
+            nickname,
+            nombre);
         this.registros = registros;
     }
 

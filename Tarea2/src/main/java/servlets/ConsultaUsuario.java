@@ -70,16 +70,14 @@ public class ConsultaUsuario extends HttpServlet {
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    } else {
 			    	publicadores.DtProfesor dtProf = obtenerDtProfesor(nickname);
-			    	
 			    	String intitusion = dtProf.getNombreInstitucion();
 			    	List<publicadores.DtClase> clasercias = obtenerListaClasesDeProfe(dtProf);
-
-
+			    	for (publicadores.DtClase clase: clasercias) {
+			    		System.out.println(clase.getNombre());
+			    	}
 
 			    	request.setAttribute("usuario", dtProf);
-
 			    	request.setAttribute("listaClasesProf", clasercias);
-
 			    	request.setAttribute("nombreIntitusion", intitusion);
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    }
@@ -98,6 +96,7 @@ public class ConsultaUsuario extends HttpServlet {
 	
 	// Operaciones Consumidas
 	public boolean esSocio(String nick) throws Exception {
+		System.out.println("Entro a es socio");
 		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
 		PublicadorTroesma port;
 		port = cpt.getpublicadorTroesmaPort();
@@ -112,14 +111,14 @@ public class ConsultaUsuario extends HttpServlet {
 	}
 	
 	public publicadores.DtProfesor obtenerDtProfesor(String nickname) throws Exception {
-		System.out.println(nickname);
+		System.out.println("Entro a obtener dt profe " + nickname);
 		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
 		PublicadorTroesma port;
 		port = cpt.getpublicadorTroesmaPort();
 		return port.getDtProfesor(nickname);
 	}
 	
-	public ArrayList<publicadores.DtRegistro> obtenerListaDtRegistros(publicadores.DtSocio socio) {
+	public List<publicadores.DtRegistro> obtenerListaDtRegistros(publicadores.DtSocio socio) {
 		//List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
 		publicadores.DtRegistro[] registros = socio.getRegistros();
 		ArrayList<publicadores.DtRegistro> listRegistros = new ArrayList<>();
@@ -129,10 +128,10 @@ public class ConsultaUsuario extends HttpServlet {
 		return listRegistros;
 	}
 	
-	public ArrayList<publicadores.DtClase> obtenerListaClasesDeProfe(publicadores.DtProfesor profesor){
+	public List<publicadores.DtClase> obtenerListaClasesDeProfe(publicadores.DtProfesor profesor){
 		//List<publicadores.DtClase> clasercias = dtProf.getClases();
 		publicadores.DtClase[] clases = profesor.getClases();
-		ArrayList<publicadores.DtClase> listClases = new ArrayList<>();
+		List<publicadores.DtClase> listClases = new ArrayList<>();
 		for (int i = 0; i < clases.length; i++) {
 			listClases.add(clases[i]);
 		}

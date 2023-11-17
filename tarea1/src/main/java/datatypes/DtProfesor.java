@@ -27,22 +27,27 @@ public class DtProfesor extends DtUsuario {
         this.sitioWeb = sitioWeb;
         this.clases = clases;
     }
+    
     @XmlElement
     public String getNombreInstitucion() {
         return institucion.getNombre();
     }
 
+    @XmlElement
     public String getDescripcionGeneral() {
         return descripcionGeneral;
     }
 
+    @XmlElement
     public String getBiografia() {
         return biografia;
     }
-
+    
+    @XmlElement
     public String getSitioWeb() {
         return sitioWeb;
     }
+    
     @XmlElement
     public List<DtClase> getClases() {
     	List<DtClase> dtClases = new ArrayList<>();

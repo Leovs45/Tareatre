@@ -2,6 +2,10 @@ package datatypes;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class DtUsuario {
     private String nickname;
     private String nombre;
@@ -19,22 +23,27 @@ public class DtUsuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    @XmlElement
     public String getNickname() {
         return nickname;
     }
 
+    @XmlElement
     public String getNombre() {
         return nombre;
     }
 
+    @XmlElement
     public String getApellido() {
         return apellido;
     }
 
+    @XmlElement
     public String getCorreoElectronico() {
         return correoElectronico;
     }
 
+    @XmlElement
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
