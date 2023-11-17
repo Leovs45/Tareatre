@@ -48,7 +48,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Gets the biografia value for this DtProfesor.
-     * 
+     *
      * @return biografia
      */
     public java.lang.String getBiografia() {
@@ -58,7 +58,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Sets the biografia value for this DtProfesor.
-     * 
+     *
      * @param biografia
      */
     public void setBiografia(java.lang.String biografia) {
@@ -68,7 +68,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Gets the clases value for this DtProfesor.
-     * 
+     *
      * @return clases
      */
     public publicadores.DtClase[] getClases() {
@@ -78,7 +78,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Sets the clases value for this DtProfesor.
-     * 
+     *
      * @param clases
      */
     public void setClases(publicadores.DtClase[] clases) {
@@ -96,7 +96,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Gets the descripcionGeneral value for this DtProfesor.
-     * 
+     *
      * @return descripcionGeneral
      */
     public java.lang.String getDescripcionGeneral() {
@@ -106,7 +106,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Sets the descripcionGeneral value for this DtProfesor.
-     * 
+     *
      * @param descripcionGeneral
      */
     public void setDescripcionGeneral(java.lang.String descripcionGeneral) {
@@ -116,7 +116,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Gets the nombreInstitucion value for this DtProfesor.
-     * 
+     *
      * @return nombreInstitucion
      */
     public java.lang.String getNombreInstitucion() {
@@ -126,7 +126,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Sets the nombreInstitucion value for this DtProfesor.
-     * 
+     *
      * @param nombreInstitucion
      */
     public void setNombreInstitucion(java.lang.String nombreInstitucion) {
@@ -136,7 +136,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Gets the sitioWeb value for this DtProfesor.
-     * 
+     *
      * @return sitioWeb
      */
     public java.lang.String getSitioWeb() {
@@ -146,7 +146,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     /**
      * Sets the sitioWeb value for this DtProfesor.
-     * 
+     *
      * @param sitioWeb
      */
     public void setSitioWeb(java.lang.String sitioWeb) {
@@ -164,20 +164,20 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.biografia==null && other.getBiografia()==null) || 
+        _equals = super.equals(obj) &&
+            ((this.biografia==null && other.getBiografia()==null) ||
              (this.biografia!=null &&
               this.biografia.equals(other.getBiografia()))) &&
-            ((this.clases==null && other.getClases()==null) || 
+            ((this.clases==null && other.getClases()==null) ||
              (this.clases!=null &&
               java.util.Arrays.equals(this.clases, other.getClases()))) &&
-            ((this.descripcionGeneral==null && other.getDescripcionGeneral()==null) || 
+            ((this.descripcionGeneral==null && other.getDescripcionGeneral()==null) ||
              (this.descripcionGeneral!=null &&
               this.descripcionGeneral.equals(other.getDescripcionGeneral()))) &&
-            ((this.nombreInstitucion==null && other.getNombreInstitucion()==null) || 
+            ((this.nombreInstitucion==null && other.getNombreInstitucion()==null) ||
              (this.nombreInstitucion!=null &&
               this.nombreInstitucion.equals(other.getNombreInstitucion()))) &&
-            ((this.sitioWeb==null && other.getSitioWeb()==null) || 
+            ((this.sitioWeb==null && other.getSitioWeb()==null) ||
              (this.sitioWeb!=null &&
               this.sitioWeb.equals(other.getSitioWeb())));
         __equalsCalc = null;
@@ -273,10 +273,10 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -285,10 +285,10 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

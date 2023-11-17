@@ -19,7 +19,7 @@ public class DtActividad{
     private double costo;
     private Date fechaRegistro;
     private List<Clase> clases = new ArrayList<>();
-    
+
     public DtActividad() {}
 
     public DtActividad(InstitucionDeportiva institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
@@ -90,7 +90,7 @@ public class DtActividad{
 
 		return dtClases;
 	}
-    
+
     @XmlElement
 	public DtClase buscarDtClase(String nombre) {
 		DtClase clase = null;
@@ -105,7 +105,7 @@ public class DtActividad{
 		}
 		return clase;
 	}
-    
+
     @XmlElement
 	public DtClase obtenerDtClase(String nombreClase) {
 		DtClase clase = buscarDtClase(nombreClase);

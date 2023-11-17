@@ -37,7 +37,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Gets the apellido value for this DtUsuario.
-     * 
+     *
      * @return apellido
      */
     public java.lang.String getApellido() {
@@ -47,7 +47,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Sets the apellido value for this DtUsuario.
-     * 
+     *
      * @param apellido
      */
     public void setApellido(java.lang.String apellido) {
@@ -57,7 +57,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Gets the correoElectronico value for this DtUsuario.
-     * 
+     *
      * @return correoElectronico
      */
     public java.lang.String getCorreoElectronico() {
@@ -67,7 +67,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Sets the correoElectronico value for this DtUsuario.
-     * 
+     *
      * @param correoElectronico
      */
     public void setCorreoElectronico(java.lang.String correoElectronico) {
@@ -77,7 +77,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Gets the fechaNacimiento value for this DtUsuario.
-     * 
+     *
      * @return fechaNacimiento
      */
     public java.util.Calendar getFechaNacimiento() {
@@ -87,7 +87,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Sets the fechaNacimiento value for this DtUsuario.
-     * 
+     *
      * @param fechaNacimiento
      */
     public void setFechaNacimiento(java.util.Calendar fechaNacimiento) {
@@ -97,7 +97,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Gets the nickname value for this DtUsuario.
-     * 
+     *
      * @return nickname
      */
     public java.lang.String getNickname() {
@@ -107,7 +107,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Sets the nickname value for this DtUsuario.
-     * 
+     *
      * @param nickname
      */
     public void setNickname(java.lang.String nickname) {
@@ -117,7 +117,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Gets the nombre value for this DtUsuario.
-     * 
+     *
      * @return nombre
      */
     public java.lang.String getNombre() {
@@ -127,7 +127,7 @@ public class DtUsuario  implements java.io.Serializable {
 
     /**
      * Sets the nombre value for this DtUsuario.
-     * 
+     *
      * @param nombre
      */
     public void setNombre(java.lang.String nombre) {
@@ -145,20 +145,20 @@ public class DtUsuario  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.apellido==null && other.getApellido()==null) || 
+        _equals = true &&
+            ((this.apellido==null && other.getApellido()==null) ||
              (this.apellido!=null &&
               this.apellido.equals(other.getApellido()))) &&
-            ((this.correoElectronico==null && other.getCorreoElectronico()==null) || 
+            ((this.correoElectronico==null && other.getCorreoElectronico()==null) ||
              (this.correoElectronico!=null &&
               this.correoElectronico.equals(other.getCorreoElectronico()))) &&
-            ((this.fechaNacimiento==null && other.getFechaNacimiento()==null) || 
+            ((this.fechaNacimiento==null && other.getFechaNacimiento()==null) ||
              (this.fechaNacimiento!=null &&
               this.fechaNacimiento.equals(other.getFechaNacimiento()))) &&
-            ((this.nickname==null && other.getNickname()==null) || 
+            ((this.nickname==null && other.getNickname()==null) ||
              (this.nickname!=null &&
               this.nickname.equals(other.getNickname()))) &&
-            ((this.nombre==null && other.getNombre()==null) || 
+            ((this.nombre==null && other.getNombre()==null) ||
              (this.nombre!=null &&
               this.nombre.equals(other.getNombre())));
         __equalsCalc = null;
@@ -245,10 +245,10 @@ public class DtUsuario  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -257,10 +257,10 @@ public class DtUsuario  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

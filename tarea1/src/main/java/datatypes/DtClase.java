@@ -20,9 +20,9 @@ public class DtClase {
 	private String url;
 	private Date fechaRegistro;
     private List<Registro> registros = new ArrayList<>();
-    
+
     public DtClase() {}
-    
+
 	public DtClase(String nombre, Date fechaClase, String horaInicio,String url, Date fechaRegistro) {
 		this.nombre = nombre;
 		this.fechaClase = fechaClase;
@@ -46,12 +46,12 @@ public class DtClase {
 		this.url = url;
 		this.fechaRegistro = fechaRegistro;
 	}
-	
+
 	@WebMethod
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	@WebMethod
 	public ActividadDeportiva getActividadDeportiva() {
 		return actividad;

@@ -16,7 +16,7 @@ public class DtInstitucion {
     private String url;
     private List<Profesor> profesores = new ArrayList<>();
     private List<ActividadDeportiva> actividades = new ArrayList<>();
-    
+
     public DtInstitucion() {}
 
     public DtInstitucion(String nombre, String descripcion, String url, List<Profesor> profesores, List<ActividadDeportiva> actividades) {
@@ -26,7 +26,7 @@ public class DtInstitucion {
         this.profesores = profesores;
         this.actividades = actividades;
     }
-    
+
     @XmlElement
     public String getNombre() {
         return nombre;

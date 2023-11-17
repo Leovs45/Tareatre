@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import datatypes.*;
 
 import excepciones.UsuarioNoEsProfesorException;
 import publicadores.PublicadorTroesma;
@@ -92,8 +93,8 @@ public class ConsultaUsuario extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	// Operaciones Consumidas
 	public boolean esSocio(String nick) throws Exception {
 		System.out.println("Entro a es socio");
@@ -102,14 +103,14 @@ public class ConsultaUsuario extends HttpServlet {
 		port = cpt.getpublicadorTroesmaPort();
 		return port.esSocio(nick);
 	}
-	
+
 	public publicadores.DtSocio obtenerDtSocio(String nickname) throws Exception {
 		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
 		PublicadorTroesma port;
 		port = cpt.getpublicadorTroesmaPort();
 		return port.getDtSocio(nickname);
 	}
-	
+
 	public publicadores.DtProfesor obtenerDtProfesor(String nickname) throws Exception {
 		System.out.println("Entro a obtener dt profe " + nickname);
 		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
@@ -117,7 +118,7 @@ public class ConsultaUsuario extends HttpServlet {
 		port = cpt.getpublicadorTroesmaPort();
 		return port.getDtProfesor(nickname);
 	}
-	
+
 	public List<publicadores.DtRegistro> obtenerListaDtRegistros(publicadores.DtSocio socio) {
 		//List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
 		publicadores.DtRegistro[] registros = socio.getRegistros();
@@ -127,7 +128,7 @@ public class ConsultaUsuario extends HttpServlet {
 		}
 		return listRegistros;
 	}
-	
+
 	public List<publicadores.DtClase> obtenerListaClasesDeProfe(publicadores.DtProfesor profesor){
 		//List<publicadores.DtClase> clasercias = dtProf.getClases();
 		publicadores.DtClase[] clases = profesor.getClases();
