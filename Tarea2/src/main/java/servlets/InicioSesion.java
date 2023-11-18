@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import interfaces.Fabrica;
 import interfaces.IUsuario;
+import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
 
 /**
  * Servlet implementation class InicioSesion
@@ -43,15 +46,13 @@ public class InicioSesion extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 
-		Fabrica f = Fabrica.getInstancia();
-		IUsuario iUsuario = f.getIUsuario();
 		String nicknameUser = request.getParameter("unNickname");
 		String contrasenaUser = request.getParameter("unaPassword");
 
 		try {
-			if(iUsuario.existeUsuario(nicknameUser)) {
-				if(iUsuario.esContrasena(nicknameUser, contrasenaUser)) {
-					boolean esSocio = iUsuario.esSocio(nicknameUser);
+			if(existeUsuario(nicknameUser)) {
+				if(esContrasena(nicknameUser, contrasenaUser)) {
+					boolean esSocio = esSocio(nicknameUser);
 					String tipo;
 
 					if(!esSocio) {
@@ -72,7 +73,31 @@ public class InicioSesion extends HttpServlet {
 			}
 		} catch (NoSuchElementException nsee) {
 			request.getRequestDispatcher("/Error.jsp").forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	}
+	
+	public boolean existeUsuario(String nickname) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.existeUsuario(nickname);
+	}
+	
+	public boolean esContrasena(String nickname, String contrasena) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.esContrasena(nickname, contrasena);
+	}
+	
+	public boolean esSocio(String nick) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.esSocio(nick);
 	}
 
 }

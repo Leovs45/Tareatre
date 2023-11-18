@@ -12,12 +12,12 @@
 <body class="body">
     <!-- Incluye el encabezado desde header.jsp -->
     <%@ include file="header.jsp" %>
-      <%@ page import="java.util.List" %>
-        <%@ page import="datatypes.DtProfesor" %>
-          <%@ page import="datatypes.DtSocio" %>
-            <%@ page import="datatypes.DtClase" %>
-              <%@ page import="datatypes.DtActividad" %>
-                <%@ page import="datatypes.DtRegistro" %>
+    <%@ page import="java.util.List" %>
+    <%@ page import="publicadores.DtProfesor" %>
+    <%@ page import="publicadores.DtSocio" %>
+    <%@ page import="publicadores.DtClase" %>
+    <%@ page import="publicadores.DtActividad" %>
+    <%@ page import="publicadores.DtRegistro" %>
                   <!-- 
 		<form action="ConsultaUsuario" method="post">
         
