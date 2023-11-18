@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import interfaces.Fabrica;
 import interfaces.IUsuario;
+import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
 
 /**
  * Servlet implementation class ModificarUsuario
@@ -46,31 +49,62 @@ public class ModificarUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		Fabrica f = Fabrica.getInstancia();
-		IUsuario iUsuario = f.getIUsuario();
+
 		String campoEditar = request.getParameter("campoEditar");
 		String nickname = (String) request.getSession().getAttribute("nickname");
+		
+		try {
+			System.out.println(existeUsuario(nickname));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		if (campoEditar.equals("nombre")) {
-			String nuevoValor = request.getParameter("input-nombre");
-			iUsuario.modificarNombre(nickname, nuevoValor);
-		} else if (campoEditar.equals("apellido")) {
-			String nuevoValor = request.getParameter("input-apellido");
-			iUsuario.modificarApellido(nickname, nuevoValor);
-		} else if (campoEditar.equals("fecha")) {
-			String nuevoValor = request.getParameter("input-fecha");
-			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			// Parsear el String en un objeto Date
-			try {
-				Date fecha = sdf.parse(nuevoValor);
-				iUsuario.modificarFechaNacimiento(nickname, fecha);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			if (campoEditar.equals("nombre")) {
+				String nuevoValor = request.getParameter("input-nombre");
+				modificarNombre(nickname, nuevoValor);
+			} else if (campoEditar.equals("apellido")) {
+				String nuevoValor = request.getParameter("input-apellido");
+				modificarApellido(nickname, nuevoValor);
+			} else if (campoEditar.equals("fecha")) {
+				String nuevaFecha = request.getParameter("input-fecha");
+				modificarFechaNacimiento(nickname, nuevaFecha);
 			}
+		} catch (Exception e){
+			request.getRequestDispatcher("/RegistroError.jsp").forward(request, response);
 		}
 
 		request.getRequestDispatcher("/ModificarSuccess.jsp").forward(request, response);
 	}
+	
+	public void modificarNombre(String nickname, String nuevoNombre) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		port.modificarNombre(nickname, nuevoNombre);
+	}
+	
+	public void modificarApellido(String nickname, String nuevoApellido) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		port.modificarApellido(nickname, nuevoApellido);
+	}
+	
+	public void modificarFechaNacimiento(String nickname, String nuevaFecha) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		port.modificarFechaNacimiento(nickname, nuevaFecha);
+	}
+	
+	public boolean existeUsuario(String nickname) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.existeUsuario(nickname);
+	}
 
+	//request.getRequestDispatcher("/RegistroError.jsp").forward(request, response);
 }

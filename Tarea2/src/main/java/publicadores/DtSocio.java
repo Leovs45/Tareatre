@@ -8,13 +8,24 @@
 package publicadores;
 
 public class DtSocio  extends publicadores.DtUsuario  implements java.io.Serializable {
-    private publicadores.DtRegistro[] registros;
+    private publicadores.Registro[] registros;
 
     public DtSocio() {
     }
 
     public DtSocio(
-           publicadores.DtRegistro[] registros) {
+           java.lang.String nickname,
+           java.lang.String nombre,
+           java.lang.String apellido,
+           java.lang.String correoElectronico,
+           java.util.Calendar fechaNacimiento,
+           publicadores.Registro[] registros) {
+        super(
+            nickname,
+            nombre,
+            apellido,
+            correoElectronico,
+            fechaNacimiento);
         this.registros = registros;
     }
 
@@ -24,7 +35,7 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * 
      * @return registros
      */
-    public publicadores.DtRegistro[] getRegistros() {
+    public publicadores.Registro[] getRegistros() {
         return registros;
     }
 
@@ -34,15 +45,15 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * 
      * @param registros
      */
-    public void setRegistros(publicadores.DtRegistro[] registros) {
+    public void setRegistros(publicadores.Registro[] registros) {
         this.registros = registros;
     }
 
-    public publicadores.DtRegistro getRegistros(int i) {
+    public publicadores.Registro getRegistros(int i) {
         return this.registros[i];
     }
 
-    public void setRegistros(int i, publicadores.DtRegistro _value) {
+    public void setRegistros(int i, publicadores.Registro _value) {
         this.registros[i] = _value;
     }
 
@@ -96,9 +107,9 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("registros");
         elemField.setXmlName(new javax.xml.namespace.QName("", "registros"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "registro"));
         elemField.setMinOccurs(0);
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
     }

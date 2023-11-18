@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import logica.Clase;
 import logica.InstitucionDeportiva;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtActividad{
     private InstitucionDeportiva institucion;
     private String nombre;
@@ -15,6 +19,8 @@ public class DtActividad{
     private double costo;
     private Date fechaRegistro;
     private List<Clase> clases = new ArrayList<>();
+
+    public DtActividad() {}
 
     public DtActividad(InstitucionDeportiva institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
     	this.institucion = institucion;
@@ -33,38 +39,47 @@ public class DtActividad{
     	this.clases = clases;
     }
 
+
 	public DtInstitucion getInstitucion() {
 		return institucion.getDtInstitucion();
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 
 	public int getDuracionMinutos() {
 		return duracionMinutos;
 	}
 
+
 	public double getCosto() {
 		return costo;
 	}
 
+
 	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
+
 
 	public int getCantidadDeClases() {
 		return clases.size();
 
 	}
 
+
 	public int getCantidadClases() {
         return (clases != null) ? clases.size() : 0;
     }
+
 
 	public List<DtClase> getClases() {
 		List<DtClase> dtClases = new ArrayList<>();
@@ -75,6 +90,8 @@ public class DtActividad{
 
 		return dtClases;
 	}
+
+
 	public DtClase buscarDtClase(String nombre) {
 		DtClase clase = null;
 		if (clases.size() == 0) {
@@ -88,6 +105,8 @@ public class DtActividad{
 		}
 		return clase;
 	}
+
+
 	public DtClase obtenerDtClase(String nombreClase) {
 		DtClase clase = buscarDtClase(nombreClase);
 		return clase;
