@@ -16,4 +16,7 @@ public interface PublicadorTroesma extends java.rmi.Remote {
     public boolean existeUsuario(java.lang.String arg0) throws java.rmi.RemoteException;
     public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException;
+    public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException;
 }

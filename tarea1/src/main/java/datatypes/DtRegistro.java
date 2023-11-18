@@ -1,10 +1,10 @@
 package datatypes;
 
 import java.util.Date;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtRegistro {
     private Date fechaRegistro;
     private DtSocio socio;
@@ -17,15 +17,15 @@ public class DtRegistro {
         this.socio = socio;
         this.clase = clase;
     }
-    @WebMethod
+
     public Date getFechaRegistro() {
         return fechaRegistro;
     }
-    @WebMethod
+
     public DtSocio getSocio() {
         return socio;
     }
-    @WebMethod
+
     public DtClase getClase() {
         return clase;
     }

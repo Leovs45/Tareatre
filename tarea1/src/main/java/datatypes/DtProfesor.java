@@ -6,10 +6,10 @@ import java.util.List;
 
 import logica.Clase;
 import logica.InstitucionDeportiva;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtProfesor extends DtUsuario {
     private InstitucionDeportiva institucion;
     private String descripcionGeneral;
@@ -28,27 +28,27 @@ public class DtProfesor extends DtUsuario {
         this.clases = clases;
     }
 
-    @WebMethod
+
     public String getNombreInstitucion() {
         return institucion.getNombre();
     }
 
-    @WebMethod
+
     public String getDescripcionGeneral() {
         return descripcionGeneral;
     }
 
-    @WebMethod
+
     public String getBiografia() {
         return biografia;
     }
 
-    @WebMethod
+
     public String getSitioWeb() {
         return sitioWeb;
     }
 
-    @WebMethod
+
     public List<DtClase> getClases() {
     	List<DtClase> dtClases = new ArrayList<>();
 

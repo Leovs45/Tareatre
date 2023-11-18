@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import logica.Registro;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtSocio extends DtUsuario {
     private List<Registro> registros = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class DtSocio extends DtUsuario {
         super(nickname, nombre, apellido, correoElectronico, fechaNacimiento);
         this.registros = registros;
     }
-    @WebMethod
+
     public List<DtRegistro> getRegistros() {
         List<DtRegistro> dtRegistros = new ArrayList<>();
 

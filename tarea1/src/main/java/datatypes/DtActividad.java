@@ -7,10 +7,10 @@ import java.util.List;
 
 import logica.Clase;
 import logica.InstitucionDeportiva;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtActividad{
     private InstitucionDeportiva institucion;
     private String nombre;
@@ -39,48 +39,48 @@ public class DtActividad{
     	this.clases = clases;
     }
 
-    @WebMethod
+
 	public DtInstitucion getInstitucion() {
 		return institucion.getDtInstitucion();
 	}
 
-    @WebMethod
+
 	public String getNombre() {
 		return nombre;
 	}
 
-    @WebMethod
+
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-    @WebMethod
+
 	public int getDuracionMinutos() {
 		return duracionMinutos;
 	}
 
-    @WebMethod
+
 	public double getCosto() {
 		return costo;
 	}
 
-    @WebMethod
+
 	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
-    @WebMethod
+
 	public int getCantidadDeClases() {
 		return clases.size();
 
 	}
 
-    @WebMethod
+
 	public int getCantidadClases() {
         return (clases != null) ? clases.size() : 0;
     }
 
-    @WebMethod
+
 	public List<DtClase> getClases() {
 		List<DtClase> dtClases = new ArrayList<>();
 
@@ -91,7 +91,7 @@ public class DtActividad{
 		return dtClases;
 	}
 
-    @WebMethod
+
 	public DtClase buscarDtClase(String nombre) {
 		DtClase clase = null;
 		if (clases.size() == 0) {
@@ -106,7 +106,7 @@ public class DtActividad{
 		return clase;
 	}
 
-    @WebMethod
+
 	public DtClase obtenerDtClase(String nombreClase) {
 		DtClase clase = buscarDtClase(nombreClase);
 		return clase;

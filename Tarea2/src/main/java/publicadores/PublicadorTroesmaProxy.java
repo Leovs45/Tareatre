@@ -92,5 +92,23 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.getRankingActividades();
   }
   
+  public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.modificarNombre(arg0, arg1);
+  }
+  
+  public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.modificarApellido(arg0, arg1);
+  }
+  
+  public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.modificarFechaNacimiento(arg0, arg1);
+  }
+  
   
 }

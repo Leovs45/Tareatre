@@ -3,13 +3,13 @@ package datatypes;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jws.WebService;
-import javax.jws.WebMethod;
-
 import logica.ActividadDeportiva;
 import logica.Profesor;
 
-@WebService
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtInstitucion {
     private String nombre;
     private String descripcion;
@@ -27,37 +27,37 @@ public class DtInstitucion {
         this.actividades = actividades;
     }
 
-    @WebMethod
+
     public String getNombre() {
         return nombre;
     }
 
-    @WebMethod
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    @WebMethod
+
     public String getDescripcion() {
         return descripcion;
     }
 
-    @WebMethod
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    @WebMethod
+
     public String getUrl() {
         return url;
     }
 
-    @WebMethod
+
     public void setUrl(String url) {
         this.url = url;
     }
 
-    @WebMethod
+
     public List<DtProfesor> getProfesores() {
         List<DtProfesor> dtProfesores = new ArrayList<>();
 
@@ -68,7 +68,7 @@ public class DtInstitucion {
         return dtProfesores;
     }
 
-    @WebMethod
+
     public List<DtActividad> getActividades() {
     	List<DtActividad> dtActividades = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class DtInstitucion {
         return dtActividades;
     }
 
-    @WebMethod
+
     public DtActividad buscarDtActividad (String nombreActividad) {
 		DtActividad dtAct = null;
 		if (actividades.size() == 0) {

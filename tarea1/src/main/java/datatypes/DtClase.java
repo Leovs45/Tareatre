@@ -6,10 +6,10 @@ import java.util.List;
 
 import logica.ActividadDeportiva;
 import logica.Registro;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtClase {
 	private String nombre;
 	private ActividadDeportiva actividad;
@@ -45,37 +45,37 @@ public class DtClase {
 		this.fechaRegistro = fechaRegistro;
 	}
 
-	@WebMethod
+
 	public String getNombre() {
 		return nombre;
 	}
 
-	@WebMethod
+
 	public ActividadDeportiva getActividadDeportiva() {
 		return actividad;
 	}
 
-	@WebMethod
+
 	public String getUrl() {
 		return url;
 	}
 
-	@WebMethod
+
 	public Date getFechaClase() {
 		return fechaClase;
 	}
 
-	@WebMethod
+
 	public String getHoraInicio() {
 		return horaInicio;
 	}
 
-	@WebMethod
+
 	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
 
-	@WebMethod
+
 	public int getCantidadClases() {
         return (registros != null) ? registros.size() : 0;
     }

@@ -2,10 +2,10 @@ package datatypes;
 
 import java.util.Date;
 
-import javax.jws.WebService;
-import javax.jws.WebMethod;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
-@WebService
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtUsuario {
     private String nickname;
     private String nombre;
@@ -23,27 +23,27 @@ public class DtUsuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    @WebMethod
+
     public String getNickname() {
         return nickname;
     }
 
-    @WebMethod
+
     public String getNombre() {
         return nombre;
     }
 
-    @WebMethod
+
     public String getApellido() {
         return apellido;
     }
 
-    @WebMethod
+
     public String getCorreoElectronico() {
         return correoElectronico;
     }
 
-    @WebMethod
+
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
