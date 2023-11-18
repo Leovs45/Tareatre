@@ -1,4 +1,8 @@
 package publicadores;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.jws.WebMethod;
@@ -99,6 +103,23 @@ public class publicadorTroesma {
 			i++;
 		}
 		return ret;
+	}
+	
+	@WebMethod
+	public void modificarNombre(String nickname, String nuevoNombre) {
+		iUs.modificarNombre(nickname, nuevoNombre);
+	}
+	
+	@WebMethod
+	public void modificarApellido(String nickname, String nuevoApellido) {
+		iUs.modificarApellido(nickname, nuevoApellido);
+	}
+	
+	@WebMethod
+	public void modificarFechaNacimiento(String nickname, String nuevaFechaStr) throws ParseException {
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date nuevaFecha = (Date) sdf.parse(nuevaFechaStr);
+		iUs.modificarFechaNacimiento(nickname, nuevaFecha);
 	}
 
 	/*@WebMethod
