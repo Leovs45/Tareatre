@@ -20,7 +20,7 @@ public class DtActividad  implements java.io.Serializable {
 
     private java.util.Calendar fechaRegistro;
 
-    private publicadores.Clase[] clases;
+    private publicadores.DtClase[] clases;
 
     public DtActividad() {
     }
@@ -32,7 +32,7 @@ public class DtActividad  implements java.io.Serializable {
            int duracionMinutos,
            double costo,
            java.util.Calendar fechaRegistro,
-           publicadores.Clase[] clases) {
+           publicadores.DtClase[] clases) {
            this.institucion = institucion;
            this.nombre = nombre;
            this.descripcion = descripcion;
@@ -168,7 +168,7 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @return clases
      */
-    public publicadores.Clase[] getClases() {
+    public publicadores.DtClase[] getClases() {
         return clases;
     }
 
@@ -178,15 +178,15 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @param clases
      */
-    public void setClases(publicadores.Clase[] clases) {
+    public void setClases(publicadores.DtClase[] clases) {
         this.clases = clases;
     }
 
-    public publicadores.Clase getClases(int i) {
+    public publicadores.DtClase getClases(int i) {
         return this.clases[i];
     }
 
-    public void setClases(int i, publicadores.Clase _value) {
+    public void setClases(int i, publicadores.DtClase _value) {
         this.clases[i] = _value;
     }
 
@@ -308,7 +308,7 @@ public class DtActividad  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("clases");
         elemField.setXmlName(new javax.xml.namespace.QName("", "clases"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "clase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);

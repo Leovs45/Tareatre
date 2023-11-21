@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.rpc.ServiceException;
 import excepciones.ClaseRepetidaException;
-import publicadores.PublicadorTroesma;
-import publicadores.PublicadorTroesmaService;
-import publicadores.PublicadorTroesmaServiceLocator;
+import publicadores.*;
 
 /**
  * Servlet implementation class AltaDictadoClase

@@ -13,6 +13,9 @@ import datatypes.DtActividad;
 import datatypes.DtInstitucion;
 import interfaces.Fabrica;
 import interfaces.IInstitucionDeportiva;
+import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
 
 /**
  * Servlet implementation class ObtenerActividades
@@ -21,26 +24,17 @@ import interfaces.IInstitucionDeportiva;
 public class ObtenerActividades extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ObtenerActividades() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -51,9 +45,9 @@ public class ObtenerActividades extends HttpServlet {
 
 		String nombreInstitucion = request.getParameter("institucion");
 
-		DtInstitucion dtInstitucion = iInstitucion.getDtInstitucion(nombreInstitucion);
-
-		List<DtActividad> dtActividades = dtInstitucion.getActividades();
+		publicadores.DtInstitucion dtInstitucion = getDtInstitucion(nombreInstitucion);
+		DtActividad[] arrAct = dtInstitucion.getActividades();
+		List<DtActividad> dtActividades = 
 
 		request.setAttribute("institucionObtenida", dtInstitucion);
 		request.setAttribute("listaActividades", dtActividades);
@@ -62,4 +56,11 @@ public class ObtenerActividades extends HttpServlet {
 
 	}
 
+	public publicadores.DtInstitucion getDtInstitucion(String nombreInstitucion)throws Exception{
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.getDtInstitucion(nombreInstitucion);
+	}
+	
 }

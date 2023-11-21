@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import interfaces.Fabrica;
-import interfaces.IUsuario;
-import publicadores.PublicadorTroesma;
-import publicadores.PublicadorTroesmaService;
-import publicadores.PublicadorTroesmaServiceLocator;
+import publicadores.*;
 
 /**
  * Servlet implementation class ModificarUsuario

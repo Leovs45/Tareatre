@@ -8,6 +8,8 @@
 package publicadores;
 
 public class InstitucionDeportiva  implements java.io.Serializable {
+    private publicadores.Profesor[] arrayProfesor;
+
     private java.lang.String descripcion;
 
     private java.lang.String nombre;
@@ -18,12 +20,42 @@ public class InstitucionDeportiva  implements java.io.Serializable {
     }
 
     public InstitucionDeportiva(
+           publicadores.Profesor[] arrayProfesor,
            java.lang.String descripcion,
            java.lang.String nombre,
            java.lang.String url) {
+           this.arrayProfesor = arrayProfesor;
            this.descripcion = descripcion;
            this.nombre = nombre;
            this.url = url;
+    }
+
+
+    /**
+     * Gets the arrayProfesor value for this InstitucionDeportiva.
+     * 
+     * @return arrayProfesor
+     */
+    public publicadores.Profesor[] getArrayProfesor() {
+        return arrayProfesor;
+    }
+
+
+    /**
+     * Sets the arrayProfesor value for this InstitucionDeportiva.
+     * 
+     * @param arrayProfesor
+     */
+    public void setArrayProfesor(publicadores.Profesor[] arrayProfesor) {
+        this.arrayProfesor = arrayProfesor;
+    }
+
+    public publicadores.Profesor getArrayProfesor(int i) {
+        return this.arrayProfesor[i];
+    }
+
+    public void setArrayProfesor(int i, publicadores.Profesor _value) {
+        this.arrayProfesor[i] = _value;
     }
 
 
@@ -98,6 +130,9 @@ public class InstitucionDeportiva  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.arrayProfesor==null && other.getArrayProfesor()==null) || 
+             (this.arrayProfesor!=null &&
+              java.util.Arrays.equals(this.arrayProfesor, other.getArrayProfesor()))) &&
             ((this.descripcion==null && other.getDescripcion()==null) || 
              (this.descripcion!=null &&
               this.descripcion.equals(other.getDescripcion()))) &&
@@ -118,6 +153,17 @@ public class InstitucionDeportiva  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getArrayProfesor() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getArrayProfesor());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getArrayProfesor(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         if (getDescripcion() != null) {
             _hashCode += getDescripcion().hashCode();
         }
@@ -138,6 +184,14 @@ public class InstitucionDeportiva  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "institucionDeportiva"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("arrayProfesor");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "arrayProfesor"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "profesor"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("descripcion");
         elemField.setXmlName(new javax.xml.namespace.QName("", "descripcion"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

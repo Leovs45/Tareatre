@@ -14,9 +14,9 @@ public class DtInstitucion  implements java.io.Serializable {
 
     private java.lang.String url;
 
-    private publicadores.Profesor[] profesores;
+    private publicadores.DtProfesor[] profesores;
 
-    private publicadores.ActividadDeportiva[] actividades;
+    private publicadores.DtActividad[] actividades;
 
     public DtInstitucion() {
     }
@@ -25,8 +25,8 @@ public class DtInstitucion  implements java.io.Serializable {
            java.lang.String nombre,
            java.lang.String descripcion,
            java.lang.String url,
-           publicadores.Profesor[] profesores,
-           publicadores.ActividadDeportiva[] actividades) {
+           publicadores.DtProfesor[] profesores,
+           publicadores.DtActividad[] actividades) {
            this.nombre = nombre;
            this.descripcion = descripcion;
            this.url = url;
@@ -100,7 +100,7 @@ public class DtInstitucion  implements java.io.Serializable {
      * 
      * @return profesores
      */
-    public publicadores.Profesor[] getProfesores() {
+    public publicadores.DtProfesor[] getProfesores() {
         return profesores;
     }
 
@@ -110,15 +110,15 @@ public class DtInstitucion  implements java.io.Serializable {
      * 
      * @param profesores
      */
-    public void setProfesores(publicadores.Profesor[] profesores) {
+    public void setProfesores(publicadores.DtProfesor[] profesores) {
         this.profesores = profesores;
     }
 
-    public publicadores.Profesor getProfesores(int i) {
+    public publicadores.DtProfesor getProfesores(int i) {
         return this.profesores[i];
     }
 
-    public void setProfesores(int i, publicadores.Profesor _value) {
+    public void setProfesores(int i, publicadores.DtProfesor _value) {
         this.profesores[i] = _value;
     }
 
@@ -128,7 +128,7 @@ public class DtInstitucion  implements java.io.Serializable {
      * 
      * @return actividades
      */
-    public publicadores.ActividadDeportiva[] getActividades() {
+    public publicadores.DtActividad[] getActividades() {
         return actividades;
     }
 
@@ -138,15 +138,15 @@ public class DtInstitucion  implements java.io.Serializable {
      * 
      * @param actividades
      */
-    public void setActividades(publicadores.ActividadDeportiva[] actividades) {
+    public void setActividades(publicadores.DtActividad[] actividades) {
         this.actividades = actividades;
     }
 
-    public publicadores.ActividadDeportiva getActividades(int i) {
+    public publicadores.DtActividad getActividades(int i) {
         return this.actividades[i];
     }
 
-    public void setActividades(int i, publicadores.ActividadDeportiva _value) {
+    public void setActividades(int i, publicadores.DtActividad _value) {
         this.actividades[i] = _value;
     }
 
@@ -253,7 +253,7 @@ public class DtInstitucion  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("profesores");
         elemField.setXmlName(new javax.xml.namespace.QName("", "profesores"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "profesor"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtProfesor"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);
@@ -261,7 +261,7 @@ public class DtInstitucion  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("actividades");
         elemField.setXmlName(new javax.xml.namespace.QName("", "actividades"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "actividadDeportiva"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtActividad"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);

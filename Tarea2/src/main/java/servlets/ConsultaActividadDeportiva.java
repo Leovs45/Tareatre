@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,11 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datatypes.DtActividad;
-import datatypes.DtClase;
 import excepciones.ExisteActividadDepException; // Importa la excepció
-import interfaces.Fabrica;
-import interfaces.IActividadDeportiva;
+import publicadores.*;
 
 /**
  * Servlet implementation class ConsultaActividadDeportiva
@@ -36,11 +34,10 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Fabrica fabric = Fabrica.getInstancia();
-		IActividadDeportiva iAD = fabric.getIActividadDeportiva();
-		List<DtActividad> listActividades = iAD.getRankingActividades();
+		try {
+		List<publicadores.DtActividad> listActividades = getRankingActividades();
 
-		try {//llenar el combobox
+		//llenar el combobox
 				// Guardar la lista de DtActividades en reqNombreActividades
 			    request.setAttribute("reqNombreActividad", listActividades);
 		    	// Reenviar la solicitud a la página JSP
@@ -51,15 +48,8 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 			        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 				}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Fabrica fabric = Fabrica.getInstancia();
-	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
 
 	    // Obtener la Actividad deportiva DADA
 	    String nombreActividad = request.getParameter("unaActividad");
@@ -67,8 +57,8 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	    try {
             // Intenta realizar la operación
 	    //SI EXISTE
-	    if(iAD.existeActividad(nombreActividad)) {
-	    	DtActividad dtActEncontrada = iAD.getDtActividad(nombreActividad);
+	    if(existeActividad(nombreActividad)) {
+	    	publicadores.DtActividad dtActEncontrada = getDtActividad(nombreActividad);
 
 
 
@@ -77,7 +67,11 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	    	request.setAttribute("reqActividad",dtActEncontrada);
 
 	    	//las clases asociadas a la actividad obtenida
-	    	List<DtClase> unDtClases=dtActEncontrada.getClases();
+	    	publicadores.DtClase[] arrClases = dtActEncontrada.getClases();
+	    	List<publicadores.DtClase> unDtClases = new ArrayList<>();
+	    	for (int i=0; i<arrClases.length; i++) {
+	    		unDtClases.add(arrClases[i]);
+	    	}
 
 	    	// Guardar la lista de Dtclases procesada en un atributo de solicitud
 	        request.setAttribute("reqClases", unDtClases);
@@ -89,9 +83,38 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	    	throw new ExisteActividadDepException("La actividad no existe");
 	    }
 
-	}catch (ExisteActividadDepException e) {
-        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
-        request.getRequestDispatcher("/Error.jsp").forward(request, response);
-    	}
+		}catch (ExisteActividadDepException e) {
+	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
+	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
+	public List<publicadores.DtActividad> getRankingActividades()throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		publicadores.DtActividad[] listaAct = port.getRankingActividades();
+		List<publicadores.DtActividad> listaActividades = new ArrayList<>();
+		for(int i=0; i<listaAct.length; i++) {
+			listaActividades.add(listaAct[i]);
+		}
+		return listaActividades;
+	}
+	public boolean existeActividad(String nombreActividad) throws Exception {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.existeActividad(nombreActividad);
+	}
+	
+	public publicadores.DtActividad getDtActividad(String nombreActividad) throws Exception{
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		publicadores.DtActividad act = port.getDtActividad(nombreActividad);
+		return act;
+	}
+	
 }
