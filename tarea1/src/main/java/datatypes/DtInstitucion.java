@@ -87,7 +87,7 @@ public class DtInstitucion {
 		} else {
 			for(ActividadDeportiva a: actividades) {
 				if (a.getNombre().equals(nombreActividad)) {
-					dtAct = new DtActividad(a.getInstitucion(),a.getNombre(),a.getDescripcion(),a.getDuracionMinutos(),a.getCosto(),a.getFechaRegistro(),a.getArrayClase());
+					dtAct = new DtActividad(a.getInstitucion().getDtInstitucion(),a.getNombre(),a.getDescripcion(),a.getDuracionMinutos(),a.getCosto(),a.getFechaRegistro(),a.getArrayClase());
 				}
 			}
 		}

@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtActividad{
-    private InstitucionDeportiva institucion;
+    private DtInstitucion institucion;
     private String nombre;
     private String descripcion;
     private int duracionMinutos;
@@ -22,7 +22,7 @@ public class DtActividad{
 
     public DtActividad() {}
 
-    public DtActividad(InstitucionDeportiva institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
+    public DtActividad(DtInstitucion institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
     	this.institucion = institucion;
     	this.nombre = nombre;
     	this.descripcion = descripcion;
@@ -41,7 +41,7 @@ public class DtActividad{
 
 
 	public DtInstitucion getInstitucion() {
-		return institucion.getDtInstitucion();
+		return institucion;
 	}
 
 

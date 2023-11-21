@@ -111,15 +111,13 @@ public  class CInstitucionDeportiva implements IInstitucionDeportiva {
 		ActividadDeportiva act= buscarActividadDeportiva(nombreInstitucion, nombreActividad);
 		if(act != null)
 			existe = true;
-
 		return existe;
 	}
-
 	@Override
 	public DtActividad obtenerActividadDeUnaInstitucion(String nombreInstitucion, String nombreActividad) {
 		InstitucionDeportiva ins = buscarInstitucionDeportiva(nombreInstitucion);
 		ActividadDeportiva act = ins.buscarActividadDeportiva(nombreActividad);
-		DtActividad dtAct = new	DtActividad(ins, act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), act.getFechaRegistro(), act.getArrayClase());
+		DtActividad dtAct = new	DtActividad(ins.getDtInstitucion(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), act.getFechaRegistro(), act.getArrayClase());
 		return dtAct;
 	}
 
@@ -147,16 +145,7 @@ public  class CInstitucionDeportiva implements IInstitucionDeportiva {
 		return dtInstituciones;
 	}
 
-	@Override
-	public boolean existeActividadEnInstitucion(String nombreInstitucion, String nombreActividad) {
-		ActividadDeportiva actividad = buscarActividadDeportiva(nombreInstitucion, nombreActividad);
 
-		if(actividad == null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
 
 	@Override
 	public List<String> obtenerClasesDeActividad(String nombreInstitucion, String nombreActividad) {

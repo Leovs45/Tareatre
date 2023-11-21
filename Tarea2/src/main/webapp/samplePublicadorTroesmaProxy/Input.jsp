@@ -62,81 +62,13 @@ valid = false;
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg032" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 34:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg037" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 39:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg042" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 44:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg047" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 49:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg052" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg018" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg154" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg120" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -145,24 +77,18 @@ valid = false;
 </FORM>
 <%
 break;
-case 56:
+case 22:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg077" SIZE=20></TD>
-</TR>
-</TABLE>
 <BR>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">
 </FORM>
 <%
 break;
-case 79:
+case 25:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -170,13 +96,13 @@ valid = false;
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg082" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg028" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg184" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg130" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -185,70 +111,7 @@ valid = false;
 </FORM>
 <%
 break;
-case 86:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg089" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 91:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg094" SIZE=20></TD>
-</TR>
-</TABLE>
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg196" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 98:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0101" SIZE=20></TD>
-</TR>
-</TABLE>
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg1103" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 105:
+case 32:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -258,39 +121,18 @@ valid = false;
 <TD COLSPAN="3" ALIGN="LEFT">arg0:</TD>
 <TR>
 <TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">institucion:</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion112" SIZE=20></TD>
+<TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion37" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">url:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url114" SIZE=20></TD>
+<TD COLSPAN="2" ALIGN="LEFT">url:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url39" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre116" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">descripcionGeneral:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcionGeneral118" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">sitioWeb:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="sitioWeb120" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">biografia:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="biografia122" SIZE=20></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre41" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -299,18 +141,7 @@ valid = false;
 </FORM>
 <%
 break;
-case 124:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 127:
+case 43:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -321,18 +152,18 @@ valid = false;
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">fechaRegistro:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro132" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro48" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaRegistro132 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaRegistro132  = new java.util.GregorianCalendar();
-java.util.Date datefechaRegistro132 = gcExampfechaRegistro132.getTime();
-String tempResultfechaRegistro132 = dateFormatfechaRegistro132.format(datefechaRegistro132);
+java.text.DateFormat dateFormatfechaRegistro48 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro48  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro48 = gcExampfechaRegistro48.getTime();
+String tempResultfechaRegistro48 = dateFormatfechaRegistro48.format(datefechaRegistro48);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaRegistro132 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro48 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -344,53 +175,53 @@ String tempResultfechaRegistro132 = dateFormatfechaRegistro132.format(datefechaR
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">fechaRegistro:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro138" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro54" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaRegistro138 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaRegistro138  = new java.util.GregorianCalendar();
-java.util.Date datefechaRegistro138 = gcExampfechaRegistro138.getTime();
-String tempResultfechaRegistro138 = dateFormatfechaRegistro138.format(datefechaRegistro138);
+java.text.DateFormat dateFormatfechaRegistro54 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro54  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro54 = gcExampfechaRegistro54.getTime();
+String tempResultfechaRegistro54 = dateFormatfechaRegistro54.format(datefechaRegistro54);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaRegistro138 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro54 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">url:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url140" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url56" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">fechaClase:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaClase142" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaClase58" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaClase142 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaClase142  = new java.util.GregorianCalendar();
-java.util.Date datefechaClase142 = gcExampfechaClase142.getTime();
-String tempResultfechaClase142 = dateFormatfechaClase142.format(datefechaClase142);
+java.text.DateFormat dateFormatfechaClase58 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaClase58  = new java.util.GregorianCalendar();
+java.util.Date datefechaClase58 = gcExampfechaClase58.getTime();
+String tempResultfechaClase58 = dateFormatfechaClase58.format(datefechaClase58);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaClase142 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaClase58 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">horaInicio:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="horaInicio144" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="horaInicio60" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre146" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre62" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -401,18 +232,18 @@ String tempResultfechaClase142 = dateFormatfechaClase142.format(datefechaClase14
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">fechaRegistro:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro150" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro66" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaRegistro150 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaRegistro150  = new java.util.GregorianCalendar();
-java.util.Date datefechaRegistro150 = gcExampfechaRegistro150.getTime();
-String tempResultfechaRegistro150 = dateFormatfechaRegistro150.format(datefechaRegistro150);
+java.text.DateFormat dateFormatfechaRegistro66 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro66  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro66 = gcExampfechaRegistro66.getTime();
+String tempResultfechaRegistro66 = dateFormatfechaRegistro66.format(datefechaRegistro66);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaRegistro150 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro66 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -425,7 +256,7 @@ String tempResultfechaRegistro150 = dateFormatfechaRegistro150.format(datefechaR
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="-1" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion154" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion70" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -433,7 +264,7 @@ String tempResultfechaRegistro150 = dateFormatfechaRegistro150.format(datefechaR
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="-1" ALIGN="LEFT">url:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url156" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url72" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -441,35 +272,35 @@ String tempResultfechaRegistro150 = dateFormatfechaRegistro150.format(datefechaR
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="-1" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre158" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre74" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion160" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion76" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">duracionMinutos:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracionMinutos162" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracionMinutos78" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre164" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre80" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">costo:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo166" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo82" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -478,7 +309,7 @@ String tempResultfechaRegistro150 = dateFormatfechaRegistro150.format(datefechaR
 </FORM>
 <%
 break;
-case 168:
+case 84:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -489,49 +320,49 @@ valid = false;
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">fechaRegistro:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro173" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro89" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaRegistro173 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaRegistro173  = new java.util.GregorianCalendar();
-java.util.Date datefechaRegistro173 = gcExampfechaRegistro173.getTime();
-String tempResultfechaRegistro173 = dateFormatfechaRegistro173.format(datefechaRegistro173);
+java.text.DateFormat dateFormatfechaRegistro89 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro89  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro89 = gcExampfechaRegistro89.getTime();
+String tempResultfechaRegistro89 = dateFormatfechaRegistro89.format(datefechaRegistro89);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaRegistro173 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro89 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">url:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url175" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url91" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">fechaClase:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaClase177" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaClase93" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaClase177 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaClase177  = new java.util.GregorianCalendar();
-java.util.Date datefechaClase177 = gcExampfechaClase177.getTime();
-String tempResultfechaClase177 = dateFormatfechaClase177.format(datefechaClase177);
+java.text.DateFormat dateFormatfechaClase93 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaClase93  = new java.util.GregorianCalendar();
+java.util.Date datefechaClase93 = gcExampfechaClase93.getTime();
+String tempResultfechaClase93 = dateFormatfechaClase93.format(datefechaClase93);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaClase177 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaClase93 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">horaInicio:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="horaInicio179" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="horaInicio95" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre181" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre97" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -540,18 +371,18 @@ String tempResultfechaClase177 = dateFormatfechaClase177.format(datefechaClase17
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">fechaRegistro:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro185" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro101" SIZE=20></TD>
 <%
-java.text.DateFormat dateFormatfechaRegistro185 = java.text.DateFormat.getDateInstance();
-java.util.GregorianCalendar gcExampfechaRegistro185  = new java.util.GregorianCalendar();
-java.util.Date datefechaRegistro185 = gcExampfechaRegistro185.getTime();
-String tempResultfechaRegistro185 = dateFormatfechaRegistro185.format(datefechaRegistro185);
+java.text.DateFormat dateFormatfechaRegistro101 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro101  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro101 = gcExampfechaRegistro101.getTime();
+String tempResultfechaRegistro101 = dateFormatfechaRegistro101.format(datefechaRegistro101);
 %>
 <TD ALIGN="left">
 </TR>
 <TR>
 <TD> </TD>
-<TD ALIGN="left"> eg. <%= tempResultfechaRegistro185 %> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro101 %> </TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
@@ -562,45 +393,392 @@ String tempResultfechaRegistro185 = dateFormatfechaRegistro185.format(datefechaR
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion189" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion105" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">url:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url191" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url107" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="0" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre193" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre109" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion195" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion111" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">duracionMinutos:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracionMinutos197" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracionMinutos113" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre199" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre115" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="1" ALIGN="LEFT">costo:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo201" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo117" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 119:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0122" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg1124" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 126:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0129" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg1131" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg2:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg2133" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 135:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0138" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 140:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0143" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="3" ALIGN="LEFT">arg1:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">fechaRegistro:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="fechaRegistro147" SIZE=20></TD>
+<%
+java.text.DateFormat dateFormatfechaRegistro147 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExampfechaRegistro147  = new java.util.GregorianCalendar();
+java.util.Date datefechaRegistro147 = gcExampfechaRegistro147.getTime();
+String tempResultfechaRegistro147 = dateFormatfechaRegistro147.format(datefechaRegistro147);
+%>
+<TD ALIGN="left">
+</TR>
+<TR>
+<TD> </TD>
+<TD ALIGN="left"> eg. <%= tempResultfechaRegistro147 %> </TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion149" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">institucion:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion153" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">url:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="url155" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre157" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">duracionMinutos:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracionMinutos159" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">costo:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo161" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre163" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg2:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg2165" SIZE=20></TD>
+<%
+java.text.DateFormat dateFormatarg2165 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExamparg2165  = new java.util.GregorianCalendar();
+java.util.Date datearg2165 = gcExamparg2165.getTime();
+String tempResultarg2165 = dateFormatarg2165.format(datearg2165);
+%>
+<TD ALIGN="left">
+</TR>
+<TR>
+<TD> </TD>
+<TD ALIGN="left"> eg. <%= tempResultarg2165 %> </TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg3:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg3167" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg4:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg4169" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg5:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg5171" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg6:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg6173" SIZE=20></TD>
+<%
+java.text.DateFormat dateFormatarg6173 = java.text.DateFormat.getDateInstance();
+java.util.GregorianCalendar gcExamparg6173  = new java.util.GregorianCalendar();
+java.util.Date datearg6173 = gcExamparg6173.getTime();
+String tempResultarg6173 = dateFormatarg6173.format(datearg6173);
+%>
+<TD ALIGN="left">
+</TR>
+<TR>
+<TD> </TD>
+<TD ALIGN="left"> eg. <%= tempResultarg6173 %> </TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 175:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0178" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg1180" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 182:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0203" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 205:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0208" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 210:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0213" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg1215" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 217:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0220" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 222:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0225" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 227:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0236" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 238:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0255" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>

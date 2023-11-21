@@ -1,4 +1,5 @@
 package publicadores;
+import java.util.Calendar;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,11 +16,14 @@ import javax.xml.ws.Endpoint;
 import datatypes.DtActividad;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
+import excepciones.ClaseRepetidaException;
 import datatypes.DtClase;
+import datatypes.DtInstitucion;
 import datatypes.DtRegistro;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 import interfaces.IClase;
+import interfaces.IInstitucionDeportiva;
 import interfaces.IUsuario;
 
 @WebService
@@ -30,6 +34,7 @@ public class publicadorTroesma {
 	private IActividadDeportiva iAct;
 	private IUsuario iUs;
 	private IClase iCls;
+	private IInstitucionDeportiva iIns;
 	private Endpoint endpoint;
 
 
@@ -53,21 +58,39 @@ public class publicadorTroesma {
 	//LOS MÉTODOS QUE VAMOS A PUBLICAR (yo solo publicaria los metodos de las interfaces que utilizo para el CU de la tarea 2 en el servlet,tambien se podrian publicar todos)
 
 	@WebMethod
-    public void paraObtenerDtInfoClase(DtClase dtC){}
+    public void paraObtenerDtClase(DtClase dtC){}
 	
 	@WebMethod
-    public void getDtClases(DtProfesor dtP){
-		dtP.getDtClases();
-	}
+    public void paraObtenerDtInstitucion(DtInstitucion dtI) {}
+	
 	@WebMethod
-    public void paraObtenerDtInfoClase2(DtRegistro dt){}
+    public void paraObtenerDtRegistro(DtRegistro dt){}
 	
 	@WebMethod
 	public boolean existeActividad(String nombreActividad){
 		//quizas evaular que nombreActividad no sea null
 		return iAct.existeActividad(nombreActividad);
 	}
+	//Alta Dictado de Clase
+	@WebMethod
+	public DtInstitucion getDtInstitucion(String nombreInstitucion){
+		 return iIns.getDtInstitucion(nombreInstitucion);
+	}
+	public boolean existeActividadEnUnaInstitucion(String nombreInstitucion, String nombreActividad) {
+		return iIns.existeActividadEnUnaInstitucion(nombreInstitucion, nombreActividad);
+	}
+	public boolean existeClaseDeActividad(String nombreInstitucion, String nombreActividad, String nombreClase) {
+		return iIns.existeClaseDeActividad(nombreInstitucion, nombreActividad, nombreClase);
+	}
+	public void altaDictadoClase(String nombreClase, DtActividad actividadDeportiva, Calendar fechaClase, String nombreProfesor,
+			String horaInicio, String urlClase, Calendar fechaRegistro) throws ClaseRepetidaException {
+			Date fechaCls = fechaClase.getTime();
+			Date fechaReg = fechaRegistro.getTime();
+			iCls.altaDictadoClase(nombreClase, actividadDeportiva, fechaCls, nombreProfesor, horaInicio, urlClase, fechaReg);
+	}
 
+
+	
 	@WebMethod
 		public DtActividad getDtActividad(String nombreActividad){
 			//quizas evaular que nombreActividad no sea null
@@ -133,14 +156,4 @@ public class publicadorTroesma {
 		Date nuevaFecha = (Date) sdf.parse(nuevaFechaStr);
 		iUs.modificarFechaNacimiento(nickname, nuevaFecha);
 	}
-
-	/*@WebMethod
-	public DtRegistro[] getRegistros(String nickname){
-		DtSocio sociardo = iUs.getDtSocio(nickname);
-		List<DtRegistro> dtregistros = sociardo.getRegistros();
-		DtRegistro[] ret = dtregistros.toArray(new DtRegistro[0]);
-
-		//Foo[] array = list.toArray(new Foo[0]);
-		return ret;
-	}*/
 }

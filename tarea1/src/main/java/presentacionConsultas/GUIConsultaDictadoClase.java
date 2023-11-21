@@ -146,7 +146,7 @@ public class GUIConsultaDictadoClase extends JInternalFrame {
 			public void itemStateChanged(ItemEvent e) {
 				String nombreInstitucion = (String) cmbInstituciones.getSelectedItem();
 				String nombreActividad = (String) cmbActividades.getSelectedItem();
-				boolean existeActividad = iInstitucion.existeActividadEnInstitucion(nombreInstitucion, nombreActividad);
+				boolean existeActividad = iInstitucion.existeActividadEnUnaInstitucion(nombreInstitucion, nombreActividad);
 
 				if(!existeActividad) {
 					labelClases.setVisible(false);

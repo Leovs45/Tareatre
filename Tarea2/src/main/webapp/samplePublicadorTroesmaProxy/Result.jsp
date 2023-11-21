@@ -64,186 +64,462 @@ if(getPublicadorTroesma10mtemp == null){
 break;
 case 15:
         gotMethod = true;
-        String arg0_1id=  request.getParameter("arg032");
+        String arg0_1id=  request.getParameter("arg018");
             java.lang.String arg0_1idTemp = null;
         if(!arg0_1id.equals("")){
          arg0_1idTemp  = arg0_1id;
         }
-        publicadores.DtProfesor getDtProfesor15mtemp = samplePublicadorTroesmaProxyid.getDtProfesor(arg0_1idTemp);
-if(getDtProfesor15mtemp == null){
+        String arg1_2id=  request.getParameter("arg120");
+            java.lang.String arg1_2idTemp = null;
+        if(!arg1_2id.equals("")){
+         arg1_2idTemp  = arg1_2id;
+        }
+        samplePublicadorTroesmaProxyid.modificarFechaNacimiento(arg0_1idTemp,arg1_2idTemp);
+break;
+case 22:
+        gotMethod = true;
+        publicadores.DtActividad[] getRankingActividades22mtemp = samplePublicadorTroesmaProxyid.getRankingActividades();
+if(getRankingActividades22mtemp == null){
 %>
-<%=getDtProfesor15mtemp %>
+<%=getRankingActividades22mtemp %>
 <%
 }else{
-%>
-<TABLE>
-<TR>
-<TD COLSPAN="3" ALIGN="LEFT">returnp:</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">institucion:</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtProfesor15mtemp.getInstitucion();
-if(tebece0 != null){
-java.lang.String typedescripcion20 = tebece0.getDescripcion();
-        String tempResultdescripcion20 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion20));
+        String tempreturnp23 = null;
+        if(getRankingActividades22mtemp != null){
+        java.util.List listreturnp23= java.util.Arrays.asList(getRankingActividades22mtemp);
+        tempreturnp23 = listreturnp23.toString();
+        }
         %>
-        <%= tempResultdescripcion20 %>
+        <%=tempreturnp23%>
         <%
-}}%>
-</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">url:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtProfesor15mtemp.getInstitucion();
-if(tebece0 != null){
-java.lang.String typeurl22 = tebece0.getUrl();
-        String tempResulturl22 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl22));
-        %>
-        <%= tempResulturl22 %>
-        <%
-}}%>
-</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtProfesor15mtemp.getInstitucion();
-if(tebece0 != null){
-java.lang.String typenombre24 = tebece0.getNombre();
-        String tempResultnombre24 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre24));
-        %>
-        <%= tempResultnombre24 %>
-        <%
-}}%>
-</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">descripcionGeneral:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-java.lang.String typedescripcionGeneral26 = getDtProfesor15mtemp.getDescripcionGeneral();
-        String tempResultdescripcionGeneral26 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcionGeneral26));
-        %>
-        <%= tempResultdescripcionGeneral26 %>
-        <%
-}%>
-</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">sitioWeb:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-java.lang.String typesitioWeb28 = getDtProfesor15mtemp.getSitioWeb();
-        String tempResultsitioWeb28 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typesitioWeb28));
-        %>
-        <%= tempResultsitioWeb28 %>
-        <%
-}%>
-</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">biografia:</TD>
-<TD>
-<%
-if(getDtProfesor15mtemp != null){
-java.lang.String typebiografia30 = getDtProfesor15mtemp.getBiografia();
-        String tempResultbiografia30 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typebiografia30));
-        %>
-        <%= tempResultbiografia30 %>
-        <%
-}%>
-</TD>
-</TABLE>
-<%
 }
 break;
-case 34:
+case 25:
         gotMethod = true;
-        String arg0_2id=  request.getParameter("arg037");
-            java.lang.String arg0_2idTemp = null;
-        if(!arg0_2id.equals("")){
-         arg0_2idTemp  = arg0_2id;
-        }
-        boolean esSocio34mtemp = samplePublicadorTroesmaProxyid.esSocio(arg0_2idTemp);
-        String tempResultreturnp35 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(esSocio34mtemp));
-        %>
-        <%= tempResultreturnp35 %>
-        <%
-break;
-case 39:
-        gotMethod = true;
-        String arg0_3id=  request.getParameter("arg042");
+        String arg0_3id=  request.getParameter("arg028");
             java.lang.String arg0_3idTemp = null;
         if(!arg0_3id.equals("")){
          arg0_3idTemp  = arg0_3id;
         }
-        boolean existeActividad39mtemp = samplePublicadorTroesmaProxyid.existeActividad(arg0_3idTemp);
-        String tempResultreturnp40 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeActividad39mtemp));
+        String arg1_4id=  request.getParameter("arg130");
+            java.lang.String arg1_4idTemp = null;
+        if(!arg1_4id.equals("")){
+         arg1_4idTemp  = arg1_4id;
+        }
+        samplePublicadorTroesmaProxyid.modificarApellido(arg0_3idTemp,arg1_4idTemp);
+break;
+case 32:
+        gotMethod = true;
+        String descripcion_6id=  request.getParameter("descripcion37");
+            java.lang.String descripcion_6idTemp = null;
+        if(!descripcion_6id.equals("")){
+         descripcion_6idTemp  = descripcion_6id;
+        }
+        String url_7id=  request.getParameter("url39");
+            java.lang.String url_7idTemp = null;
+        if(!url_7id.equals("")){
+         url_7idTemp  = url_7id;
+        }
+        String nombre_8id=  request.getParameter("nombre41");
+            java.lang.String nombre_8idTemp = null;
+        if(!nombre_8id.equals("")){
+         nombre_8idTemp  = nombre_8id;
+        }
         %>
-        <%= tempResultreturnp40 %>
+        <jsp:useBean id="publicadores1DtInstitucion_5id" scope="session" class="publicadores.DtInstitucion" />
+        <%
+        publicadores1DtInstitucion_5id.setDescripcion(descripcion_6idTemp);
+        publicadores1DtInstitucion_5id.setUrl(url_7idTemp);
+        publicadores1DtInstitucion_5id.setNombre(nombre_8idTemp);
+        samplePublicadorTroesmaProxyid.paraObtenerDtInstitucion(publicadores1DtInstitucion_5id);
+break;
+case 43:
+        gotMethod = true;
+        String fechaRegistro_10id=  request.getParameter("fechaRegistro48");
+            java.util.Calendar fechaRegistro_10idTemp = null;
+        if(!fechaRegistro_10id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro48 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro48  = dateFormatfechaRegistro48.parse(fechaRegistro_10id);
+         fechaRegistro_10idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_10idTemp.setTime(dateTempfechaRegistro48);
+        }
+        %>
+        <jsp:useBean id="publicadores1DtSocio_11id" scope="session" class="publicadores.DtSocio" />
+        <%
+        String fechaRegistro_13id=  request.getParameter("fechaRegistro54");
+            java.util.Calendar fechaRegistro_13idTemp = null;
+        if(!fechaRegistro_13id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro54 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro54  = dateFormatfechaRegistro54.parse(fechaRegistro_13id);
+         fechaRegistro_13idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_13idTemp.setTime(dateTempfechaRegistro54);
+        }
+        String url_14id=  request.getParameter("url56");
+            java.lang.String url_14idTemp = null;
+        if(!url_14id.equals("")){
+         url_14idTemp  = url_14id;
+        }
+        String fechaClase_15id=  request.getParameter("fechaClase58");
+            java.util.Calendar fechaClase_15idTemp = null;
+        if(!fechaClase_15id.equals("")){
+        java.text.DateFormat dateFormatfechaClase58 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaClase58  = dateFormatfechaClase58.parse(fechaClase_15id);
+         fechaClase_15idTemp = new java.util.GregorianCalendar();
+        fechaClase_15idTemp.setTime(dateTempfechaClase58);
+        }
+        String horaInicio_16id=  request.getParameter("horaInicio60");
+            java.lang.String horaInicio_16idTemp = null;
+        if(!horaInicio_16id.equals("")){
+         horaInicio_16idTemp  = horaInicio_16id;
+        }
+        String nombre_17id=  request.getParameter("nombre62");
+            java.lang.String nombre_17idTemp = null;
+        if(!nombre_17id.equals("")){
+         nombre_17idTemp  = nombre_17id;
+        }
+        String fechaRegistro_19id=  request.getParameter("fechaRegistro66");
+            java.util.Calendar fechaRegistro_19idTemp = null;
+        if(!fechaRegistro_19id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro66 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro66  = dateFormatfechaRegistro66.parse(fechaRegistro_19id);
+         fechaRegistro_19idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_19idTemp.setTime(dateTempfechaRegistro66);
+        }
+        String descripcion_21id=  request.getParameter("descripcion70");
+            java.lang.String descripcion_21idTemp = null;
+        if(!descripcion_21id.equals("")){
+         descripcion_21idTemp  = descripcion_21id;
+        }
+        String url_22id=  request.getParameter("url72");
+            java.lang.String url_22idTemp = null;
+        if(!url_22id.equals("")){
+         url_22idTemp  = url_22id;
+        }
+        String nombre_23id=  request.getParameter("nombre74");
+            java.lang.String nombre_23idTemp = null;
+        if(!nombre_23id.equals("")){
+         nombre_23idTemp  = nombre_23id;
+        }
+        %>
+        <jsp:useBean id="publicadores1InstitucionDeportiva_20id" scope="session" class="publicadores.InstitucionDeportiva" />
+        <%
+        publicadores1InstitucionDeportiva_20id.setDescripcion(descripcion_21idTemp);
+        publicadores1InstitucionDeportiva_20id.setUrl(url_22idTemp);
+        publicadores1InstitucionDeportiva_20id.setNombre(nombre_23idTemp);
+        String descripcion_24id=  request.getParameter("descripcion76");
+            java.lang.String descripcion_24idTemp = null;
+        if(!descripcion_24id.equals("")){
+         descripcion_24idTemp  = descripcion_24id;
+        }
+        String duracionMinutos_25id=  request.getParameter("duracionMinutos78");
+        int duracionMinutos_25idTemp  = Integer.parseInt(duracionMinutos_25id);
+        String nombre_26id=  request.getParameter("nombre80");
+            java.lang.String nombre_26idTemp = null;
+        if(!nombre_26id.equals("")){
+         nombre_26idTemp  = nombre_26id;
+        }
+        String costo_27id=  request.getParameter("costo82");
+        double costo_27idTemp  = Double.parseDouble(costo_27id);
+        %>
+        <jsp:useBean id="publicadores1ActividadDeportiva_18id" scope="session" class="publicadores.ActividadDeportiva" />
+        <%
+        publicadores1ActividadDeportiva_18id.setFechaRegistro(fechaRegistro_19idTemp);
+        publicadores1ActividadDeportiva_18id.setInstitucion(publicadores1InstitucionDeportiva_20id);
+        publicadores1ActividadDeportiva_18id.setDescripcion(descripcion_24idTemp);
+        publicadores1ActividadDeportiva_18id.setDuracionMinutos(duracionMinutos_25idTemp);
+        publicadores1ActividadDeportiva_18id.setNombre(nombre_26idTemp);
+        publicadores1ActividadDeportiva_18id.setCosto(costo_27idTemp);
+        %>
+        <jsp:useBean id="publicadores1DtClase_12id" scope="session" class="publicadores.DtClase" />
+        <%
+        publicadores1DtClase_12id.setFechaRegistro(fechaRegistro_13idTemp);
+        publicadores1DtClase_12id.setUrl(url_14idTemp);
+        publicadores1DtClase_12id.setFechaClase(fechaClase_15idTemp);
+        publicadores1DtClase_12id.setHoraInicio(horaInicio_16idTemp);
+        publicadores1DtClase_12id.setNombre(nombre_17idTemp);
+        publicadores1DtClase_12id.setActividad(publicadores1ActividadDeportiva_18id);
+        %>
+        <jsp:useBean id="publicadores1DtRegistro_9id" scope="session" class="publicadores.DtRegistro" />
+        <%
+        publicadores1DtRegistro_9id.setFechaRegistro(fechaRegistro_10idTemp);
+        publicadores1DtRegistro_9id.setSocio(publicadores1DtSocio_11id);
+        publicadores1DtRegistro_9id.setClase(publicadores1DtClase_12id);
+        samplePublicadorTroesmaProxyid.paraObtenerDtRegistro(publicadores1DtRegistro_9id);
+break;
+case 84:
+        gotMethod = true;
+        String fechaRegistro_29id=  request.getParameter("fechaRegistro89");
+            java.util.Calendar fechaRegistro_29idTemp = null;
+        if(!fechaRegistro_29id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro89 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro89  = dateFormatfechaRegistro89.parse(fechaRegistro_29id);
+         fechaRegistro_29idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_29idTemp.setTime(dateTempfechaRegistro89);
+        }
+        String url_30id=  request.getParameter("url91");
+            java.lang.String url_30idTemp = null;
+        if(!url_30id.equals("")){
+         url_30idTemp  = url_30id;
+        }
+        String fechaClase_31id=  request.getParameter("fechaClase93");
+            java.util.Calendar fechaClase_31idTemp = null;
+        if(!fechaClase_31id.equals("")){
+        java.text.DateFormat dateFormatfechaClase93 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaClase93  = dateFormatfechaClase93.parse(fechaClase_31id);
+         fechaClase_31idTemp = new java.util.GregorianCalendar();
+        fechaClase_31idTemp.setTime(dateTempfechaClase93);
+        }
+        String horaInicio_32id=  request.getParameter("horaInicio95");
+            java.lang.String horaInicio_32idTemp = null;
+        if(!horaInicio_32id.equals("")){
+         horaInicio_32idTemp  = horaInicio_32id;
+        }
+        String nombre_33id=  request.getParameter("nombre97");
+            java.lang.String nombre_33idTemp = null;
+        if(!nombre_33id.equals("")){
+         nombre_33idTemp  = nombre_33id;
+        }
+        String fechaRegistro_35id=  request.getParameter("fechaRegistro101");
+            java.util.Calendar fechaRegistro_35idTemp = null;
+        if(!fechaRegistro_35id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro101 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro101  = dateFormatfechaRegistro101.parse(fechaRegistro_35id);
+         fechaRegistro_35idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_35idTemp.setTime(dateTempfechaRegistro101);
+        }
+        String descripcion_37id=  request.getParameter("descripcion105");
+            java.lang.String descripcion_37idTemp = null;
+        if(!descripcion_37id.equals("")){
+         descripcion_37idTemp  = descripcion_37id;
+        }
+        String url_38id=  request.getParameter("url107");
+            java.lang.String url_38idTemp = null;
+        if(!url_38id.equals("")){
+         url_38idTemp  = url_38id;
+        }
+        String nombre_39id=  request.getParameter("nombre109");
+            java.lang.String nombre_39idTemp = null;
+        if(!nombre_39id.equals("")){
+         nombre_39idTemp  = nombre_39id;
+        }
+        %>
+        <jsp:useBean id="publicadores1InstitucionDeportiva_36id" scope="session" class="publicadores.InstitucionDeportiva" />
+        <%
+        publicadores1InstitucionDeportiva_36id.setDescripcion(descripcion_37idTemp);
+        publicadores1InstitucionDeportiva_36id.setUrl(url_38idTemp);
+        publicadores1InstitucionDeportiva_36id.setNombre(nombre_39idTemp);
+        String descripcion_40id=  request.getParameter("descripcion111");
+            java.lang.String descripcion_40idTemp = null;
+        if(!descripcion_40id.equals("")){
+         descripcion_40idTemp  = descripcion_40id;
+        }
+        String duracionMinutos_41id=  request.getParameter("duracionMinutos113");
+        int duracionMinutos_41idTemp  = Integer.parseInt(duracionMinutos_41id);
+        String nombre_42id=  request.getParameter("nombre115");
+            java.lang.String nombre_42idTemp = null;
+        if(!nombre_42id.equals("")){
+         nombre_42idTemp  = nombre_42id;
+        }
+        String costo_43id=  request.getParameter("costo117");
+        double costo_43idTemp  = Double.parseDouble(costo_43id);
+        %>
+        <jsp:useBean id="publicadores1ActividadDeportiva_34id" scope="session" class="publicadores.ActividadDeportiva" />
+        <%
+        publicadores1ActividadDeportiva_34id.setFechaRegistro(fechaRegistro_35idTemp);
+        publicadores1ActividadDeportiva_34id.setInstitucion(publicadores1InstitucionDeportiva_36id);
+        publicadores1ActividadDeportiva_34id.setDescripcion(descripcion_40idTemp);
+        publicadores1ActividadDeportiva_34id.setDuracionMinutos(duracionMinutos_41idTemp);
+        publicadores1ActividadDeportiva_34id.setNombre(nombre_42idTemp);
+        publicadores1ActividadDeportiva_34id.setCosto(costo_43idTemp);
+        %>
+        <jsp:useBean id="publicadores1DtClase_28id" scope="session" class="publicadores.DtClase" />
+        <%
+        publicadores1DtClase_28id.setFechaRegistro(fechaRegistro_29idTemp);
+        publicadores1DtClase_28id.setUrl(url_30idTemp);
+        publicadores1DtClase_28id.setFechaClase(fechaClase_31idTemp);
+        publicadores1DtClase_28id.setHoraInicio(horaInicio_32idTemp);
+        publicadores1DtClase_28id.setNombre(nombre_33idTemp);
+        publicadores1DtClase_28id.setActividad(publicadores1ActividadDeportiva_34id);
+        samplePublicadorTroesmaProxyid.paraObtenerDtClase(publicadores1DtClase_28id);
+break;
+case 119:
+        gotMethod = true;
+        String arg0_44id=  request.getParameter("arg0122");
+            java.lang.String arg0_44idTemp = null;
+        if(!arg0_44id.equals("")){
+         arg0_44idTemp  = arg0_44id;
+        }
+        String arg1_45id=  request.getParameter("arg1124");
+            java.lang.String arg1_45idTemp = null;
+        if(!arg1_45id.equals("")){
+         arg1_45idTemp  = arg1_45id;
+        }
+        boolean existeActividadEnUnaInstitucion119mtemp = samplePublicadorTroesmaProxyid.existeActividadEnUnaInstitucion(arg0_44idTemp,arg1_45idTemp);
+        String tempResultreturnp120 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeActividadEnUnaInstitucion119mtemp));
+        %>
+        <%= tempResultreturnp120 %>
         <%
 break;
-case 44:
+case 126:
         gotMethod = true;
-        String arg0_4id=  request.getParameter("arg047");
-            java.lang.String arg0_4idTemp = null;
-        if(!arg0_4id.equals("")){
-         arg0_4idTemp  = arg0_4id;
+        String arg0_46id=  request.getParameter("arg0129");
+            java.lang.String arg0_46idTemp = null;
+        if(!arg0_46id.equals("")){
+         arg0_46idTemp  = arg0_46id;
         }
-        publicadores.DtSocio getDtSocio44mtemp = samplePublicadorTroesmaProxyid.getDtSocio(arg0_4idTemp);
-if(getDtSocio44mtemp == null){
+        String arg1_47id=  request.getParameter("arg1131");
+            java.lang.String arg1_47idTemp = null;
+        if(!arg1_47id.equals("")){
+         arg1_47idTemp  = arg1_47id;
+        }
+        String arg2_48id=  request.getParameter("arg2133");
+            java.lang.String arg2_48idTemp = null;
+        if(!arg2_48id.equals("")){
+         arg2_48idTemp  = arg2_48id;
+        }
+        boolean existeClaseDeActividad126mtemp = samplePublicadorTroesmaProxyid.existeClaseDeActividad(arg0_46idTemp,arg1_47idTemp,arg2_48idTemp);
+        String tempResultreturnp127 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeClaseDeActividad126mtemp));
+        %>
+        <%= tempResultreturnp127 %>
+        <%
+break;
+case 135:
+        gotMethod = true;
+        String arg0_49id=  request.getParameter("arg0138");
+            java.lang.String arg0_49idTemp = null;
+        if(!arg0_49id.equals("")){
+         arg0_49idTemp  = arg0_49id;
+        }
+        publicadores.DtSocio getDtSocio135mtemp = samplePublicadorTroesmaProxyid.getDtSocio(arg0_49idTemp);
+if(getDtSocio135mtemp == null){
 %>
-<%=getDtSocio44mtemp %>
+<%=getDtSocio135mtemp %>
 <%
 }else{
-        if(getDtSocio44mtemp!= null){
-        String tempreturnp45 = getDtSocio44mtemp.toString();
+        if(getDtSocio135mtemp!= null){
+        String tempreturnp136 = getDtSocio135mtemp.toString();
         %>
-        <%=tempreturnp45%>
+        <%=tempreturnp136%>
         <%
         }}
 break;
-case 49:
+case 140:
         gotMethod = true;
-        String arg0_5id=  request.getParameter("arg052");
-            java.lang.String arg0_5idTemp = null;
-        if(!arg0_5id.equals("")){
-         arg0_5idTemp  = arg0_5id;
+        String arg0_50id=  request.getParameter("arg0143");
+            java.lang.String arg0_50idTemp = null;
+        if(!arg0_50id.equals("")){
+         arg0_50idTemp  = arg0_50id;
         }
-        String arg1_6id=  request.getParameter("arg154");
-            java.lang.String arg1_6idTemp = null;
-        if(!arg1_6id.equals("")){
-         arg1_6idTemp  = arg1_6id;
+        String fechaRegistro_52id=  request.getParameter("fechaRegistro147");
+            java.util.Calendar fechaRegistro_52idTemp = null;
+        if(!fechaRegistro_52id.equals("")){
+        java.text.DateFormat dateFormatfechaRegistro147 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTempfechaRegistro147  = dateFormatfechaRegistro147.parse(fechaRegistro_52id);
+         fechaRegistro_52idTemp = new java.util.GregorianCalendar();
+        fechaRegistro_52idTemp.setTime(dateTempfechaRegistro147);
         }
-        samplePublicadorTroesmaProxyid.modificarNombre(arg0_5idTemp,arg1_6idTemp);
+        String descripcion_53id=  request.getParameter("descripcion149");
+            java.lang.String descripcion_53idTemp = null;
+        if(!descripcion_53id.equals("")){
+         descripcion_53idTemp  = descripcion_53id;
+        }
+        String descripcion_55id=  request.getParameter("descripcion153");
+            java.lang.String descripcion_55idTemp = null;
+        if(!descripcion_55id.equals("")){
+         descripcion_55idTemp  = descripcion_55id;
+        }
+        String url_56id=  request.getParameter("url155");
+            java.lang.String url_56idTemp = null;
+        if(!url_56id.equals("")){
+         url_56idTemp  = url_56id;
+        }
+        String nombre_57id=  request.getParameter("nombre157");
+            java.lang.String nombre_57idTemp = null;
+        if(!nombre_57id.equals("")){
+         nombre_57idTemp  = nombre_57id;
+        }
+        %>
+        <jsp:useBean id="publicadores1DtInstitucion_54id" scope="session" class="publicadores.DtInstitucion" />
+        <%
+        publicadores1DtInstitucion_54id.setDescripcion(descripcion_55idTemp);
+        publicadores1DtInstitucion_54id.setUrl(url_56idTemp);
+        publicadores1DtInstitucion_54id.setNombre(nombre_57idTemp);
+        String duracionMinutos_58id=  request.getParameter("duracionMinutos159");
+        int duracionMinutos_58idTemp  = Integer.parseInt(duracionMinutos_58id);
+        String costo_59id=  request.getParameter("costo161");
+        double costo_59idTemp  = Double.parseDouble(costo_59id);
+        String nombre_60id=  request.getParameter("nombre163");
+            java.lang.String nombre_60idTemp = null;
+        if(!nombre_60id.equals("")){
+         nombre_60idTemp  = nombre_60id;
+        }
+        %>
+        <jsp:useBean id="publicadores1DtActividad_51id" scope="session" class="publicadores.DtActividad" />
+        <%
+        publicadores1DtActividad_51id.setFechaRegistro(fechaRegistro_52idTemp);
+        publicadores1DtActividad_51id.setDescripcion(descripcion_53idTemp);
+        publicadores1DtActividad_51id.setInstitucion(publicadores1DtInstitucion_54id);
+        publicadores1DtActividad_51id.setDuracionMinutos(duracionMinutos_58idTemp);
+        publicadores1DtActividad_51id.setCosto(costo_59idTemp);
+        publicadores1DtActividad_51id.setNombre(nombre_60idTemp);
+        String arg2_61id=  request.getParameter("arg2165");
+            java.util.Calendar arg2_61idTemp = null;
+        if(!arg2_61id.equals("")){
+        java.text.DateFormat dateFormatarg2165 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTemparg2165  = dateFormatarg2165.parse(arg2_61id);
+         arg2_61idTemp = new java.util.GregorianCalendar();
+        arg2_61idTemp.setTime(dateTemparg2165);
+        }
+        String arg3_62id=  request.getParameter("arg3167");
+            java.lang.String arg3_62idTemp = null;
+        if(!arg3_62id.equals("")){
+         arg3_62idTemp  = arg3_62id;
+        }
+        String arg4_63id=  request.getParameter("arg4169");
+            java.lang.String arg4_63idTemp = null;
+        if(!arg4_63id.equals("")){
+         arg4_63idTemp  = arg4_63id;
+        }
+        String arg5_64id=  request.getParameter("arg5171");
+            java.lang.String arg5_64idTemp = null;
+        if(!arg5_64id.equals("")){
+         arg5_64idTemp  = arg5_64id;
+        }
+        String arg6_65id=  request.getParameter("arg6173");
+            java.util.Calendar arg6_65idTemp = null;
+        if(!arg6_65id.equals("")){
+        java.text.DateFormat dateFormatarg6173 = java.text.DateFormat.getDateInstance();
+        java.util.Date dateTemparg6173  = dateFormatarg6173.parse(arg6_65id);
+         arg6_65idTemp = new java.util.GregorianCalendar();
+        arg6_65idTemp.setTime(dateTemparg6173);
+        }
+        samplePublicadorTroesmaProxyid.altaDictadoClase(arg0_50idTemp,publicadores1DtActividad_51id,arg2_61idTemp,arg3_62idTemp,arg4_63idTemp,arg5_64idTemp,arg6_65idTemp);
 break;
-case 56:
+case 175:
         gotMethod = true;
-        String arg0_7id=  request.getParameter("arg077");
-            java.lang.String arg0_7idTemp = null;
-        if(!arg0_7id.equals("")){
-         arg0_7idTemp  = arg0_7id;
+        String arg0_66id=  request.getParameter("arg0178");
+            java.lang.String arg0_66idTemp = null;
+        if(!arg0_66id.equals("")){
+         arg0_66idTemp  = arg0_66id;
         }
-        publicadores.DtActividad getDtActividad56mtemp = samplePublicadorTroesmaProxyid.getDtActividad(arg0_7idTemp);
-if(getDtActividad56mtemp == null){
+        String arg1_67id=  request.getParameter("arg1180");
+            java.lang.String arg1_67idTemp = null;
+        if(!arg1_67id.equals("")){
+         arg1_67idTemp  = arg1_67id;
+        }
+        samplePublicadorTroesmaProxyid.modificarNombre(arg0_66idTemp,arg1_67idTemp);
+break;
+case 182:
+        gotMethod = true;
+        String arg0_68id=  request.getParameter("arg0203");
+            java.lang.String arg0_68idTemp = null;
+        if(!arg0_68id.equals("")){
+         arg0_68idTemp  = arg0_68id;
+        }
+        publicadores.DtActividad getDtActividad182mtemp = samplePublicadorTroesmaProxyid.getDtActividad(arg0_68idTemp);
+if(getDtActividad182mtemp == null){
 %>
-<%=getDtActividad56mtemp %>
+<%=getDtActividad182mtemp %>
 <%
 }else{
 %>
@@ -255,13 +531,13 @@ if(getDtActividad56mtemp == null){
 <TD COLSPAN="2" ALIGN="LEFT">fechaRegistro:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-java.util.Calendar typefechaRegistro59 = getDtActividad56mtemp.getFechaRegistro();
-        java.text.DateFormat dateFormatfechaRegistro59 = java.text.DateFormat.getDateInstance();
-        java.util.Date datefechaRegistro59 = typefechaRegistro59.getTime();
-        String tempResultfechaRegistro59 = org.eclipse.jst.ws.util.JspUtils.markup(dateFormatfechaRegistro59.format(datefechaRegistro59));
+if(getDtActividad182mtemp != null){
+java.util.Calendar typefechaRegistro185 = getDtActividad182mtemp.getFechaRegistro();
+        java.text.DateFormat dateFormatfechaRegistro185 = java.text.DateFormat.getDateInstance();
+        java.util.Date datefechaRegistro185 = typefechaRegistro185.getTime();
+        String tempResultfechaRegistro185 = org.eclipse.jst.ws.util.JspUtils.markup(dateFormatfechaRegistro185.format(datefechaRegistro185));
         %>
-        <%= tempResultfechaRegistro59 %>
+        <%= tempResultfechaRegistro185 %>
         <%
 }%>
 </TD>
@@ -270,11 +546,11 @@ java.util.Calendar typefechaRegistro59 = getDtActividad56mtemp.getFechaRegistro(
 <TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-java.lang.String typedescripcion61 = getDtActividad56mtemp.getDescripcion();
-        String tempResultdescripcion61 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion61));
+if(getDtActividad182mtemp != null){
+java.lang.String typedescripcion187 = getDtActividad182mtemp.getDescripcion();
+        String tempResultdescripcion187 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion187));
         %>
-        <%= tempResultdescripcion61 %>
+        <%= tempResultdescripcion187 %>
         <%
 }%>
 </TD>
@@ -287,13 +563,13 @@ java.lang.String typedescripcion61 = getDtActividad56mtemp.getDescripcion();
 <TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtActividad56mtemp.getInstitucion();
+if(getDtActividad182mtemp != null){
+publicadores.DtInstitucion tebece0=getDtActividad182mtemp.getInstitucion();
 if(tebece0 != null){
-java.lang.String typedescripcion65 = tebece0.getDescripcion();
-        String tempResultdescripcion65 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion65));
+java.lang.String typedescripcion191 = tebece0.getDescripcion();
+        String tempResultdescripcion191 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion191));
         %>
-        <%= tempResultdescripcion65 %>
+        <%= tempResultdescripcion191 %>
         <%
 }}%>
 </TD>
@@ -303,13 +579,13 @@ java.lang.String typedescripcion65 = tebece0.getDescripcion();
 <TD COLSPAN="1" ALIGN="LEFT">url:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtActividad56mtemp.getInstitucion();
+if(getDtActividad182mtemp != null){
+publicadores.DtInstitucion tebece0=getDtActividad182mtemp.getInstitucion();
 if(tebece0 != null){
-java.lang.String typeurl67 = tebece0.getUrl();
-        String tempResulturl67 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl67));
+java.lang.String typeurl193 = tebece0.getUrl();
+        String tempResulturl193 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl193));
         %>
-        <%= tempResulturl67 %>
+        <%= tempResulturl193 %>
         <%
 }}%>
 </TD>
@@ -319,13 +595,13 @@ java.lang.String typeurl67 = tebece0.getUrl();
 <TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-publicadores.InstitucionDeportiva tebece0=getDtActividad56mtemp.getInstitucion();
+if(getDtActividad182mtemp != null){
+publicadores.DtInstitucion tebece0=getDtActividad182mtemp.getInstitucion();
 if(tebece0 != null){
-java.lang.String typenombre69 = tebece0.getNombre();
-        String tempResultnombre69 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre69));
+java.lang.String typenombre195 = tebece0.getNombre();
+        String tempResultnombre195 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre195));
         %>
-        <%= tempResultnombre69 %>
+        <%= tempResultnombre195 %>
         <%
 }}%>
 </TD>
@@ -334,9 +610,9 @@ java.lang.String typenombre69 = tebece0.getNombre();
 <TD COLSPAN="2" ALIGN="LEFT">duracionMinutos:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
+if(getDtActividad182mtemp != null){
 %>
-<%=getDtActividad56mtemp.getDuracionMinutos()
+<%=getDtActividad182mtemp.getDuracionMinutos()
 %><%}%>
 </TD>
 <TR>
@@ -344,9 +620,9 @@ if(getDtActividad56mtemp != null){
 <TD COLSPAN="2" ALIGN="LEFT">costo:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
+if(getDtActividad182mtemp != null){
 %>
-<%=getDtActividad56mtemp.getCosto()
+<%=getDtActividad182mtemp.getCosto()
 %><%}%>
 </TD>
 <TR>
@@ -354,11 +630,11 @@ if(getDtActividad56mtemp != null){
 <TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
 <TD>
 <%
-if(getDtActividad56mtemp != null){
-java.lang.String typenombre75 = getDtActividad56mtemp.getNombre();
-        String tempResultnombre75 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre75));
+if(getDtActividad182mtemp != null){
+java.lang.String typenombre201 = getDtActividad182mtemp.getNombre();
+        String tempResultnombre201 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre201));
         %>
-        <%= tempResultnombre75 %>
+        <%= tempResultnombre201 %>
         <%
 }%>
 </TD>
@@ -366,338 +642,233 @@ java.lang.String typenombre75 = getDtActividad56mtemp.getNombre();
 <%
 }
 break;
-case 79:
+case 205:
         gotMethod = true;
-        String arg0_8id=  request.getParameter("arg082");
-            java.lang.String arg0_8idTemp = null;
-        if(!arg0_8id.equals("")){
-         arg0_8idTemp  = arg0_8id;
+        String arg0_69id=  request.getParameter("arg0208");
+            java.lang.String arg0_69idTemp = null;
+        if(!arg0_69id.equals("")){
+         arg0_69idTemp  = arg0_69id;
         }
-        String arg1_9id=  request.getParameter("arg184");
-            java.lang.String arg1_9idTemp = null;
-        if(!arg1_9id.equals("")){
-         arg1_9idTemp  = arg1_9id;
-        }
-        boolean esContrasena79mtemp = samplePublicadorTroesmaProxyid.esContrasena(arg0_8idTemp,arg1_9idTemp);
-        String tempResultreturnp80 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(esContrasena79mtemp));
+        boolean esSocio205mtemp = samplePublicadorTroesmaProxyid.esSocio(arg0_69idTemp);
+        String tempResultreturnp206 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(esSocio205mtemp));
         %>
-        <%= tempResultreturnp80 %>
+        <%= tempResultreturnp206 %>
         <%
 break;
-case 86:
+case 210:
         gotMethod = true;
-        String arg0_10id=  request.getParameter("arg089");
-            java.lang.String arg0_10idTemp = null;
-        if(!arg0_10id.equals("")){
-         arg0_10idTemp  = arg0_10id;
+        String arg0_70id=  request.getParameter("arg0213");
+            java.lang.String arg0_70idTemp = null;
+        if(!arg0_70id.equals("")){
+         arg0_70idTemp  = arg0_70id;
         }
-        boolean existeUsuario86mtemp = samplePublicadorTroesmaProxyid.existeUsuario(arg0_10idTemp);
-        String tempResultreturnp87 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeUsuario86mtemp));
+        String arg1_71id=  request.getParameter("arg1215");
+            java.lang.String arg1_71idTemp = null;
+        if(!arg1_71id.equals("")){
+         arg1_71idTemp  = arg1_71id;
+        }
+        boolean esContrasena210mtemp = samplePublicadorTroesmaProxyid.esContrasena(arg0_70idTemp,arg1_71idTemp);
+        String tempResultreturnp211 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(esContrasena210mtemp));
         %>
-        <%= tempResultreturnp87 %>
+        <%= tempResultreturnp211 %>
         <%
 break;
-case 91:
+case 217:
         gotMethod = true;
-        String arg0_11id=  request.getParameter("arg094");
-            java.lang.String arg0_11idTemp = null;
-        if(!arg0_11id.equals("")){
-         arg0_11idTemp  = arg0_11id;
+        String arg0_72id=  request.getParameter("arg0220");
+            java.lang.String arg0_72idTemp = null;
+        if(!arg0_72id.equals("")){
+         arg0_72idTemp  = arg0_72id;
         }
-        String arg1_12id=  request.getParameter("arg196");
-            java.lang.String arg1_12idTemp = null;
-        if(!arg1_12id.equals("")){
-         arg1_12idTemp  = arg1_12id;
-        }
-        samplePublicadorTroesmaProxyid.modificarApellido(arg0_11idTemp,arg1_12idTemp);
-break;
-case 98:
-        gotMethod = true;
-        String arg0_13id=  request.getParameter("arg0101");
-            java.lang.String arg0_13idTemp = null;
-        if(!arg0_13id.equals("")){
-         arg0_13idTemp  = arg0_13id;
-        }
-        String arg1_14id=  request.getParameter("arg1103");
-            java.lang.String arg1_14idTemp = null;
-        if(!arg1_14id.equals("")){
-         arg1_14idTemp  = arg1_14id;
-        }
-        samplePublicadorTroesmaProxyid.modificarFechaNacimiento(arg0_13idTemp,arg1_14idTemp);
-break;
-case 105:
-        gotMethod = true;
-        String descripcion_17id=  request.getParameter("descripcion112");
-            java.lang.String descripcion_17idTemp = null;
-        if(!descripcion_17id.equals("")){
-         descripcion_17idTemp  = descripcion_17id;
-        }
-        String url_18id=  request.getParameter("url114");
-            java.lang.String url_18idTemp = null;
-        if(!url_18id.equals("")){
-         url_18idTemp  = url_18id;
-        }
-        String nombre_19id=  request.getParameter("nombre116");
-            java.lang.String nombre_19idTemp = null;
-        if(!nombre_19id.equals("")){
-         nombre_19idTemp  = nombre_19id;
-        }
+        boolean existeUsuario217mtemp = samplePublicadorTroesmaProxyid.existeUsuario(arg0_72idTemp);
+        String tempResultreturnp218 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeUsuario217mtemp));
         %>
-        <jsp:useBean id="publicadores1InstitucionDeportiva_16id" scope="session" class="publicadores.InstitucionDeportiva" />
+        <%= tempResultreturnp218 %>
         <%
-        publicadores1InstitucionDeportiva_16id.setDescripcion(descripcion_17idTemp);
-        publicadores1InstitucionDeportiva_16id.setUrl(url_18idTemp);
-        publicadores1InstitucionDeportiva_16id.setNombre(nombre_19idTemp);
-        String descripcionGeneral_20id=  request.getParameter("descripcionGeneral118");
-            java.lang.String descripcionGeneral_20idTemp = null;
-        if(!descripcionGeneral_20id.equals("")){
-         descripcionGeneral_20idTemp  = descripcionGeneral_20id;
-        }
-        String sitioWeb_21id=  request.getParameter("sitioWeb120");
-            java.lang.String sitioWeb_21idTemp = null;
-        if(!sitioWeb_21id.equals("")){
-         sitioWeb_21idTemp  = sitioWeb_21id;
-        }
-        String biografia_22id=  request.getParameter("biografia122");
-            java.lang.String biografia_22idTemp = null;
-        if(!biografia_22id.equals("")){
-         biografia_22idTemp  = biografia_22id;
-        }
-        %>
-        <jsp:useBean id="publicadores1DtProfesor_15id" scope="session" class="publicadores.DtProfesor" />
-        <%
-        publicadores1DtProfesor_15id.setInstitucion(publicadores1InstitucionDeportiva_16id);
-        publicadores1DtProfesor_15id.setDescripcionGeneral(descripcionGeneral_20idTemp);
-        publicadores1DtProfesor_15id.setSitioWeb(sitioWeb_21idTemp);
-        publicadores1DtProfesor_15id.setBiografia(biografia_22idTemp);
-        samplePublicadorTroesmaProxyid.getDtClases(publicadores1DtProfesor_15id);
 break;
-case 124:
+case 222:
         gotMethod = true;
-        publicadores.DtActividad[] getRankingActividades124mtemp = samplePublicadorTroesmaProxyid.getRankingActividades();
-if(getRankingActividades124mtemp == null){
+        String arg0_73id=  request.getParameter("arg0225");
+            java.lang.String arg0_73idTemp = null;
+        if(!arg0_73id.equals("")){
+         arg0_73idTemp  = arg0_73id;
+        }
+        boolean existeActividad222mtemp = samplePublicadorTroesmaProxyid.existeActividad(arg0_73idTemp);
+        String tempResultreturnp223 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(existeActividad222mtemp));
+        %>
+        <%= tempResultreturnp223 %>
+        <%
+break;
+case 227:
+        gotMethod = true;
+        String arg0_74id=  request.getParameter("arg0236");
+            java.lang.String arg0_74idTemp = null;
+        if(!arg0_74id.equals("")){
+         arg0_74idTemp  = arg0_74id;
+        }
+        publicadores.DtInstitucion getDtInstitucion227mtemp = samplePublicadorTroesmaProxyid.getDtInstitucion(arg0_74idTemp);
+if(getDtInstitucion227mtemp == null){
 %>
-<%=getRankingActividades124mtemp %>
+<%=getDtInstitucion227mtemp %>
 <%
 }else{
-        String tempreturnp125 = null;
-        if(getRankingActividades124mtemp != null){
-        java.util.List listreturnp125= java.util.Arrays.asList(getRankingActividades124mtemp);
-        tempreturnp125 = listreturnp125.toString();
-        }
+%>
+<TABLE>
+<TR>
+<TD COLSPAN="3" ALIGN="LEFT">returnp:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
+<TD>
+<%
+if(getDtInstitucion227mtemp != null){
+java.lang.String typedescripcion230 = getDtInstitucion227mtemp.getDescripcion();
+        String tempResultdescripcion230 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion230));
         %>
-        <%=tempreturnp125%>
+        <%= tempResultdescripcion230 %>
         <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">url:</TD>
+<TD>
+<%
+if(getDtInstitucion227mtemp != null){
+java.lang.String typeurl232 = getDtInstitucion227mtemp.getUrl();
+        String tempResulturl232 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl232));
+        %>
+        <%= tempResulturl232 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
+<TD>
+<%
+if(getDtInstitucion227mtemp != null){
+java.lang.String typenombre234 = getDtInstitucion227mtemp.getNombre();
+        String tempResultnombre234 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre234));
+        %>
+        <%= tempResultnombre234 %>
+        <%
+}%>
+</TD>
+</TABLE>
+<%
 }
 break;
-case 127:
+case 238:
         gotMethod = true;
-        String fechaRegistro_24id=  request.getParameter("fechaRegistro132");
-            java.util.Calendar fechaRegistro_24idTemp = null;
-        if(!fechaRegistro_24id.equals("")){
-        java.text.DateFormat dateFormatfechaRegistro132 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaRegistro132  = dateFormatfechaRegistro132.parse(fechaRegistro_24id);
-         fechaRegistro_24idTemp = new java.util.GregorianCalendar();
-        fechaRegistro_24idTemp.setTime(dateTempfechaRegistro132);
+        String arg0_75id=  request.getParameter("arg0255");
+            java.lang.String arg0_75idTemp = null;
+        if(!arg0_75id.equals("")){
+         arg0_75idTemp  = arg0_75id;
         }
+        publicadores.DtProfesor getDtProfesor238mtemp = samplePublicadorTroesmaProxyid.getDtProfesor(arg0_75idTemp);
+if(getDtProfesor238mtemp == null){
+%>
+<%=getDtProfesor238mtemp %>
+<%
+}else{
+%>
+<TABLE>
+<TR>
+<TD COLSPAN="3" ALIGN="LEFT">returnp:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">institucion:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">descripcion:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+publicadores.InstitucionDeportiva tebece0=getDtProfesor238mtemp.getInstitucion();
+if(tebece0 != null){
+java.lang.String typedescripcion243 = tebece0.getDescripcion();
+        String tempResultdescripcion243 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion243));
         %>
-        <jsp:useBean id="publicadores1DtSocio_25id" scope="session" class="publicadores.DtSocio" />
+        <%= tempResultdescripcion243 %>
         <%
-        String fechaRegistro_27id=  request.getParameter("fechaRegistro138");
-            java.util.Calendar fechaRegistro_27idTemp = null;
-        if(!fechaRegistro_27id.equals("")){
-        java.text.DateFormat dateFormatfechaRegistro138 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaRegistro138  = dateFormatfechaRegistro138.parse(fechaRegistro_27id);
-         fechaRegistro_27idTemp = new java.util.GregorianCalendar();
-        fechaRegistro_27idTemp.setTime(dateTempfechaRegistro138);
-        }
-        String url_28id=  request.getParameter("url140");
-            java.lang.String url_28idTemp = null;
-        if(!url_28id.equals("")){
-         url_28idTemp  = url_28id;
-        }
-        String fechaClase_29id=  request.getParameter("fechaClase142");
-            java.util.Calendar fechaClase_29idTemp = null;
-        if(!fechaClase_29id.equals("")){
-        java.text.DateFormat dateFormatfechaClase142 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaClase142  = dateFormatfechaClase142.parse(fechaClase_29id);
-         fechaClase_29idTemp = new java.util.GregorianCalendar();
-        fechaClase_29idTemp.setTime(dateTempfechaClase142);
-        }
-        String horaInicio_30id=  request.getParameter("horaInicio144");
-            java.lang.String horaInicio_30idTemp = null;
-        if(!horaInicio_30id.equals("")){
-         horaInicio_30idTemp  = horaInicio_30id;
-        }
-        String nombre_31id=  request.getParameter("nombre146");
-            java.lang.String nombre_31idTemp = null;
-        if(!nombre_31id.equals("")){
-         nombre_31idTemp  = nombre_31id;
-        }
-        String fechaRegistro_33id=  request.getParameter("fechaRegistro150");
-            java.util.Calendar fechaRegistro_33idTemp = null;
-        if(!fechaRegistro_33id.equals("")){
-        java.text.DateFormat dateFormatfechaRegistro150 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaRegistro150  = dateFormatfechaRegistro150.parse(fechaRegistro_33id);
-         fechaRegistro_33idTemp = new java.util.GregorianCalendar();
-        fechaRegistro_33idTemp.setTime(dateTempfechaRegistro150);
-        }
-        String descripcion_35id=  request.getParameter("descripcion154");
-            java.lang.String descripcion_35idTemp = null;
-        if(!descripcion_35id.equals("")){
-         descripcion_35idTemp  = descripcion_35id;
-        }
-        String url_36id=  request.getParameter("url156");
-            java.lang.String url_36idTemp = null;
-        if(!url_36id.equals("")){
-         url_36idTemp  = url_36id;
-        }
-        String nombre_37id=  request.getParameter("nombre158");
-            java.lang.String nombre_37idTemp = null;
-        if(!nombre_37id.equals("")){
-         nombre_37idTemp  = nombre_37id;
-        }
+}}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">url:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+publicadores.InstitucionDeportiva tebece0=getDtProfesor238mtemp.getInstitucion();
+if(tebece0 != null){
+java.lang.String typeurl245 = tebece0.getUrl();
+        String tempResulturl245 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl245));
         %>
-        <jsp:useBean id="publicadores1InstitucionDeportiva_34id" scope="session" class="publicadores.InstitucionDeportiva" />
+        <%= tempResulturl245 %>
         <%
-        publicadores1InstitucionDeportiva_34id.setDescripcion(descripcion_35idTemp);
-        publicadores1InstitucionDeportiva_34id.setUrl(url_36idTemp);
-        publicadores1InstitucionDeportiva_34id.setNombre(nombre_37idTemp);
-        String descripcion_38id=  request.getParameter("descripcion160");
-            java.lang.String descripcion_38idTemp = null;
-        if(!descripcion_38id.equals("")){
-         descripcion_38idTemp  = descripcion_38id;
-        }
-        String duracionMinutos_39id=  request.getParameter("duracionMinutos162");
-        int duracionMinutos_39idTemp  = Integer.parseInt(duracionMinutos_39id);
-        String nombre_40id=  request.getParameter("nombre164");
-            java.lang.String nombre_40idTemp = null;
-        if(!nombre_40id.equals("")){
-         nombre_40idTemp  = nombre_40id;
-        }
-        String costo_41id=  request.getParameter("costo166");
-        double costo_41idTemp  = Double.parseDouble(costo_41id);
+}}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">nombre:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+publicadores.InstitucionDeportiva tebece0=getDtProfesor238mtemp.getInstitucion();
+if(tebece0 != null){
+java.lang.String typenombre247 = tebece0.getNombre();
+        String tempResultnombre247 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre247));
         %>
-        <jsp:useBean id="publicadores1ActividadDeportiva_32id" scope="session" class="publicadores.ActividadDeportiva" />
+        <%= tempResultnombre247 %>
         <%
-        publicadores1ActividadDeportiva_32id.setFechaRegistro(fechaRegistro_33idTemp);
-        publicadores1ActividadDeportiva_32id.setInstitucion(publicadores1InstitucionDeportiva_34id);
-        publicadores1ActividadDeportiva_32id.setDescripcion(descripcion_38idTemp);
-        publicadores1ActividadDeportiva_32id.setDuracionMinutos(duracionMinutos_39idTemp);
-        publicadores1ActividadDeportiva_32id.setNombre(nombre_40idTemp);
-        publicadores1ActividadDeportiva_32id.setCosto(costo_41idTemp);
+}}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">descripcionGeneral:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+java.lang.String typedescripcionGeneral249 = getDtProfesor238mtemp.getDescripcionGeneral();
+        String tempResultdescripcionGeneral249 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcionGeneral249));
         %>
-        <jsp:useBean id="publicadores1DtClase_26id" scope="session" class="publicadores.DtClase" />
+        <%= tempResultdescripcionGeneral249 %>
         <%
-        publicadores1DtClase_26id.setFechaRegistro(fechaRegistro_27idTemp);
-        publicadores1DtClase_26id.setUrl(url_28idTemp);
-        publicadores1DtClase_26id.setFechaClase(fechaClase_29idTemp);
-        publicadores1DtClase_26id.setHoraInicio(horaInicio_30idTemp);
-        publicadores1DtClase_26id.setNombre(nombre_31idTemp);
-        publicadores1DtClase_26id.setActividad(publicadores1ActividadDeportiva_32id);
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">sitioWeb:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+java.lang.String typesitioWeb251 = getDtProfesor238mtemp.getSitioWeb();
+        String tempResultsitioWeb251 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typesitioWeb251));
         %>
-        <jsp:useBean id="publicadores1DtRegistro_23id" scope="session" class="publicadores.DtRegistro" />
+        <%= tempResultsitioWeb251 %>
         <%
-        publicadores1DtRegistro_23id.setFechaRegistro(fechaRegistro_24idTemp);
-        publicadores1DtRegistro_23id.setSocio(publicadores1DtSocio_25id);
-        publicadores1DtRegistro_23id.setClase(publicadores1DtClase_26id);
-        samplePublicadorTroesmaProxyid.paraObtenerDtInfoClase2(publicadores1DtRegistro_23id);
-break;
-case 168:
-        gotMethod = true;
-        String fechaRegistro_43id=  request.getParameter("fechaRegistro173");
-            java.util.Calendar fechaRegistro_43idTemp = null;
-        if(!fechaRegistro_43id.equals("")){
-        java.text.DateFormat dateFormatfechaRegistro173 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaRegistro173  = dateFormatfechaRegistro173.parse(fechaRegistro_43id);
-         fechaRegistro_43idTemp = new java.util.GregorianCalendar();
-        fechaRegistro_43idTemp.setTime(dateTempfechaRegistro173);
-        }
-        String url_44id=  request.getParameter("url175");
-            java.lang.String url_44idTemp = null;
-        if(!url_44id.equals("")){
-         url_44idTemp  = url_44id;
-        }
-        String fechaClase_45id=  request.getParameter("fechaClase177");
-            java.util.Calendar fechaClase_45idTemp = null;
-        if(!fechaClase_45id.equals("")){
-        java.text.DateFormat dateFormatfechaClase177 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaClase177  = dateFormatfechaClase177.parse(fechaClase_45id);
-         fechaClase_45idTemp = new java.util.GregorianCalendar();
-        fechaClase_45idTemp.setTime(dateTempfechaClase177);
-        }
-        String horaInicio_46id=  request.getParameter("horaInicio179");
-            java.lang.String horaInicio_46idTemp = null;
-        if(!horaInicio_46id.equals("")){
-         horaInicio_46idTemp  = horaInicio_46id;
-        }
-        String nombre_47id=  request.getParameter("nombre181");
-            java.lang.String nombre_47idTemp = null;
-        if(!nombre_47id.equals("")){
-         nombre_47idTemp  = nombre_47id;
-        }
-        String fechaRegistro_49id=  request.getParameter("fechaRegistro185");
-            java.util.Calendar fechaRegistro_49idTemp = null;
-        if(!fechaRegistro_49id.equals("")){
-        java.text.DateFormat dateFormatfechaRegistro185 = java.text.DateFormat.getDateInstance();
-        java.util.Date dateTempfechaRegistro185  = dateFormatfechaRegistro185.parse(fechaRegistro_49id);
-         fechaRegistro_49idTemp = new java.util.GregorianCalendar();
-        fechaRegistro_49idTemp.setTime(dateTempfechaRegistro185);
-        }
-        String descripcion_51id=  request.getParameter("descripcion189");
-            java.lang.String descripcion_51idTemp = null;
-        if(!descripcion_51id.equals("")){
-         descripcion_51idTemp  = descripcion_51id;
-        }
-        String url_52id=  request.getParameter("url191");
-            java.lang.String url_52idTemp = null;
-        if(!url_52id.equals("")){
-         url_52idTemp  = url_52id;
-        }
-        String nombre_53id=  request.getParameter("nombre193");
-            java.lang.String nombre_53idTemp = null;
-        if(!nombre_53id.equals("")){
-         nombre_53idTemp  = nombre_53id;
-        }
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">biografia:</TD>
+<TD>
+<%
+if(getDtProfesor238mtemp != null){
+java.lang.String typebiografia253 = getDtProfesor238mtemp.getBiografia();
+        String tempResultbiografia253 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typebiografia253));
         %>
-        <jsp:useBean id="publicadores1InstitucionDeportiva_50id" scope="session" class="publicadores.InstitucionDeportiva" />
+        <%= tempResultbiografia253 %>
         <%
-        publicadores1InstitucionDeportiva_50id.setDescripcion(descripcion_51idTemp);
-        publicadores1InstitucionDeportiva_50id.setUrl(url_52idTemp);
-        publicadores1InstitucionDeportiva_50id.setNombre(nombre_53idTemp);
-        String descripcion_54id=  request.getParameter("descripcion195");
-            java.lang.String descripcion_54idTemp = null;
-        if(!descripcion_54id.equals("")){
-         descripcion_54idTemp  = descripcion_54id;
-        }
-        String duracionMinutos_55id=  request.getParameter("duracionMinutos197");
-        int duracionMinutos_55idTemp  = Integer.parseInt(duracionMinutos_55id);
-        String nombre_56id=  request.getParameter("nombre199");
-            java.lang.String nombre_56idTemp = null;
-        if(!nombre_56id.equals("")){
-         nombre_56idTemp  = nombre_56id;
-        }
-        String costo_57id=  request.getParameter("costo201");
-        double costo_57idTemp  = Double.parseDouble(costo_57id);
-        %>
-        <jsp:useBean id="publicadores1ActividadDeportiva_48id" scope="session" class="publicadores.ActividadDeportiva" />
-        <%
-        publicadores1ActividadDeportiva_48id.setFechaRegistro(fechaRegistro_49idTemp);
-        publicadores1ActividadDeportiva_48id.setInstitucion(publicadores1InstitucionDeportiva_50id);
-        publicadores1ActividadDeportiva_48id.setDescripcion(descripcion_54idTemp);
-        publicadores1ActividadDeportiva_48id.setDuracionMinutos(duracionMinutos_55idTemp);
-        publicadores1ActividadDeportiva_48id.setNombre(nombre_56idTemp);
-        publicadores1ActividadDeportiva_48id.setCosto(costo_57idTemp);
-        %>
-        <jsp:useBean id="publicadores1DtClase_42id" scope="session" class="publicadores.DtClase" />
-        <%
-        publicadores1DtClase_42id.setFechaRegistro(fechaRegistro_43idTemp);
-        publicadores1DtClase_42id.setUrl(url_44idTemp);
-        publicadores1DtClase_42id.setFechaClase(fechaClase_45idTemp);
-        publicadores1DtClase_42id.setHoraInicio(horaInicio_46idTemp);
-        publicadores1DtClase_42id.setNombre(nombre_47idTemp);
-        publicadores1DtClase_42id.setActividad(publicadores1ActividadDeportiva_48id);
-        samplePublicadorTroesmaProxyid.paraObtenerDtInfoClase(publicadores1DtClase_42id);
+}%>
+</TD>
+</TABLE>
+<%
+}
 break;
 }
 } catch (Exception e) { 

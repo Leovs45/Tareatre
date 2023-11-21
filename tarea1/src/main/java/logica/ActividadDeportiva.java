@@ -171,7 +171,7 @@ public class ActividadDeportiva {
 	}
 
 	public DtActividad getDtActividad() {
-		return new DtActividad(institucion, nombre, descripcion, duracionMinutos, costo, fechaRegistro, clases);
+		return new DtActividad(institucion.getDtInstitucion(), nombre, descripcion, duracionMinutos, costo, fechaRegistro, clases);
 	}
 
 }

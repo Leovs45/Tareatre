@@ -44,28 +44,64 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma;
   }
   
-  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
+  public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getDtProfesor(arg0);
+    publicadorTroesma.modificarFechaNacimiento(arg0, arg1);
   }
   
-  public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException{
+  public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.esSocio(arg0);
+    return publicadorTroesma.getRankingActividades();
   }
   
-  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
+  public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    return publicadorTroesma.existeActividad(arg0);
+    publicadorTroesma.modificarApellido(arg0, arg1);
+  }
+  
+  public void paraObtenerDtInstitucion(publicadores.DtInstitucion arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.paraObtenerDtInstitucion(arg0);
+  }
+  
+  public void paraObtenerDtRegistro(publicadores.DtRegistro arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.paraObtenerDtRegistro(arg0);
+  }
+  
+  public void paraObtenerDtClase(publicadores.DtClase arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.paraObtenerDtClase(arg0);
+  }
+  
+  public boolean existeActividadEnUnaInstitucion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeActividadEnUnaInstitucion(arg0, arg1);
+  }
+  
+  public boolean existeClaseDeActividad(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeClaseDeActividad(arg0, arg1, arg2);
   }
   
   public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
     return publicadorTroesma.getDtSocio(arg0);
+  }
+  
+  public void altaDictadoClase(java.lang.String arg0, publicadores.DtActividad arg1, java.util.Calendar arg2, java.lang.String arg3, java.lang.String arg4, java.lang.String arg5, java.util.Calendar arg6) throws java.rmi.RemoteException, publicadores.ClaseRepetidaException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.altaDictadoClase(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
   }
   
   public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
@@ -80,6 +116,12 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.getDtActividad(arg0);
   }
   
+  public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.esSocio(arg0);
+  }
+  
   public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
@@ -92,40 +134,22 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma.existeUsuario(arg0);
   }
   
-  public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+  public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    publicadorTroesma.modificarApellido(arg0, arg1);
+    return publicadorTroesma.existeActividad(arg0);
   }
   
-  public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException{
+  public publicadores.DtInstitucion getDtInstitucion(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    publicadorTroesma.modificarFechaNacimiento(arg0, arg1);
+    return publicadorTroesma.getDtInstitucion(arg0);
   }
   
-  public void getDtClases(publicadores.DtProfesor arg0) throws java.rmi.RemoteException{
+  public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();
-    publicadorTroesma.getDtClases(arg0);
-  }
-  
-  public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    return publicadorTroesma.getRankingActividades();
-  }
-  
-  public void paraObtenerDtInfoClase2(publicadores.DtRegistro arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    publicadorTroesma.paraObtenerDtInfoClase2(arg0);
-  }
-  
-  public void paraObtenerDtInfoClase(publicadores.DtClase arg0) throws java.rmi.RemoteException{
-    if (publicadorTroesma == null)
-      _initPublicadorTroesmaProxy();
-    publicadorTroesma.paraObtenerDtInfoClase(arg0);
+    return publicadorTroesma.getDtProfesor(arg0);
   }
   
   

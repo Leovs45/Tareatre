@@ -8,7 +8,7 @@
 package publicadores;
 
 public class DtActividad  implements java.io.Serializable {
-    private publicadores.InstitucionDeportiva institucion;
+    private publicadores.DtInstitucion institucion;
 
     private java.lang.String nombre;
 
@@ -26,7 +26,7 @@ public class DtActividad  implements java.io.Serializable {
     }
 
     public DtActividad(
-           publicadores.InstitucionDeportiva institucion,
+           publicadores.DtInstitucion institucion,
            java.lang.String nombre,
            java.lang.String descripcion,
            int duracionMinutos,
@@ -48,7 +48,7 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @return institucion
      */
-    public publicadores.InstitucionDeportiva getInstitucion() {
+    public publicadores.DtInstitucion getInstitucion() {
         return institucion;
     }
 
@@ -58,7 +58,7 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @param institucion
      */
-    public void setInstitucion(publicadores.InstitucionDeportiva institucion) {
+    public void setInstitucion(publicadores.DtInstitucion institucion) {
         this.institucion = institucion;
     }
 
@@ -268,7 +268,7 @@ public class DtActividad  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("institucion");
         elemField.setXmlName(new javax.xml.namespace.QName("", "institucion"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "institucionDeportiva"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtInstitucion"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
