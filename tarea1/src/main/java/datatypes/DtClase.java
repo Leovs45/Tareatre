@@ -8,6 +8,7 @@ import logica.ActividadDeportiva;
 import logica.Registro;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtClase {
@@ -44,7 +45,6 @@ public class DtClase {
 		this.url = url;
 		this.fechaRegistro = fechaRegistro;
 	}
-
 
 	public String getNombre() {
 		return nombre;

@@ -46,10 +46,6 @@ public class ConsultaUsuario extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		doGet(request, response);
-
 	    HttpSession session = request.getSession();
 	    String nickname = (String) session.getAttribute("nickname");
 
@@ -71,7 +67,7 @@ public class ConsultaUsuario extends HttpServlet {
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    } else {
 			    	publicadores.DtProfesor dtProf = obtenerDtProfesor(nickname);
-			    	String intitusion = dtProf.getNombreInstitucion();
+			    	String intitusion = dtProf.getInstitucion().getNombre();
 			    	List<publicadores.DtClase> clasercias = obtenerListaClasesDeProfe(dtProf);
 			    	for (publicadores.DtClase clase: clasercias) {
 			    		System.out.println(clase.getNombre());
@@ -83,7 +79,7 @@ public class ConsultaUsuario extends HttpServlet {
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    }
 		    } else {
-		    	throw new UsuarioNoEsProfesorException("La cagaste wawachine");
+		    	throw new UsuarioNoEsProfesorException("No es profesor");
 		    }
     	} catch (UsuarioNoEsProfesorException unp) {
 	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error

@@ -6,8 +6,11 @@ import java.util.List;
 
 import logica.Clase;
 import logica.InstitucionDeportiva;
+
+import javax.jws.WebMethod;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtProfesor extends DtUsuario {
@@ -15,11 +18,11 @@ public class DtProfesor extends DtUsuario {
     private String descripcionGeneral;
     private String biografia;
     private String sitioWeb;
-    private List<Clase> clases = new ArrayList<>();
+    private List<DtClase> clases = new ArrayList<>();
 
     public DtProfesor() {}
 
-    public DtProfesor(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento, InstitucionDeportiva institucion, String descripcionGeneral, String biografia, String sitioWeb, List<Clase> clases) {
+    public DtProfesor(String nickname, String nombre, String apellido, String correoElectronico, Date fechaNacimiento, InstitucionDeportiva institucion, String descripcionGeneral, String biografia, String sitioWeb, List<DtClase> clases) {
         super(nickname, nombre, apellido, correoElectronico, fechaNacimiento);
         this.institucion = institucion;
         this.descripcionGeneral = descripcionGeneral;
@@ -33,11 +36,9 @@ public class DtProfesor extends DtUsuario {
         return institucion.getNombre();
     }
 
-
     public String getDescripcionGeneral() {
         return descripcionGeneral;
     }
-
 
     public String getBiografia() {
         return biografia;
@@ -49,14 +50,8 @@ public class DtProfesor extends DtUsuario {
     }
 
 
-    public List<DtClase> getClases() {
-    	List<DtClase> dtClases = new ArrayList<>();
-
-    	for(Clase c: clases) {
-    		dtClases.add(c.getDtClase());
-    	}
-
-        return dtClases;
+    public List<DtClase> getDtClases() {
+    	return clases;
     }
 
 }

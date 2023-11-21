@@ -16,7 +16,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     private java.lang.String sitioWeb;
 
-    private publicadores.Clase[] clases;
+    private publicadores.DtClase[] clases;
 
     public DtProfesor() {
     }
@@ -31,7 +31,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
            java.lang.String descripcionGeneral,
            java.lang.String biografia,
            java.lang.String sitioWeb,
-           publicadores.Clase[] clases) {
+           publicadores.DtClase[] clases) {
         super(
             nickname,
             nombre,
@@ -131,7 +131,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @return clases
      */
-    public publicadores.Clase[] getClases() {
+    public publicadores.DtClase[] getClases() {
         return clases;
     }
 
@@ -141,15 +141,15 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @param clases
      */
-    public void setClases(publicadores.Clase[] clases) {
+    public void setClases(publicadores.DtClase[] clases) {
         this.clases = clases;
     }
 
-    public publicadores.Clase getClases(int i) {
+    public publicadores.DtClase getClases(int i) {
         return this.clases[i];
     }
 
-    public void setClases(int i, publicadores.Clase _value) {
+    public void setClases(int i, publicadores.DtClase _value) {
         this.clases[i] = _value;
     }
 
@@ -255,7 +255,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("clases");
         elemField.setXmlName(new javax.xml.namespace.QName("", "clases"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "clase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);

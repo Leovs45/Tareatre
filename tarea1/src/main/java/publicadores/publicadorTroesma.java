@@ -15,6 +15,8 @@ import javax.xml.ws.Endpoint;
 import datatypes.DtActividad;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
+import datatypes.DtClase;
+import datatypes.DtRegistro;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 import interfaces.IClase;
@@ -50,6 +52,16 @@ public class publicadorTroesma {
 
 	//LOS MÉTODOS QUE VAMOS A PUBLICAR (yo solo publicaria los metodos de las interfaces que utilizo para el CU de la tarea 2 en el servlet,tambien se podrian publicar todos)
 
+	@WebMethod
+    public void paraObtenerDtInfoClase(DtClase dtC){}
+	
+	@WebMethod
+    public void getDtClases(DtProfesor dtP){
+		dtP.getDtClases();
+	}
+	@WebMethod
+    public void paraObtenerDtInfoClase2(DtRegistro dt){}
+	
 	@WebMethod
 	public boolean existeActividad(String nombreActividad){
 		//quizas evaular que nombreActividad no sea null

@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import datatypes.DtClase;
 import datatypes.DtProfesor;
 
 @Entity
@@ -88,7 +89,15 @@ public class Profesor extends Usuario {
 	public List<Clase> getArrayClases() {
 		return clases;
 	}
+	public List<DtClase> getDtArrayClases() {
+    	List<DtClase> dtClases = new ArrayList<>();
 
+    	for(Clase c: clases) {
+    		dtClases.add(c.getDtClase());
+    	}
+
+        return dtClases;
+	}
 	public Clase buscarClase(String nombre) {
 		Clase clase = null;
 		if (clases.size() == 0) {
@@ -105,7 +114,7 @@ public class Profesor extends Usuario {
 	}
 
 	public DtProfesor getDtProfesor() {
-		return new DtProfesor(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), getInstitucion(), getDescripcionGeneral(),getBiografia(), getSitioWeb(), getArrayClases());
+		return new DtProfesor(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), getInstitucion(), getDescripcionGeneral(),getBiografia(), getSitioWeb(), getDtArrayClases());
 	}
 
 }

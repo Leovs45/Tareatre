@@ -11,8 +11,10 @@ import datatypes.DtSocio;
 import datatypes.DtUsuario;
 import excepciones.NicknameRepetidoException;
 import interfaces.IUsuario;
+import logica.Clase;
 import logica.InstitucionDeportiva;
 import logica.Profesor;
+import logica.Registro;
 import logica.Socio;
 import logica.Usuario;
 import persistencia.Conexion;
@@ -195,8 +197,38 @@ public class CUsuario implements IUsuario {
 	@Override
 	public DtUsuario getDtUsuario(String nickname) {
 		Usuario user = buscarUsuario(nickname);
+		DtUsuario dtUsuario;
+		if (user instanceof Socio)
+		{
+			Socio socio = (Socio) user;
+			dtUsuario = new DtSocio(
+				socio.getNickname(),
+				socio.getNombre(),
+				socio.getApellido(),
+				socio.getCorreoElectronico(),
+				socio.getFechaNacimiento(),
+				socio.getDtArrayRegistro()
+			);
+		}
+		else
+		{
+			Profesor profesor = (Profesor) user;
+			dtUsuario = new DtProfesor(
+				profesor.getNickname(),
+				profesor.getNombre(),
+				profesor.getApellido(),
+				profesor.getCorreoElectronico(),
+				profesor.getFechaNacimiento(),
+				profesor.getInstitucion(),
+				profesor.getDescripcionGeneral(),
+				profesor.getBiografia(),
+				profesor.getSitioWeb(),
+				profesor.getDtArrayClases()
+				);
+		}
 
-		return new DtUsuario(user.getNickname(), user.getNombre(), user.getApellido(), user.getCorreoElectronico(), user.getFechaNacimiento());
+		
+		return dtUsuario;
 	}
 
 	@Override
@@ -222,7 +254,7 @@ public class CUsuario implements IUsuario {
 		TypedQuery<Profesor> queryProfes = em.createQuery(consultaProfes, Profesor.class);
 		List <Profesor> profesores = queryProfes.getResultList();
 		for (Profesor p : profesores) {
-			DtProfesor dtP = new DtProfesor(p.getNickname(), p.getNombre(), p.getApellido(), p.getCorreoElectronico(), p.getFechaNacimiento(), p.getInstitucion(), p.getDescripcionGeneral(), p.getBiografia(), p.getSitioWeb(), p.getArrayClases());
+			DtProfesor dtP = new DtProfesor(p.getNickname(), p.getNombre(), p.getApellido(), p.getCorreoElectronico(), p.getFechaNacimiento(), p.getInstitucion(), p.getDescripcionGeneral(), p.getBiografia(), p.getSitioWeb(), p.getDtArrayClases());
 			dtProfesores.add(dtP);
 		}
 		return dtProfesores;

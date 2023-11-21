@@ -54,17 +54,13 @@ public class AltaDictadoClase extends HttpServlet {
 		IActividadDeportiva iActividad = f.getIActividadDeportiva();
 		IUsuario iUsuario = f.getIUsuario();
 		String nombreInstitucion = request.getParameter("nombreInstitucion");
-		System.out.println(nombreInstitucion);
 
 		DtInstitucion institucion =iInstitucion.getDtInstitucion(nombreInstitucion);
 		if (institucion == null)
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 		else {
 			String nombreActividad = request.getParameter("nombreActividad");
-			System.out.println("prueba1 bien");
-			System.out.println(nombreActividad);
 			if(!iInstitucion.existeActividadEnUnaInstitucion(nombreInstitucion, nombreActividad)) {
-				System.out.println("prueba1 error");
 			    request.getRequestDispatcher("/Error.jsp").forward(request, response);
 			}else {
 				DtActividad actividad = iActividad.getDtActividad(nombreActividad);

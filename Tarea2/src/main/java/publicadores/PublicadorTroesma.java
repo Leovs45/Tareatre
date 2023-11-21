@@ -8,15 +8,18 @@
 package publicadores;
 
 public interface PublicadorTroesma extends java.rmi.Remote {
-    public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException;
-    public publicadores.DtActividad getDtActividad(java.lang.String arg0) throws java.rmi.RemoteException;
-    public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException;
-    public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException;
     public publicadores.DtProfesor getDtProfesor(java.lang.String arg0) throws java.rmi.RemoteException;
-    public boolean existeUsuario(java.lang.String arg0) throws java.rmi.RemoteException;
-    public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
-    public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException;
+    public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException;
+    public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException;
+    public publicadores.DtSocio getDtSocio(java.lang.String arg0) throws java.rmi.RemoteException;
     public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public publicadores.DtActividad getDtActividad(java.lang.String arg0) throws java.rmi.RemoteException;
+    public boolean esContrasena(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public boolean existeUsuario(java.lang.String arg0) throws java.rmi.RemoteException;
     public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException;
+    public void getDtClases(publicadores.DtProfesor arg0) throws java.rmi.RemoteException;
+    public publicadores.DtActividad[] getRankingActividades() throws java.rmi.RemoteException;
+    public void paraObtenerDtInfoClase2(publicadores.DtRegistro arg0) throws java.rmi.RemoteException;
+    public void paraObtenerDtInfoClase(publicadores.DtClase arg0) throws java.rmi.RemoteException;
 }

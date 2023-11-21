@@ -90,7 +90,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 			<div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
 				<h5 class="card-title"><%= clase.getNombre() %></h5>
 				<p class="card-text">
-					<span style="font-weight: 600;">Actividad Deportiva:</span> <%= clase.getActividadDeportiva().getNombre() %>
+					<span style="font-weight: 600;">Actividad Deportiva:</span> <%= clase.getActividad().getNombre() %>
 					<br>
 					<span style="font-weight: 600;">Hora de inicio:</span> <%= clase.getHoraInicio() %>
 					<br>
@@ -109,7 +109,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 				   	action="ConsultaActividadDeportiva"
 					method="post"
 			   >
-			   		<input type="hidden" id="clase" name="unaActividad" value="<%= clase.getActividadDeportiva().getNombre() %>">
+			   		<input type="hidden" id="clase" name="unaActividad" value="<%= clase.getActividad().getNombre() %>">
                		<input type="submit" value="Consultar Actividad" class="btn btn-primary mt-2">
 			   </form>
 			</div>
@@ -137,7 +137,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 						<div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
 							<h5 class="card-title"><%= clase.getNombre() %></h5>
 							<p class="card-text">
-								<span style="font-weight: 600;">Actividad Deportiva:</span> <%= clase.getActividadDeportiva().getNombre() %>
+								<span style="font-weight: 600;">Actividad Deportiva:</span> <%= clase.getActividad().getNombre() %>
 								<br>
 								<span style="font-weight: 600;">Hora de inicio:</span> <%= clase.getHoraInicio() %>
 								<br>
@@ -152,6 +152,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 			<% } %>
 		</div>
 	</form>
+	</div>
 
        <!-- ------------------------------------------------------------------------------------------- -->
        <!-- DtSocios tiene una Lista de Registros. Los Registros tienen la siguiente información:

@@ -8,7 +8,7 @@
 package publicadores;
 
 public class DtSocio  extends publicadores.DtUsuario  implements java.io.Serializable {
-    private publicadores.Registro[] registros;
+    private publicadores.DtRegistro[] registros;
 
     public DtSocio() {
     }
@@ -19,7 +19,7 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
            java.lang.String apellido,
            java.lang.String correoElectronico,
            java.util.Calendar fechaNacimiento,
-           publicadores.Registro[] registros) {
+           publicadores.DtRegistro[] registros) {
         super(
             nickname,
             nombre,
@@ -35,7 +35,7 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * 
      * @return registros
      */
-    public publicadores.Registro[] getRegistros() {
+    public publicadores.DtRegistro[] getRegistros() {
         return registros;
     }
 
@@ -45,15 +45,15 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
      * 
      * @param registros
      */
-    public void setRegistros(publicadores.Registro[] registros) {
+    public void setRegistros(publicadores.DtRegistro[] registros) {
         this.registros = registros;
     }
 
-    public publicadores.Registro getRegistros(int i) {
+    public publicadores.DtRegistro getRegistros(int i) {
         return this.registros[i];
     }
 
-    public void setRegistros(int i, publicadores.Registro _value) {
+    public void setRegistros(int i, publicadores.DtRegistro _value) {
         this.registros[i] = _value;
     }
 
@@ -107,7 +107,7 @@ public class DtSocio  extends publicadores.DtUsuario  implements java.io.Seriali
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("registros");
         elemField.setXmlName(new javax.xml.namespace.QName("", "registros"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "registro"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);

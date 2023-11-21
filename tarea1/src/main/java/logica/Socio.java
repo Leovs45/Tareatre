@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import datatypes.DtRegistro;
 import datatypes.DtSocio;
 
 @Entity
@@ -29,17 +30,33 @@ public class Socio extends Usuario {
 	public List<Registro> getArrayRegistro() {
 		return registros;
 	}
+	public List<DtRegistro> getDtArrayRegistro() {
+        List<DtRegistro> dtRegistros = new ArrayList<>();
+
+        for(Registro r: registros) {
+        	dtRegistros.add(r.getDtRegistro());
+        }
+        return dtRegistros;
+	}
+	
+	
+	
 
 	public void setArrayRegistro(ArrayList<Registro> arrayRegistro) {
 		this.registros = arrayRegistro;
 	}
+	
+	
+	
+	
+	
 
 	public void agregarRegistro(Registro registro) {
 		registros.add(registro);
 	}
 
 	public DtSocio getDtSocio() {
-		return new DtSocio(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), registros);
+		return new DtSocio(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), getDtArrayRegistro());
 	}
 
 }
