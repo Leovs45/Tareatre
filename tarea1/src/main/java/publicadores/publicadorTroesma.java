@@ -76,27 +76,55 @@ public class publicadorTroesma {
 	public DtInstitucion getDtInstitucion(String nombreInstitucion){
 		 return iIns.getDtInstitucion(nombreInstitucion);
 	}
+	@WebMethod
 	public boolean existeActividadEnUnaInstitucion(String nombreInstitucion, String nombreActividad) {
 		return iIns.existeActividadEnUnaInstitucion(nombreInstitucion, nombreActividad);
 	}
+	@WebMethod
 	public boolean existeClaseDeActividad(String nombreInstitucion, String nombreActividad, String nombreClase) {
 		return iIns.existeClaseDeActividad(nombreInstitucion, nombreActividad, nombreClase);
 	}
+	@WebMethod
 	public void altaDictadoClase(String nombreClase, DtActividad actividadDeportiva, Calendar fechaClase, String nombreProfesor,
 			String horaInicio, String urlClase, Calendar fechaRegistro) throws ClaseRepetidaException {
 			Date fechaCls = fechaClase.getTime();
 			Date fechaReg = fechaRegistro.getTime();
 			iCls.altaDictadoClase(nombreClase, actividadDeportiva, fechaCls, nombreProfesor, horaInicio, urlClase, fechaReg);
 	}
-
-
+	//Consulta Actividad Deportiva
+	
 	
 	@WebMethod
-		public DtActividad getDtActividad(String nombreActividad){
-			//quizas evaular que nombreActividad no sea null
-			 return iAct.getDtActividad(nombreActividad);
+	public DtActividad getDtActividad(String nombreActividad){
+		//quizas evaular que nombreActividad no sea null
+		 return iAct.getDtActividad(nombreActividad);
+	}
+	
+	//Consulta Dictado Clase
+	@WebMethod
+	public boolean existeClase(String nombreClase) {
+		return iCls.existeClase(nombreClase);
+	}
+	@WebMethod
+	public DtClase getDtClase(String nombreClase) {
+		return iCls.getDtClase(nombreClase);
+	}
+	@WebMethod
+	public String[] obtenerSociosDeUnaClase(String nombreClase) {
+		List<String> listSocios = iCls.obtenerSociosDeUnaClase(nombreClase);
+		int size = listSocios.size();
+		String[] arrSocios = new String[size];
+		for (String s : listSocios) {
+			int i = 0;
+			arrSocios[i] = s;
 		}
-
+		return arrSocios;
+	}
+	
+	
+	
+	
+	
 	@WebMethod
 	public boolean esSocio(String nickname){
 		//quizas evaular que no sea null
@@ -128,16 +156,14 @@ public class publicadorTroesma {
 
 	@WebMethod
 	public DtActividad[] getRankingActividades(){
-		List<DtActividad> dtactividad = iAct.getRankingActividades();
-		int i = 0;
-
-		DtActividad[] ret = new DtActividad[dtactividad.size()];
-
-		for(DtActividad a: dtactividad) {
-			ret[i]=a;
-			i++;
+		List<DtActividad> listDtAct = iAct.getRankingActividades();
+		int size = listDtAct.size();
+		DtActividad[] arrDtAct = new DtActividad[size];
+		for (DtActividad dtAct : listDtAct) {
+			int i = 0;
+			arrDtAct[i] = dtAct;
 		}
-		return ret;
+		return arrDtAct;
 	}
 	
 	@WebMethod

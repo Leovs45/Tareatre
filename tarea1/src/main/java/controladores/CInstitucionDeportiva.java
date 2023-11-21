@@ -117,7 +117,7 @@ public  class CInstitucionDeportiva implements IInstitucionDeportiva {
 	public DtActividad obtenerActividadDeUnaInstitucion(String nombreInstitucion, String nombreActividad) {
 		InstitucionDeportiva ins = buscarInstitucionDeportiva(nombreInstitucion);
 		ActividadDeportiva act = ins.buscarActividadDeportiva(nombreActividad);
-		DtActividad dtAct = new	DtActividad(ins.getDtInstitucion(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), act.getFechaRegistro(), act.getArrayClase());
+		DtActividad dtAct = new	DtActividad(ins.getDtInstitucion(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), act.getFechaRegistro(), act.getDtArrayClase());
 		return dtAct;
 	}
 

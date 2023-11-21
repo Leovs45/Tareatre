@@ -142,7 +142,7 @@ public class CActividadDeportiva implements IActividadDeportiva {
 
 	    List<DtActividad> rankingDtActividades = new ArrayList<>();
 	    for (ActividadDeportiva actividad : actividadesOrdenadas) {
-	        List<Clase> claseActividad = actividad.getArrayClase();
+	        List<DtClase> claseActividad = actividad.getDtArrayClase();
 	        DtActividad dt = new DtActividad(claseActividad,actividad.getNombre(),actividad.getCosto(),actividad.getDescripcion());
 	        rankingDtActividades.add(dt);
 	    }
@@ -161,12 +161,11 @@ public class CActividadDeportiva implements IActividadDeportiva {
 
         // Ejecuta la consulta y obtén una lista de actividades deportivas
         List<ActividadDeportiva> actividades = query.getResultList();
-        // Mapea las actividades a DtActividad y devuelve la lista resultante
-        List<DtActividad> dtActividades = actividades.stream()
-            .map(ActividadDeportiva::getDtActividad)
-            .collect(Collectors.toList());
-
-        return dtActividades;
+        List<DtActividad> dtAct = new ArrayList<>();
+        for(ActividadDeportiva a : actividades) {
+        	dtAct.add(a.getDtActividad());
+        }
+        return dtAct;
     }
 
 

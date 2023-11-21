@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import datatypes.DtActividad;
 import datatypes.DtInstitucion;
+import datatypes.DtProfesor;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 @Entity
@@ -65,10 +67,23 @@ public class InstitucionDeportiva {
 		this.url = url;
 	}
 
-	//public List<Profesor> getArrayProfesor() {
-	////	return profesores;
-//	}
-
+	public List<Profesor> getArrayProfesor() {
+		return profesores;
+	}
+	public List<DtProfesor> getDtProfesores(){
+		List<DtProfesor> dtP = new ArrayList<>();
+		for(Profesor p : profesores) {
+			dtP.add(p.getDtProfesor());
+		}
+		return dtP;
+	}
+	public List<DtActividad> getDtActividades(){
+		List<DtActividad> dtA = new ArrayList<>();
+		for(ActividadDeportiva a : actividades) {
+			dtA.add(a.getDtActividad());
+		}
+		return dtA;
+	}
 	public void setArrayProfesor(List<Profesor> arrayProfesor) {
 		this.profesores = arrayProfesor;
 	}
@@ -125,7 +140,7 @@ public class InstitucionDeportiva {
 	}
 
 	public DtInstitucion getDtInstitucion() {
-		return new DtInstitucion(nombre, descripcion, url, profesores, actividades);
+		return new DtInstitucion(nombre, descripcion, url, getDtProfesores(), actividades);
 	}
 
 }

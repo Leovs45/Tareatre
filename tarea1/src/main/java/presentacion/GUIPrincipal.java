@@ -65,7 +65,7 @@ public class GUIPrincipal {
 
 	public GUIPrincipal() {
 		publicadorTroesma ptro = new publicadorTroesma();
-	    ptro.publicar();
+		ptro.publicar();
 		initialize();
 
 		Fabrica f = Fabrica.getInstancia();

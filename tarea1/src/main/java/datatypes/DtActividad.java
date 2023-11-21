@@ -18,11 +18,11 @@ public class DtActividad{
     private int duracionMinutos;
     private double costo;
     private Date fechaRegistro;
-    private List<Clase> clases = new ArrayList<>();
+    private List<DtClase> clases = new ArrayList<>();
 
     public DtActividad() {}
 
-    public DtActividad(DtInstitucion institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
+    public DtActividad(DtInstitucion institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<DtClase> clases){
     	this.institucion = institucion;
     	this.nombre = nombre;
     	this.descripcion = descripcion;
@@ -32,7 +32,7 @@ public class DtActividad{
     	this.clases = clases;
     }
 
-    public DtActividad(List<Clase> clases,String nombre, double costo, String descripcion) {
+    public DtActividad(List<DtClase> clases,String nombre, double costo, String descripcion) {
     	this.nombre = nombre;
     	this.costo = costo;
     	this.descripcion = descripcion;
@@ -82,13 +82,7 @@ public class DtActividad{
 
 
 	public List<DtClase> getClases() {
-		List<DtClase> dtClases = new ArrayList<>();
-
-		for(Clase clase: clases) {
-			dtClases.add(clase.getDtClase());
-		}
-
-		return dtClases;
+		return clases;
 	}
 
 
@@ -97,9 +91,9 @@ public class DtActividad{
 		if (clases.size() == 0) {
 			return clase;
 		} else {
-			for(Clase c: clases) {
-				if (c.getNombreClase().equals(nombre)) {
-					clase = new DtClase(c.getNombreClase(),c.getActividadDeportiva(),c.getFechaClase(),c.getHoraInicio(),c.getUrlClase(),c.getFechaRegistro());
+			for(DtClase c: clases) {
+				if (c.getNombre().equals(nombre)) {
+					clase = new DtClase(c.getNombre(),c.getActividadDeportiva(),c.getFechaClase(),c.getHoraInicio(),c.getUrl(),c.getFechaRegistro());
 				}
 			}
 		}

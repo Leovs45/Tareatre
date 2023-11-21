@@ -14,12 +14,12 @@ public class DtInstitucion {
     private String nombre;
     private String descripcion;
     private String url;
-    private List<Profesor> profesores = new ArrayList<>();
+    private List<DtProfesor> profesores = new ArrayList<>();
     private List<ActividadDeportiva> actividades = new ArrayList<>();
 
     public DtInstitucion() {}
 
-    public DtInstitucion(String nombre, String descripcion, String url, List<Profesor> profesores, List<ActividadDeportiva> actividades) {
+    public DtInstitucion(String nombre, String descripcion, String url, List<DtProfesor> profesores, List<ActividadDeportiva> actividades) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.url = url;
@@ -59,24 +59,18 @@ public class DtInstitucion {
 
 
     public List<DtProfesor> getProfesores() {
-        List<DtProfesor> dtProfesores = new ArrayList<>();
-
-        for(Profesor profesor: profesores) {
-        	dtProfesores.add(profesor.getDtProfesor());
-        }
-
-        return dtProfesores;
+        return profesores;
     }
 
-
-    public List<DtActividad> getActividades() {
-    	List<DtActividad> dtActividades = new ArrayList<>();
-
-        for(ActividadDeportiva actividad: actividades) {
-        	dtActividades.add(actividad.getDtActividad());
+    public List<ActividadDeportiva> getActividades(){
+    	return actividades;
+    }
+    public List<DtActividad> getDtActividades() {
+        List<DtActividad> dtAct = new ArrayList<>();
+        for (ActividadDeportiva a : actividades) {
+        	dtAct.add(a.getDtActividad());
         }
-
-        return dtActividades;
+        return dtAct;
     }
 
 
@@ -87,7 +81,8 @@ public class DtInstitucion {
 		} else {
 			for(ActividadDeportiva a: actividades) {
 				if (a.getNombre().equals(nombreActividad)) {
-					dtAct = new DtActividad(a.getInstitucion().getDtInstitucion(),a.getNombre(),a.getDescripcion(),a.getDuracionMinutos(),a.getCosto(),a.getFechaRegistro(),a.getArrayClase());
+					dtAct= a.getDtActividad();
+					return dtAct;
 				}
 			}
 		}
