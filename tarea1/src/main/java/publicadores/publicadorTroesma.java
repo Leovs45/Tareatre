@@ -42,11 +42,11 @@ public class publicadorTroesma {
     public void publicar(){
          endpoint = Endpoint.publish("http://localhost:1981/publicado", this); //pregunta para el profe se publica cada servicio en un puerto distinto?
     }
-	/* este podemos o no tenerlo/usuarlo
+	
 	@WebMethod(exclude = true)
     public Endpoint getEndpoint() {
             return endpoint;
-    }*/
+    }
 
 	//LOS MÉTODOS QUE VAMOS A PUBLICAR (yo solo publicaria los metodos de las interfaces que utilizo para el CU de la tarea 2 en el servlet,tambien se podrian publicar todos)
 

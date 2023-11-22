@@ -1,4 +1,5 @@
 package logica;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -96,7 +97,10 @@ public abstract class Usuario {
 	}
 
 	public DtUsuario getDtUsuario() {
-		return new DtUsuario(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento());
+		Calendar calendarNacimiento = Calendar.getInstance();
+		calendarNacimiento.setTime(getFechaNacimiento());
+		
+		return new DtUsuario(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), calendarNacimiento);
 	}
 
 }

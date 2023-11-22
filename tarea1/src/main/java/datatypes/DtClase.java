@@ -1,48 +1,32 @@
 package datatypes;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.Calendar;
 
-import logica.ActividadDeportiva;
-import logica.Registro;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtClase {
 	private String nombre;
-	private ActividadDeportiva actividad;
-	private Date fechaClase;
+	private DtActividad actividad;
+	private Calendar fechaClase;
 	private String horaInicio;
 	private String url;
-	private Date fechaRegistro;
-    private List<Registro> registros = new ArrayList<>();
+	private Calendar fechaRegistro;
+    private DtRegistro[] registros;
+    private int cantRegistros = 0;
 
     public DtClase() {}
 
-	public DtClase(String nombre, Date fechaClase, String horaInicio,String url, Date fechaRegistro) {
-		this.nombre = nombre;
-		this.fechaClase = fechaClase;
-		this.horaInicio = horaInicio;
-		this.url = url;
-		this.fechaRegistro = fechaRegistro;
-	}
-
-	public DtClase(List<Registro> registros,String nombre, Date fechaClase, String url) {
-    	this.nombre = nombre;
-    	this.fechaClase = fechaClase;
-    	this.url = url;
-    	this.registros = registros;
-    }
-
-	public DtClase(String nombre, ActividadDeportiva actividad, Date fechaClase, String horaInicio,String url, Date fechaRegistro) {
+	public DtClase(String nombre, DtActividad actividad, Calendar fechaClase, String horaInicio, String url, Calendar fechaRegistro, DtRegistro[] registros, int cantRegistros) {
 		this.nombre = nombre;
 		this.actividad = actividad;
 		this.fechaClase = fechaClase;
 		this.horaInicio = horaInicio;
 		this.url = url;
 		this.fechaRegistro = fechaRegistro;
+		this.registros = registros;
+		this.cantRegistros = cantRegistros;
 	}
 
 
@@ -51,7 +35,7 @@ public class DtClase {
 	}
 
 
-	public ActividadDeportiva getActividadDeportiva() {
+	public DtActividad getActividadDeportiva() {
 		return actividad;
 	}
 
@@ -61,7 +45,7 @@ public class DtClase {
 	}
 
 
-	public Date getFechaClase() {
+	public Calendar getFechaClase() {
 		return fechaClase;
 	}
 
@@ -71,14 +55,22 @@ public class DtClase {
 	}
 
 
-	public Date getFechaRegistro() {
+	public Calendar getFechaRegistro() {
 		return fechaRegistro;
 	}
 
 
 	public int getCantidadClases() {
-        return (registros != null) ? registros.size() : 0;
+        return cantRegistros;
     }
+	
+	public void restarUnRegistro() {
+		cantRegistros = cantRegistros - 1;
+	}
+	
+	public DtRegistro[] getRegistros() {
+		return registros;
+	}
 
 
 }

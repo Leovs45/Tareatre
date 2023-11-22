@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 
 import datatypes.DtActividad;
 import datatypes.DtClase;
+import datatypes.DtRegistro;
 
 @Entity
 @Table(name = "Actividad_Deportiva")
@@ -100,9 +102,23 @@ public class ActividadDeportiva {
 	}
 	public List<DtClase> getDtArrayClase(){
 		List<DtClase> arrDtClase = new ArrayList<>();
+		
 		for(Clase c: clases) {
-			DtClase dtC = new DtClase(c.getNombreClase(), c.getActividadDeportiva(),c.getFechaClase(), c.getHoraInicio(), c.getUrlClase(), c.getFechaRegistro());
-			arrDtClase.add(dtC);
+			/* List<Registro> listRegistros = c.getArrayRegistro();
+			DtRegistro[] arrRegistros = new DtRegistro[900];
+			
+			for (int i = 0; i < c.getCantidadRegistros(); i++) {
+				arrRegistros[i] = listRegistros.get(i).getDtRegistro();
+			}
+			
+			Calendar fechaClase = Calendar.getInstance();
+			fechaClase.setTime(c.getFechaClase());
+
+			Calendar fechaRegistro = Calendar.getInstance();
+			fechaClase.setTime(c.getFechaRegistro());
+			
+			DtClase dtC = new DtClase(c.getNombreClase(), c.getActividadDeportiva().getDtActividad(), fechaClase, c.getHoraInicio(), c.getUrlClase(), fechaRegistro, arrRegistros, c.getCantidadRegistros()); */
+			arrDtClase.add(c.getDtClase());
 		}
 		return arrDtClase;
 	}
@@ -170,8 +186,17 @@ public class ActividadDeportiva {
 		return clase.getDtClase();
 	}
 
-	public DtActividad getDtActividad() {
-		return new DtActividad(institucion, nombre, descripcion, duracionMinutos, costo, fechaRegistro, clases);
+	public DtActividad getDtActividad() {		
+		Calendar calendarRegistro = Calendar.getInstance();
+		calendarRegistro.setTime(fechaRegistro);
+		
+		DtClase[] arrClases = new DtClase[900];
+		
+		for(int i = 0; i < clases.size(); i++) {
+			arrClases[i] = clases.get(i).getDtClase();
+		}
+		
+		return new DtActividad(institucion.getDtInstitucion(), nombre, descripcion, duracionMinutos, costo, calendarRegistro, arrClases, clases.size());
 	}
 
 }

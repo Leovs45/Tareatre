@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import datatypes.DtClase;
 import datatypes.DtProfesor;
 
 @Entity
@@ -88,6 +90,13 @@ public class Profesor extends Usuario {
 	public List<Clase> getArrayClases() {
 		return clases;
 	}
+	public List<DtClase> getDtArrayClases() {
+		List<DtClase> dtClases = new ArrayList<>();
+		for(Clase c : clases) {
+			dtClases.add(c.getDtClase());
+		}
+		return dtClases;
+	}
 
 	public Clase buscarClase(String nombre) {
 		Clase clase = null;
@@ -105,7 +114,16 @@ public class Profesor extends Usuario {
 	}
 
 	public DtProfesor getDtProfesor() {
-		return new DtProfesor(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), getFechaNacimiento(), getInstitucion(), getDescripcionGeneral(),getBiografia(), getSitioWeb(), getArrayClases());
+		DtClase[] arrClases = new DtClase[900];
+
+		for (int i = 0; i < clases.size(); i++) {
+			arrClases[i] = clases.get(i).getDtClase();
+		}
+		
+		Calendar calendarNacimiento = Calendar.getInstance();
+		calendarNacimiento.setTime(getFechaNacimiento());
+		
+		return new DtProfesor(getNickname(), getNombre(), getApellido(), getCorreoElectronico(), calendarNacimiento, getInstitucion().getDtInstitucion(), getDescripcionGeneral(),getBiografia(), getSitioWeb(), arrClases, clases.size());
 	}
 
 }

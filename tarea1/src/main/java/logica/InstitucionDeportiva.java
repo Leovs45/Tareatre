@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import datatypes.DtActividad;
 import datatypes.DtInstitucion;
+import datatypes.DtProfesor;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 @Entity
@@ -116,8 +118,6 @@ public class InstitucionDeportiva {
 
 	public void agregarActividadDeportiva(ActividadDeportiva actividad) {
 		actividades.add(actividad);
-		Fabrica f = Fabrica.getInstancia();
-		IActividadDeportiva iActividad = f.getIActividadDeportiva();
 	}
 
 	public boolean existenActividades() {
@@ -125,7 +125,18 @@ public class InstitucionDeportiva {
 	}
 
 	public DtInstitucion getDtInstitucion() {
-		return new DtInstitucion(nombre, descripcion, url, profesores, actividades);
+		DtProfesor[] arrProfesores = new DtProfesor[900];
+
+		for (int i = 0; i < profesores.size(); i++) {
+			arrProfesores[i] = profesores.get(i).getDtProfesor();
+		}
+		
+		DtActividad[] arrActividades = new DtActividad[900];
+
+		for (int i = 0; i < actividades.size(); i++) {
+			arrActividades[i] = actividades.get(i).getDtActividad();
+		}
+		return new DtInstitucion(nombre, descripcion, url, arrProfesores, profesores.size(), arrActividades, actividades.size());
 	}
 
 }

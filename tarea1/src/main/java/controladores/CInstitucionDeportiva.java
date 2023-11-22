@@ -1,6 +1,7 @@
 package controladores;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -119,7 +120,15 @@ public  class CInstitucionDeportiva implements IInstitucionDeportiva {
 	public DtActividad obtenerActividadDeUnaInstitucion(String nombreInstitucion, String nombreActividad) {
 		InstitucionDeportiva ins = buscarInstitucionDeportiva(nombreInstitucion);
 		ActividadDeportiva act = ins.buscarActividadDeportiva(nombreActividad);
-		DtActividad dtAct = new	DtActividad(ins, act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), act.getFechaRegistro(), act.getArrayClase());
+		Calendar fecha = Calendar.getInstance();
+		fecha.setTime(act.getFechaRegistro());
+		List<DtClase> listDtC = act.getDtArrayClase();
+		DtClase[] arrDtClases = new DtClase[listDtC.size()];
+		int i=0;
+		for(DtClase dtC : listDtC) {
+			arrDtClases[i] = dtC;
+		}
+		DtActividad dtAct = new	DtActividad(ins.getDtInstitucion(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), fecha, arrDtClases, listDtC.size());
 		return dtAct;
 	}
 

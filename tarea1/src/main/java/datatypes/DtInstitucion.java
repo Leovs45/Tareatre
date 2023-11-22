@@ -1,11 +1,5 @@
 package datatypes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import logica.ActividadDeportiva;
-import logica.Profesor;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
@@ -14,17 +8,21 @@ public class DtInstitucion {
     private String nombre;
     private String descripcion;
     private String url;
-    private List<Profesor> profesores = new ArrayList<>();
-    private List<ActividadDeportiva> actividades = new ArrayList<>();
+    private DtProfesor[] profesores;
+    private int cantProfesores = 0;
+    private DtActividad[] actividades;
+    private int cantActividades = 0;
 
     public DtInstitucion() {}
 
-    public DtInstitucion(String nombre, String descripcion, String url, List<Profesor> profesores, List<ActividadDeportiva> actividades) {
+    public DtInstitucion(String nombre, String descripcion, String url, DtProfesor[] profesores, int cantProfesores, DtActividad[] actividades, int cantActividades) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.url = url;
         this.profesores = profesores;
+        this.cantProfesores = cantProfesores;
         this.actividades = actividades;
+        this.cantActividades = cantActividades;
     }
 
 
@@ -46,7 +44,22 @@ public class DtInstitucion {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    public int getCantProfesores() {
+    	return cantProfesores;
+    }
+    
+    public void restarUnProfesor() {
+    	cantProfesores = cantProfesores - 1;
+    }
 
+    public int getCantActividades() {
+    	return cantActividades;
+    }
+    
+    public void restarUnaActividad() {
+    	cantActividades = cantActividades - 1;
+    }
 
     public String getUrl() {
         return url;
@@ -58,40 +71,27 @@ public class DtInstitucion {
     }
 
 
-    public List<DtProfesor> getProfesores() {
-        List<DtProfesor> dtProfesores = new ArrayList<>();
-
-        for(Profesor profesor: profesores) {
-        	dtProfesores.add(profesor.getDtProfesor());
-        }
-
-        return dtProfesores;
+    public DtProfesor[] getProfesores() {
+        return profesores;
     }
 
 
-    public List<DtActividad> getActividades() {
-    	List<DtActividad> dtActividades = new ArrayList<>();
-
-        for(ActividadDeportiva actividad: actividades) {
-        	dtActividades.add(actividad.getDtActividad());
-        }
-
-        return dtActividades;
+    public DtActividad[] getActividades() {
+    	return actividades;
     }
 
 
     public DtActividad buscarDtActividad (String nombreActividad) {
-		DtActividad dtAct = null;
-		if (actividades.size() == 0) {
-			dtAct = null;
+		if (cantActividades == 0) {
+			return null;
 		} else {
-			for(ActividadDeportiva a: actividades) {
-				if (a.getNombre().equals(nombreActividad)) {
-					dtAct = new DtActividad(a.getInstitucion(),a.getNombre(),a.getDescripcion(),a.getDuracionMinutos(),a.getCosto(),a.getFechaRegistro(),a.getArrayClase());
+			for (int i = 0; i < cantActividades; i++) {
+				if (actividades[i].getNombre().equals(nombreActividad)) {
+					return actividades[i];
 				}
 			}
 		}
-		return dtAct;
+		return null;
 	}
 
 }

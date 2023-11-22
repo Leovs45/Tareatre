@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import datatypes.DtClase;
+import datatypes.DtRegistro;
 @Entity
 @Table(name = "Clase")
 public class Clase {
@@ -128,7 +130,18 @@ public class Clase {
 	}
 
 	public DtClase getDtClase() {
-		return new DtClase(nombreClase, actividadDeportiva, fechaClase, horaInicio, urlClase, fechaRegistro);
+		DtRegistro[] arrRegistros = new DtRegistro[900];
+		for (int i = 0; i < registros.size(); i++) {
+			arrRegistros[i] = registros.get(i).getDtRegistro();
+		}
+		
+		Calendar calendarRegistro = Calendar.getInstance();
+		calendarRegistro.setTime(fechaRegistro);
+		
+		Calendar calendarClase = Calendar.getInstance();
+		calendarClase.setTime(fechaRegistro);
+		
+		return new DtClase(nombreClase, actividadDeportiva.getDtActividad(), calendarClase, horaInicio, urlClase, calendarRegistro, arrRegistros, registros.size());
 	}
 
 }
