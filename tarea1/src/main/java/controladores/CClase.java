@@ -118,7 +118,7 @@ public class CClase implements IClase {
 		Clase cla = icla.buscarClase(nombreClase);
 		List<Registro> registros = cla.getArrayRegistro();
 		for(Registro rec: registros) {
-			lista.add(rec.getsocio().getNickname());
+			lista.add(rec.getSocio().getNickname());
 		}
 		return lista;
 	}

@@ -41,6 +41,18 @@ public Registro(){}
 	public void setfechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
+	public Socio getSocio() {
+		return socio;
+	}
+	public void setSocio(Socio unSocio) {
+		this.socio = unSocio;
+	}
+	public Clase getClase() {
+		return clase;
+	}
+	public void setClase(Clase unaClase) {
+		this.clase = unaClase;
+	}
 
 	public DtRegistro getDtRegistro() {	
 		 Calendar calendarRegistro = Calendar.getInstance();

@@ -1,4 +1,5 @@
 package controladores;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class CRegistro implements IRegistro {
 	}
 
 	@Override
-	public void RegistroDictadoClases(Date FechaRegistro, String unSocio, String unaClase )throws RegistroClaseRepetidoException {
+	public void RegistroDictadoClases(Date fechaRegistro, String unSocio, String unaClase )throws RegistroClaseRepetidoException {
 		Fabrica f = Fabrica.getInstancia();
 		IUsuario cuser = f.getIUsuario();
 		Socio socio = (Socio) cuser.buscarSocio(unSocio);
@@ -38,7 +39,7 @@ public class CRegistro implements IRegistro {
 		if(existeRegistro)
 			throw new RegistroClaseRepetidoException("Ya existe un registro de esa clase asociado a ese socio");
 		else {
-			Registro unRegistro = new Registro(FechaRegistro,unSocio,unaClase);
+			Registro unRegistro = new Registro(fechaRegistro,socio,clase);
 			socio.agregarRegistro(unRegistro);
 			clase.agregarRegistro(unRegistro);
 			em.getTransaction().begin();

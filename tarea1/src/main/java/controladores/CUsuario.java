@@ -1,11 +1,13 @@
 package controladores;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import datatypes.DtClase;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
 import datatypes.DtUsuario;
@@ -99,14 +101,18 @@ public class CUsuario implements IUsuario {
 		TypedQuery<Profesor> queryProfes = em.createQuery(consultaProfes, Profesor.class);
 		List <Profesor> profesores = queryProfes.getResultList();
 		for(Profesor u: profesores) {
-			DtUsuario dtP = new DtUsuario(u.getNickname(), u.getNombre(), u.getApellido(), u.getCorreoElectronico(), u.getFechaNacimiento());
+			Calendar fecha = Calendar.getInstance();
+			fecha.setTime(u.getFechaNacimiento());
+			DtUsuario dtP = new DtUsuario(u.getNickname(), u.getNombre(), u.getApellido(), u.getCorreoElectronico(), fecha);
 			dtUsuarios.add(dtP);
 		}
 		String consultaSocios = "SELECT s FROM Socio s";
 		TypedQuery<Socio> querySocios = em.createQuery(consultaSocios, Socio.class);
 		List <Socio> socios = querySocios.getResultList();
 		for(Socio u: socios) {
-			DtUsuario dtS = new DtUsuario(u.getNickname(), u.getNombre(), u.getApellido(), u.getCorreoElectronico(), u.getFechaNacimiento());
+			Calendar fecha = Calendar.getInstance();
+			fecha.setTime(u.getFechaNacimiento());
+			DtUsuario dtS = new DtUsuario(u.getNickname(), u.getNombre(), u.getApellido(), u.getCorreoElectronico(), fecha);
 			dtUsuarios.add(dtS);
 		}
 
@@ -195,8 +201,9 @@ public class CUsuario implements IUsuario {
 	@Override
 	public DtUsuario getDtUsuario(String nickname) {
 		Usuario user = buscarUsuario(nickname);
-
-		return new DtUsuario(user.getNickname(), user.getNombre(), user.getApellido(), user.getCorreoElectronico(), user.getFechaNacimiento());
+		Calendar fecha = Calendar.getInstance();
+		fecha.setTime(user.getFechaNacimiento());
+		return new DtUsuario(user.getNickname(), user.getNombre(), user.getApellido(), user.getCorreoElectronico(), fecha);
 	}
 
 	@Override
@@ -222,7 +229,16 @@ public class CUsuario implements IUsuario {
 		TypedQuery<Profesor> queryProfes = em.createQuery(consultaProfes, Profesor.class);
 		List <Profesor> profesores = queryProfes.getResultList();
 		for (Profesor p : profesores) {
-			DtProfesor dtP = new DtProfesor(p.getNickname(), p.getNombre(), p.getApellido(), p.getCorreoElectronico(), p.getFechaNacimiento(), p.getInstitucion(), p.getDescripcionGeneral(), p.getBiografia(), p.getSitioWeb(), p.getArrayClases());
+			Calendar fecha = Calendar.getInstance();
+			fecha.setTime(p.getFechaNacimiento());
+			
+			List<DtClase> listDtC = p.getDtArrayClases();
+			DtClase[] arrDtClases = new DtClase[listDtC.size()];
+			int i = 0;
+			for(DtClase dtC : listDtC) {
+				arrDtClases[i] = dtC;
+			}
+			DtProfesor dtP = new DtProfesor(p.getNickname(), p.getNombre(), p.getApellido(), p.getCorreoElectronico(), fecha, p.getInstitucion().getDtInstitucion(), p.getDescripcionGeneral(), p.getBiografia(), p.getSitioWeb(), arrDtClases, listDtC.size());
 			dtProfesores.add(dtP);
 		}
 		return dtProfesores;

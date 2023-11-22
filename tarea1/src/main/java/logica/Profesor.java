@@ -90,6 +90,13 @@ public class Profesor extends Usuario {
 	public List<Clase> getArrayClases() {
 		return clases;
 	}
+	public List<DtClase> getDtArrayClases() {
+		List<DtClase> dtClases = new ArrayList<>();
+		for(Clase c : clases) {
+			dtClases.add(c.getDtClase());
+		}
+		return dtClases;
+	}
 
 	public Clase buscarClase(String nombre) {
 		Clase clase = null;
