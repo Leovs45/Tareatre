@@ -1,13 +1,13 @@
 package controladores;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import datatypes.DtActividad;
-import datatypes.DtClase;
+import datatypes.*;
 import excepciones.ClaseRepetidaException;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
@@ -91,7 +91,19 @@ public class CClase implements IClase {
 	    List<DtClase> rankingDtClases = new ArrayList<>();
 	    for (Clase clase : clasesOrdenadas) {
 	        List<Registro> claseRegistro = clase.getArrayRegistro();
-	        DtClase dt = new DtClase(claseRegistro,clase.getNombreClase(),clase.getFechaClase(),clase.getUrlClase());
+	        DtRegistro[] arrRegistro = new DtRegistro[900];
+	        
+	        for (int c = 0; c < claseRegistro.size(); c++) {
+	        	arrRegistro[c] = claseRegistro.get(c).getDtRegistro();
+	        }
+	        
+	        Calendar calendarClase = Calendar.getInstance();
+	        calendarClase.setTime(clase.getFechaClase());
+			
+	        Calendar calendarRegistro = Calendar.getInstance();
+	        calendarRegistro.setTime(clase.getFechaRegistro());
+	        
+	        DtClase dt = new DtClase(clase.getNombreClase(), clase.getActividadDeportiva().getDtActividad(), calendarClase, clase.getHoraInicio(), clase.getUrlClase(), calendarRegistro, arrRegistro, claseRegistro.size());
 	        rankingDtClases.add(dt);
 	    }
 

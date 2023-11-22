@@ -1,28 +1,23 @@
 package datatypes;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-
-import logica.Clase;
-import logica.InstitucionDeportiva;
+import java.util.Calendar;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtActividad{
-    private InstitucionDeportiva institucion;
+    private DtInstitucion institucion;
     private String nombre;
     private String descripcion;
     private int duracionMinutos;
     private double costo;
-    private Date fechaRegistro;
-    private List<Clase> clases = new ArrayList<>();
+    private Calendar fechaRegistro;
+    private DtClase[] clases;
+    private int cantClases = 0;
 
     public DtActividad() {}
 
-    public DtActividad(InstitucionDeportiva institucion, String nombre, String descripcion, int duracionMinutos, double costo, Date fechaRegistro, List<Clase> clases){
+    public DtActividad(DtInstitucion institucion, String nombre, String descripcion, int duracionMinutos, double costo, Calendar fechaRegistro, DtClase[] clases, int cantClases){
     	this.institucion = institucion;
     	this.nombre = nombre;
     	this.descripcion = descripcion;
@@ -30,18 +25,12 @@ public class DtActividad{
     	this.costo = costo;
     	this.fechaRegistro = fechaRegistro;
     	this.clases = clases;
-    }
-
-    public DtActividad(List<Clase> clases,String nombre, double costo, String descripcion) {
-    	this.nombre = nombre;
-    	this.costo = costo;
-    	this.descripcion = descripcion;
-    	this.clases = clases;
+    	this.cantClases = cantClases;
     }
 
 
 	public DtInstitucion getInstitucion() {
-		return institucion.getDtInstitucion();
+		return institucion;
 	}
 
 
@@ -65,45 +54,36 @@ public class DtActividad{
 	}
 
 
-	public Date getFechaRegistro() {
+	public Calendar getFechaRegistro() {
 		return fechaRegistro;
 	}
 
 
 	public int getCantidadDeClases() {
-		return clases.size();
-
+		return cantClases;
 	}
 
 
-	public int getCantidadClases() {
-        return (clases != null) ? clases.size() : 0;
-    }
-
-
-	public List<DtClase> getClases() {
-		List<DtClase> dtClases = new ArrayList<>();
-
-		for(Clase clase: clases) {
-			dtClases.add(clase.getDtClase());
-		}
-
-		return dtClases;
+	public DtClase[] getClases() {
+		return clases;
+	}
+	
+	public void restarUnaClase() {
+		cantClases = cantClases - 1;
 	}
 
 
 	public DtClase buscarDtClase(String nombre) {
-		DtClase clase = null;
-		if (clases.size() == 0) {
-			return clase;
+		if (cantClases == 0) {
+			return null;
 		} else {
-			for(Clase c: clases) {
-				if (c.getNombreClase().equals(nombre)) {
-					clase = new DtClase(c.getNombreClase(),c.getActividadDeportiva(),c.getFechaClase(),c.getHoraInicio(),c.getUrlClase(),c.getFechaRegistro());
+			for(int i = 0; i < cantClases; i++) {
+				if (clases[i].getNombre().equals(nombre)) {
+					return clases[i];
 				}
 			}
 		}
-		return clase;
+		return null;
 	}
 
 

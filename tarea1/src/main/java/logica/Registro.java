@@ -1,5 +1,6 @@
 package logica;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -25,14 +26,11 @@ public class Registro {
 public Registro(){}
 
 	//Constructor
-	public Registro(Date fechaRegistro, String socio, String clase) {
+	public Registro(Date fechaRegistro, Socio socio, Clase clase) {
 		super();
 		this.fechaRegistro = fechaRegistro;
-		Fabrica f = Fabrica.getInstancia();
-		IUsuario iUsuario = f.getIUsuario();
-		this.socio = (Socio) iUsuario.buscarSocio(socio);
-		IClase iclase = f.getIClase();
-		this.clase = iclase.buscarClase(clase);
+		this.socio = socio;
+		this.clase = clase;
 	}
 
 	//Getters & setters
@@ -44,24 +42,13 @@ public Registro(){}
 		this.fechaRegistro = fechaRegistro;
 	}
 
-	public Socio getsocio() {
-		return socio;
-	}
-
-	public void setsocio(Socio socio) {
-		this.socio = socio;
-	}
-
-	public Clase getclase() {
-		return clase;
-	}
-
-	public void setclase(Clase clase) {
-		this.clase = clase;
-	}
-
-	public DtRegistro getDtRegistro() {
-		return new DtRegistro(fechaRegistro, socio.getDtSocio(), clase.getDtClase());
+	public DtRegistro getDtRegistro() {	
+		 Calendar calendarRegistro = Calendar.getInstance();
+		 calendarRegistro.setTime(fechaRegistro);
+	     
+		DtRegistro dtR = new DtRegistro(calendarRegistro, socio.getNombre(), clase.getNombreClase());
+	     
+		return dtR;
 	}
 
 }

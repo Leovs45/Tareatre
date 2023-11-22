@@ -1,32 +1,34 @@
 package datatypes;
 
+import java.util.Calendar;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtRegistro {
-    private Date fechaRegistro;
-    private DtSocio socio;
-    private DtClase clase;
+    private Calendar fechaRegistro;
+    private String nombreSocio;
+	private String nombreClase;
 
     public DtRegistro() {}
 
-    public DtRegistro(Date fechaRegistro, DtSocio socio, DtClase clase) {
+    public DtRegistro(Calendar fechaRegistro, String socio, String clase) {
         this.fechaRegistro = fechaRegistro;
-        this.socio = socio;
-        this.clase = clase;
+        this.nombreSocio = socio;
+        this.nombreClase = clase;
     }
 
-    public Date getFechaRegistro() {
+    public Calendar getFechaRegistro() {
         return fechaRegistro;
     }
-
-    public DtSocio getSocio() {
-        return socio;
+    
+    public String getNombreSocio() {
+    	return nombreSocio;
+    }
+    
+    public String getNombreClase() {
+    	return nombreClase;
     }
 
-    public DtClase getClase() {
-        return clase;
-    }
 }

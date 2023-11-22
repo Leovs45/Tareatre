@@ -1,5 +1,6 @@
 package controladores;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -142,8 +143,16 @@ public class CActividadDeportiva implements IActividadDeportiva {
 
 	    List<DtActividad> rankingDtActividades = new ArrayList<>();
 	    for (ActividadDeportiva actividad : actividadesOrdenadas) {
-	        List<Clase> claseActividad = actividad.getArrayClase();
-	        DtActividad dt = new DtActividad(claseActividad,actividad.getNombre(),actividad.getCosto(),actividad.getDescripcion());
+	        List<DtClase> claseActividad = actividad.getDtArrayClase();
+	        DtClase[] arrClase = new DtClase[900];
+	        for (int c = 0; c < claseActividad.size(); c++) {
+	        	arrClase[c] = claseActividad.get(c);
+	        }
+	        
+	        Calendar calendarRegistro = Calendar.getInstance();
+			calendarRegistro.setTime(actividad.getFechaRegistro());
+	        
+	        DtActividad dt = new DtActividad(actividad.getInstitucion().getDtInstitucion(), actividad.getNombre(),actividad.getDescripcion(), actividad.getDuracionMinutos(), actividad.getCosto(), calendarRegistro, arrClase, claseActividad.size());
 	        rankingDtActividades.add(dt);
 	    }
 
