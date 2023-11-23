@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
+
 import datatypes.*;
 
 import excepciones.UsuarioNoEsProfesorException;
@@ -62,8 +65,8 @@ public class ConsultaUsuario extends HttpServlet {
 			    	List<publicadores.DtClase> listaClases = new ArrayList<>();
 			    	List<publicadores.DtRegistro> listaRegistros = obtenerListaDtRegistros(dtSoc);
 			    	for (publicadores.DtRegistro registro : listaRegistros) {
-			    	    listaClases.add(registro.getClase());
-			    	    System.out.println(registro.getClase().getNombre());
+			    		String clase = registro.getNombreClase();
+			    	    listaClases.add(obtenerClasePorNombre(clase));
 			    	}
 
 			    	request.setAttribute("usuario", dtSoc);
@@ -71,8 +74,9 @@ public class ConsultaUsuario extends HttpServlet {
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    } else {
 			    	publicadores.DtProfesor dtProf = obtenerDtProfesor(nickname);
-			    	String intitusion = dtProf.getNombreInstitucion();
+			    	String intitusion = dtProf.getInstitucion().getNombre();
 			    	List<publicadores.DtClase> clasercias = obtenerListaClasesDeProfe(dtProf);
+			    	
 			    	for (publicadores.DtClase clase: clasercias) {
 			    		System.out.println(clase.getNombre());
 			    	}
@@ -123,7 +127,7 @@ public class ConsultaUsuario extends HttpServlet {
 		//List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
 		publicadores.DtRegistro[] registros = socio.getRegistros();
 		ArrayList<publicadores.DtRegistro> listRegistros = new ArrayList<>();
-		for (int i = 0; i < registros.length; i++) {
+		for (int i = 0; i < socio.getCantRegistros(); i++) {
 			listRegistros.add(registros[i]);
 		}
 		return listRegistros;
@@ -133,9 +137,16 @@ public class ConsultaUsuario extends HttpServlet {
 		//List<publicadores.DtClase> clasercias = dtProf.getClases();
 		publicadores.DtClase[] clases = profesor.getClases();
 		List<publicadores.DtClase> listClases = new ArrayList<>();
-		for (int i = 0; i < clases.length; i++) {
+		for (int i = 0; i < profesor.getCantClases(); i++) {
 			listClases.add(clases[i]);
 		}
 		return listClases;
+	}
+	
+	public publicadores.DtClase obtenerClasePorNombre(String nombreClase) throws RemoteException, ServiceException {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		return port.obtenerDtClasePorNombre(nombreClase);
 	}
 }

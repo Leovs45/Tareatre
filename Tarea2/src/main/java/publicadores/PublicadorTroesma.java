@@ -8,6 +8,10 @@
 package publicadores;
 
 public interface PublicadorTroesma extends java.rmi.Remote {
+    public publicadores.DtInstitucion getDtInstitucion(java.lang.String arg0) throws java.rmi.RemoteException;
+    public boolean existeActividadEnUnaInstitucion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public boolean existeClaseDeActividad(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2) throws java.rmi.RemoteException;
+    public void altaDictadoClase(java.lang.String arg0, publicadores.DtActividad arg1, java.util.Calendar arg2, java.lang.String arg3, java.lang.String arg4, java.lang.String arg5, java.util.Calendar arg6) throws java.rmi.RemoteException, publicadores.ClaseRepetidaException;
     public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException;
     public publicadores.DtActividad getDtActividad(java.lang.String arg0) throws java.rmi.RemoteException;
     public boolean esSocio(java.lang.String arg0) throws java.rmi.RemoteException;
@@ -19,4 +23,5 @@ public interface PublicadorTroesma extends java.rmi.Remote {
     public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException;
+    public publicadores.DtClase obtenerDtClasePorNombre(java.lang.String arg0) throws java.rmi.RemoteException;
 }

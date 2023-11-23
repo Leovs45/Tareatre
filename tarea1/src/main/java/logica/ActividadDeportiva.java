@@ -102,21 +102,21 @@ public class ActividadDeportiva {
 	}
 	public List<DtClase> getDtArrayClase(){
 		List<DtClase> arrDtClase = new ArrayList<>();
-		
+
 		for(Clase c: clases) {
 			/* List<Registro> listRegistros = c.getArrayRegistro();
 			DtRegistro[] arrRegistros = new DtRegistro[900];
-			
+
 			for (int i = 0; i < c.getCantidadRegistros(); i++) {
 				arrRegistros[i] = listRegistros.get(i).getDtRegistro();
 			}
-			
+
 			Calendar fechaClase = Calendar.getInstance();
 			fechaClase.setTime(c.getFechaClase());
 
 			Calendar fechaRegistro = Calendar.getInstance();
 			fechaClase.setTime(c.getFechaRegistro());
-			
+
 			DtClase dtC = new DtClase(c.getNombreClase(), c.getActividadDeportiva().getDtActividad(), fechaClase, c.getHoraInicio(), c.getUrlClase(), fechaRegistro, arrRegistros, c.getCantidadRegistros()); */
 			arrDtClase.add(c.getDtClase());
 		}
@@ -186,17 +186,17 @@ public class ActividadDeportiva {
 		return clase.getDtClase();
 	}
 
-	public DtActividad getDtActividad() {		
+	public DtActividad getDtActividad() {
 		Calendar calendarRegistro = Calendar.getInstance();
 		calendarRegistro.setTime(fechaRegistro);
-		
+
 		DtClase[] arrClases = new DtClase[900];
-		
+
 		for(int i = 0; i < clases.size(); i++) {
 			arrClases[i] = clases.get(i).getDtClase();
 		}
-		
-		return new DtActividad(institucion.getDtInstitucion(), nombre, descripcion, duracionMinutos, costo, calendarRegistro, arrClases, clases.size());
+
+		return new DtActividad(institucion.getNombre(), nombre, descripcion, duracionMinutos, costo, calendarRegistro, arrClases, clases.size());
 	}
 
 }

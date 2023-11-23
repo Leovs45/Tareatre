@@ -117,7 +117,7 @@ public class Clase {
 
 	public void registroClase(Socio socio, Clase clase) {
 		Date date = new Date();
-		Registro registro = new Registro(date, socio.getNickname(), clase.getNombreClase());
+		Registro registro = new Registro(date, socio, clase);
 		registros.add(registro);
 		socio.agregarRegistro(registro);
 	}
@@ -134,14 +134,19 @@ public class Clase {
 		for (int i = 0; i < registros.size(); i++) {
 			arrRegistros[i] = registros.get(i).getDtRegistro();
 		}
-		
+
 		Calendar calendarRegistro = Calendar.getInstance();
-		calendarRegistro.setTime(fechaRegistro);
-		
 		Calendar calendarClase = Calendar.getInstance();
-		calendarClase.setTime(fechaRegistro);
-		
-		return new DtClase(nombreClase, actividadDeportiva.getDtActividad(), calendarClase, horaInicio, urlClase, calendarRegistro, arrRegistros, registros.size());
+
+		if (fechaRegistro != null) {
+			calendarRegistro.setTime(fechaRegistro);
+			}
+
+		if (fechaClase != null) {
+			calendarClase.setTime(fechaClase);
+		}
+
+		return new DtClase(nombreClase, actividadDeportiva.getNombre(), calendarClase, horaInicio, urlClase, calendarRegistro, arrRegistros, registros.size());
 	}
 
 }

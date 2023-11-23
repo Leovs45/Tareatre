@@ -4,9 +4,12 @@ import java.util.Calendar;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
+import interfaces.Fabrica;
+import interfaces.IInstitucionDeportiva;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtActividad{
-    private DtInstitucion institucion;
+    private String nombreInstitucion;
     private String nombre;
     private String descripcion;
     private int duracionMinutos;
@@ -17,8 +20,8 @@ public class DtActividad{
 
     public DtActividad() {}
 
-    public DtActividad(DtInstitucion institucion, String nombre, String descripcion, int duracionMinutos, double costo, Calendar fechaRegistro, DtClase[] clases, int cantClases){
-    	this.institucion = institucion;
+    public DtActividad(String institucion, String nombre, String descripcion, int duracionMinutos, double costo, Calendar fechaRegistro, DtClase[] clases, int cantClases){
+    	this.nombreInstitucion = nombreInstitucion;
     	this.nombre = nombre;
     	this.descripcion = descripcion;
     	this.duracionMinutos = duracionMinutos;
@@ -29,8 +32,14 @@ public class DtActividad{
     }
 
 
-	public DtInstitucion getInstitucion() {
-		return institucion;
+	public String getNombreInstitucion() {
+		return nombreInstitucion;
+	}
+
+	public DtInstitucion getDtInstitucion() {
+		Fabrica f = Fabrica.getInstancia();
+		IInstitucionDeportiva iInstitucion = f.getIInstitucionDeportiva();
+		return iInstitucion.getDtInstitucion(nombreInstitucion);
 	}
 
 
@@ -67,7 +76,7 @@ public class DtActividad{
 	public DtClase[] getClases() {
 		return clases;
 	}
-	
+
 	public void restarUnaClase() {
 		cantClases = cantClases - 1;
 	}

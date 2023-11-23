@@ -1,7 +1,6 @@
 package datatypes;
 
 import java.util.Calendar;
-import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
@@ -17,11 +16,11 @@ public class DtSocio extends DtUsuario {
         this.registros = registros;
         this.cantRegistros = cantRegistros;
     }
-    
+
     public int getCantidadRegistros() {
     	return cantRegistros;
     }
-    
+
     public void restarUnRegistro() {
     	cantRegistros = cantRegistros - 1;
     }

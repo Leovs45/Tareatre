@@ -35,7 +35,7 @@
                 for (DtActividad actividad : actividades) {
         %>
         <tr>
-            <td><%= actividad.getCantidadClases() %></td>
+            <td><%= actividad.getCantidadDeClases() %></td>
             <td><%= actividad.getNombre() %></td>
             <td><%= actividad.getDescripcion() %></td>
             <td><%= actividad.getCosto() %></td>

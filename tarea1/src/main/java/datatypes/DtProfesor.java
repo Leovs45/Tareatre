@@ -1,7 +1,6 @@
 package datatypes;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -46,11 +45,11 @@ public class DtProfesor extends DtUsuario {
     public String getSitioWeb() {
         return sitioWeb;
     }
-    
+
     public int getCantClases() {
     	return cantClases;
     }
-    
+
     public void restarUnaClase() {
     	cantClases = cantClases - 1;
     }

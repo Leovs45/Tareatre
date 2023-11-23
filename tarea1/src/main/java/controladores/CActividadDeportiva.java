@@ -148,11 +148,11 @@ public class CActividadDeportiva implements IActividadDeportiva {
 	        for (int c = 0; c < claseActividad.size(); c++) {
 	        	arrClase[c] = claseActividad.get(c);
 	        }
-	        
+
 	        Calendar calendarRegistro = Calendar.getInstance();
 			calendarRegistro.setTime(actividad.getFechaRegistro());
-	        
-	        DtActividad dt = new DtActividad(actividad.getInstitucion().getDtInstitucion(), actividad.getNombre(),actividad.getDescripcion(), actividad.getDuracionMinutos(), actividad.getCosto(), calendarRegistro, arrClase, claseActividad.size());
+
+	        DtActividad dt = new DtActividad(actividad.getNombre(), actividad.getNombre(),actividad.getDescripcion(), actividad.getDuracionMinutos(), actividad.getCosto(), calendarRegistro, arrClase, claseActividad.size());
 	        rankingDtActividades.add(dt);
 	    }
 

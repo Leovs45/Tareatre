@@ -149,7 +149,7 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 					}
 					//si no tengo seleccionada la nada misma, busco las actividades deportivas correspondientes a la institucion seleccionada
 					else {
-						List<DtActividad> actividades = institucion.getActividades();
+						DtActividad[] actividades = institucion.getActividades();
 						cmb_actsdeps.removeAllItems();
 						for(DtActividad a: actividades) {
 							cmb_actsdeps.addItem(a.getNombre());
@@ -171,7 +171,7 @@ public class GUIRegistroDictadoClase extends JInternalFrame {
 				String nombreActividad = (String) cmb_actsdeps.getSelectedItem();
 				if(cmb_actsdeps.getSelectedIndex() != -1) {
 					DtActividad actividad = institucion.buscarDtActividad(nombreActividad);
-					List<DtClase> clases = actividad.getClases();
+					DtClase[] clases = actividad.getClases();
 					cmb_clases.removeAllItems();
 					for(DtClase c: clases) {
 						cmb_clases.addItem(c.getNombre());

@@ -1,7 +1,6 @@
 package datatypes;
 
 import java.util.Calendar;
-import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
@@ -22,11 +21,11 @@ public class DtRegistro {
     public Calendar getFechaRegistro() {
         return fechaRegistro;
     }
-    
+
     public String getNombreSocio() {
     	return nombreSocio;
     }
-    
+
     public String getNombreClase() {
     	return nombreClase;
     }
