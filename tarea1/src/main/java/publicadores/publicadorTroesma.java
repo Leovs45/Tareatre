@@ -57,6 +57,12 @@ public class publicadorTroesma {
 
 	//LOS MÉTODOS QUE VAMOS A PUBLICAR (yo solo publicaria los metodos de las interfaces que utilizo para el CU de la tarea 2 en el servlet,tambien se podrian publicar todos)
 
+	
+	@WebMethod
+	public boolean existeClase(String nombreClase) {
+		return iCls.existeClase(nombreClase);
+	}
+	
 	@WebMethod
 	public DtInstitucion getDtInstitucion(String nombreInstitucion) {
 		return iIns.getDtInstitucion(nombreInstitucion);
