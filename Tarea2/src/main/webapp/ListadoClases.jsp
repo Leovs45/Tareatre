@@ -10,12 +10,12 @@
 <title>Listado Clases</title>
 </head>
 <body class="body">
-	
+
 	<%@ include file="header.jsp" %>
-	
+
 	<div class="container mt-4">
 		<h3 class="mb-4">Listado de Actividades en ${actividadObtenida.nombre}</h3>
-		
+
 		<table class="table table-sm">
   			<thead>
 		    <tr>
@@ -39,17 +39,13 @@
 		        <td>Costo</td>
 		        <td>${actividadObtenida.costo}</td>
 		    </tr>
-		    <tr>
-		        <td>Fecha de Registro</td>
-		        <td>${actividadObtenida.fechaRegistro}</td>
-		    </tr>
 		</table>
-		
+
 		<form
 			id="form"
 			action="RegistroClase"
 			method="post"
-		>	
+		>
 			<input type="hidden" id="claseSeleccionada" name="claseSeleccionada" value="">
 			<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;" class="mt-2">
 				<% List<DtClase> clases = (List<DtClase>) request.getAttribute("listaClases"); %>
@@ -65,7 +61,7 @@
 									<br>
 									<span style="font-weight: 600;">URL:</span> <%= clase.getUrl() %>
 								</p>
-							<button 
+							<button
 								class="btn btn-primary"
 								type="button"
 								onClick="procesar('<%= clase.getNombre() %>')"
@@ -79,9 +75,9 @@
 			</div>
 		</form>
 	</div>
-	
+
 	<%@ include file="footer.jsp" %>
-	
+
 </body>
 <script type="text/javascript">
 	function procesar(clase) {

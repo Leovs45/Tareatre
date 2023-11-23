@@ -106,5 +106,4 @@ public class ModificarUsuario extends HttpServlet {
 		return port.existeUsuario(nickname);
 	}
 
-	//request.getRequestDispatcher("/RegistroError.jsp").forward(request, response);
 }

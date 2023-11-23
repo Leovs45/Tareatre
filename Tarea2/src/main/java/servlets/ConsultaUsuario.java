@@ -76,7 +76,7 @@ public class ConsultaUsuario extends HttpServlet {
 			    	publicadores.DtProfesor dtProf = obtenerDtProfesor(nickname);
 			    	String intitusion = dtProf.getInstitucion().getNombre();
 			    	List<publicadores.DtClase> clasercias = obtenerListaClasesDeProfe(dtProf);
-			    	
+
 			    	for (publicadores.DtClase clase: clasercias) {
 			    		System.out.println(clase.getNombre());
 			    	}
@@ -142,7 +142,7 @@ public class ConsultaUsuario extends HttpServlet {
 		}
 		return listClases;
 	}
-	
+
 	public publicadores.DtClase obtenerClasePorNombre(String nombreClase) throws RemoteException, ServiceException {
 		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
 		PublicadorTroesma port;

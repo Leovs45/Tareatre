@@ -18,9 +18,9 @@
     <%@ page import="publicadores.DtClase" %>
     <%@ page import="publicadores.DtActividad" %>
     <%@ page import="publicadores.DtRegistro" %>
-                  <!-- 
+                  <!--
 		<form action="ConsultaUsuario" method="post">
-        
+
         <input type="submit" value="ver usuario">
     </form>
     -->
@@ -29,14 +29,15 @@
 
                   <!-- Contenido de la página principal -->
    <div class="container mt-4">
-   
+
    	<div>
       <h3>Consulta de Usuarios</h3>
     </div>
 
        <div class="container-fluid">
 
-         <% String nick=(String) session.getAttribute("nickname"); if (nick !=null) { %>
+         <% String nick=(String) session.getAttribute("nickname"); if (nick !=null) {
+         %>
            <div class="row">
              <div class="col-sm-6">Nickname</div>
              <div class="col-sm-6">${usuario.nickname}</div>
@@ -46,13 +47,11 @@
              <div class="col-sm-6">${usuario.apellido}</div>
              <div class="col-sm-6">Correo Electronico</div>
              <div class="col-sm-6">${usuario.correoElectronico}</div>
-             <div class="col-sm-6">Fecha de Nacimiento</div>
-             <div class="col-sm-6">${usuario.fechaNacimiento}</div>
            </div>
        </div>
        <div class="container-fluid" aria-labelledby="datosEspecificos">
 
-        <% String tipo=(String) session.getAttribute("tipo"); 
+        <% String tipo=(String) session.getAttribute("tipo");
         if ("Profesor".equals(tipo)) { %>
 
           <div class="row">
@@ -68,8 +67,8 @@
             <div class="col-sm-6">${usuario.sitioWeb}</div>
             <div class="col-sm-6">Lista de clases dictadas:</div>
             <!-- De esta forma se me ocurrió para mostrarlo lindo con bootstrap, pero no se si va a andar
-Noté intentando mostrar las actividades deportivas asociadas a la DtClase, que no tenemos 
-actividades deportivas guardadas en DtClase (sí en Clase) entonces opté por fingir 
+Noté intentando mostrar las actividades deportivas asociadas a la DtClase, que no tenemos
+actividades deportivas guardadas en DtClase (sí en Clase) entonces opté por fingir
 demencia respecto a ese requisito
 
 Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero capaz me ayudan con eso y queda más bonito.
@@ -80,12 +79,12 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
           <% List<DtClase> clases = (List<DtClase>) request.getAttribute("listaClasesProf");
           if (clases.size() == 0) { %>
 		<div>No existen clases para esta actividad</div>
-		
-	   <% } else { 
-		   
+
+	   <% } else {
+
           for (DtClase clase : clases) {
           %>
-          
+
           <div class="card m-2" style="width: 250px;">
 			<div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
 				<h5 class="card-title"><%= clase.getNombre() %></h5>
@@ -96,7 +95,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 					<br>
 					<span style="font-weight: 600;">URL:</span> <%= clase.getUrl() %>
 				</p>
-			
+
 			   <form
 				   	action="ConsultaDictadoClase"
 					method="post"
@@ -104,7 +103,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 			   		<input type="hidden" id="clase" name="clase" value="<%= clase.getNombre() %>">
                		<input type="submit" value="Consultar Clase" class="btn btn-primary">
 			   </form>
-			   
+
 			   <form
 				   	action="ConsultaActividadDeportiva"
 					method="post"
@@ -124,9 +123,9 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 		id="form"
 		action="ConsultaDictadoClase"
 		method="post"
-	  >	
+	  >
 		<input type="hidden" id="claseSeleccionada" name="claseSeleccionada" value="">
-		
+
 		<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;" class="mt-2">
 			<% List<DtClase> clasesS = (List<DtClase>) request.getAttribute("listaClasesSoc"); %>
 			<% if (clasesS.size() == 0) { %>
@@ -143,7 +142,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 								<br>
 								<span style="font-weight: 600;">URL:</span> <%= clase.getUrl() %>
 							</p>
-						
+
 						<input type="hidden" id="clase" name="clase" value="<%= clase.getNombre() %>">
                         <input type="submit" value="Consultar Clase" class="btn btn-primary">
 					</div>
@@ -158,12 +157,12 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 		private	Date fechaRegistro;
 		private Socio socio;
 		private Clase clase;
-	
+
 	Los DtRegistros por su parte tienen la siguiente información:
 	    private Date fechaRegistro;
 	    private DtSocio socio;
 	    private DtClase clase;
-	
+
 	Funcion de DtSocio que podria ser util:
 		List<DtRegistro> getRegistros();
 -->
@@ -177,7 +176,8 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
           </div>
           <% } %>
      </div>
-   
+
+   </div>
    </div>
 
     <!-- Incluye el pie de página desde footer.jsp -->
