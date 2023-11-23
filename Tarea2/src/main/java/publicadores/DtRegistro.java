@@ -8,42 +8,22 @@
 package publicadores;
 
 public class DtRegistro  implements java.io.Serializable {
-    private publicadores.DtClase clase;
-
     private java.util.Calendar fechaRegistro;
 
-    private publicadores.DtSocio socio;
+    private java.lang.String nombreSocio;
+
+    private java.lang.String nombreClase;
 
     public DtRegistro() {
     }
 
     public DtRegistro(
-           publicadores.DtClase clase,
            java.util.Calendar fechaRegistro,
-           publicadores.DtSocio socio) {
-           this.clase = clase;
+           java.lang.String nombreSocio,
+           java.lang.String nombreClase) {
            this.fechaRegistro = fechaRegistro;
-           this.socio = socio;
-    }
-
-
-    /**
-     * Gets the clase value for this DtRegistro.
-     * 
-     * @return clase
-     */
-    public publicadores.DtClase getClase() {
-        return clase;
-    }
-
-
-    /**
-     * Sets the clase value for this DtRegistro.
-     * 
-     * @param clase
-     */
-    public void setClase(publicadores.DtClase clase) {
-        this.clase = clase;
+           this.nombreSocio = nombreSocio;
+           this.nombreClase = nombreClase;
     }
 
 
@@ -68,22 +48,42 @@ public class DtRegistro  implements java.io.Serializable {
 
 
     /**
-     * Gets the socio value for this DtRegistro.
+     * Gets the nombreSocio value for this DtRegistro.
      * 
-     * @return socio
+     * @return nombreSocio
      */
-    public publicadores.DtSocio getSocio() {
-        return socio;
+    public java.lang.String getNombreSocio() {
+        return nombreSocio;
     }
 
 
     /**
-     * Sets the socio value for this DtRegistro.
+     * Sets the nombreSocio value for this DtRegistro.
      * 
-     * @param socio
+     * @param nombreSocio
      */
-    public void setSocio(publicadores.DtSocio socio) {
-        this.socio = socio;
+    public void setNombreSocio(java.lang.String nombreSocio) {
+        this.nombreSocio = nombreSocio;
+    }
+
+
+    /**
+     * Gets the nombreClase value for this DtRegistro.
+     * 
+     * @return nombreClase
+     */
+    public java.lang.String getNombreClase() {
+        return nombreClase;
+    }
+
+
+    /**
+     * Sets the nombreClase value for this DtRegistro.
+     * 
+     * @param nombreClase
+     */
+    public void setNombreClase(java.lang.String nombreClase) {
+        this.nombreClase = nombreClase;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -98,15 +98,15 @@ public class DtRegistro  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.clase==null && other.getClase()==null) || 
-             (this.clase!=null &&
-              this.clase.equals(other.getClase()))) &&
             ((this.fechaRegistro==null && other.getFechaRegistro()==null) || 
              (this.fechaRegistro!=null &&
               this.fechaRegistro.equals(other.getFechaRegistro()))) &&
-            ((this.socio==null && other.getSocio()==null) || 
-             (this.socio!=null &&
-              this.socio.equals(other.getSocio())));
+            ((this.nombreSocio==null && other.getNombreSocio()==null) || 
+             (this.nombreSocio!=null &&
+              this.nombreSocio.equals(other.getNombreSocio()))) &&
+            ((this.nombreClase==null && other.getNombreClase()==null) || 
+             (this.nombreClase!=null &&
+              this.nombreClase.equals(other.getNombreClase())));
         __equalsCalc = null;
         return _equals;
     }
@@ -118,14 +118,14 @@ public class DtRegistro  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getClase() != null) {
-            _hashCode += getClase().hashCode();
-        }
         if (getFechaRegistro() != null) {
             _hashCode += getFechaRegistro().hashCode();
         }
-        if (getSocio() != null) {
-            _hashCode += getSocio().hashCode();
+        if (getNombreSocio() != null) {
+            _hashCode += getNombreSocio().hashCode();
+        }
+        if (getNombreClase() != null) {
+            _hashCode += getNombreClase().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -138,13 +138,6 @@ public class DtRegistro  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtRegistro"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("clase");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "clase"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("fechaRegistro");
         elemField.setXmlName(new javax.xml.namespace.QName("", "fechaRegistro"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
@@ -152,9 +145,16 @@ public class DtRegistro  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("socio");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "socio"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtSocio"));
+        elemField.setFieldName("nombreSocio");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "nombreSocio"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("nombreClase");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "nombreClase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

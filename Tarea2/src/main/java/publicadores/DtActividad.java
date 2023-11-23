@@ -8,7 +8,7 @@
 package publicadores;
 
 public class DtActividad  implements java.io.Serializable {
-    private publicadores.InstitucionDeportiva institucion;
+    private java.lang.String nombreInstitucion;
 
     private java.lang.String nombre;
 
@@ -20,46 +20,50 @@ public class DtActividad  implements java.io.Serializable {
 
     private java.util.Calendar fechaRegistro;
 
-    private publicadores.Clase[] clases;
+    private publicadores.DtClase[] clases;
+
+    private int cantClases;
 
     public DtActividad() {
     }
 
     public DtActividad(
-           publicadores.InstitucionDeportiva institucion,
+           java.lang.String nombreInstitucion,
            java.lang.String nombre,
            java.lang.String descripcion,
            int duracionMinutos,
            double costo,
            java.util.Calendar fechaRegistro,
-           publicadores.Clase[] clases) {
-           this.institucion = institucion;
+           publicadores.DtClase[] clases,
+           int cantClases) {
+           this.nombreInstitucion = nombreInstitucion;
            this.nombre = nombre;
            this.descripcion = descripcion;
            this.duracionMinutos = duracionMinutos;
            this.costo = costo;
            this.fechaRegistro = fechaRegistro;
            this.clases = clases;
+           this.cantClases = cantClases;
     }
 
 
     /**
-     * Gets the institucion value for this DtActividad.
+     * Gets the nombreInstitucion value for this DtActividad.
      * 
-     * @return institucion
+     * @return nombreInstitucion
      */
-    public publicadores.InstitucionDeportiva getInstitucion() {
-        return institucion;
+    public java.lang.String getNombreInstitucion() {
+        return nombreInstitucion;
     }
 
 
     /**
-     * Sets the institucion value for this DtActividad.
+     * Sets the nombreInstitucion value for this DtActividad.
      * 
-     * @param institucion
+     * @param nombreInstitucion
      */
-    public void setInstitucion(publicadores.InstitucionDeportiva institucion) {
-        this.institucion = institucion;
+    public void setNombreInstitucion(java.lang.String nombreInstitucion) {
+        this.nombreInstitucion = nombreInstitucion;
     }
 
 
@@ -168,7 +172,7 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @return clases
      */
-    public publicadores.Clase[] getClases() {
+    public publicadores.DtClase[] getClases() {
         return clases;
     }
 
@@ -178,16 +182,36 @@ public class DtActividad  implements java.io.Serializable {
      * 
      * @param clases
      */
-    public void setClases(publicadores.Clase[] clases) {
+    public void setClases(publicadores.DtClase[] clases) {
         this.clases = clases;
     }
 
-    public publicadores.Clase getClases(int i) {
+    public publicadores.DtClase getClases(int i) {
         return this.clases[i];
     }
 
-    public void setClases(int i, publicadores.Clase _value) {
+    public void setClases(int i, publicadores.DtClase _value) {
         this.clases[i] = _value;
+    }
+
+
+    /**
+     * Gets the cantClases value for this DtActividad.
+     * 
+     * @return cantClases
+     */
+    public int getCantClases() {
+        return cantClases;
+    }
+
+
+    /**
+     * Sets the cantClases value for this DtActividad.
+     * 
+     * @param cantClases
+     */
+    public void setCantClases(int cantClases) {
+        this.cantClases = cantClases;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -202,9 +226,9 @@ public class DtActividad  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.institucion==null && other.getInstitucion()==null) || 
-             (this.institucion!=null &&
-              this.institucion.equals(other.getInstitucion()))) &&
+            ((this.nombreInstitucion==null && other.getNombreInstitucion()==null) || 
+             (this.nombreInstitucion!=null &&
+              this.nombreInstitucion.equals(other.getNombreInstitucion()))) &&
             ((this.nombre==null && other.getNombre()==null) || 
              (this.nombre!=null &&
               this.nombre.equals(other.getNombre()))) &&
@@ -218,7 +242,8 @@ public class DtActividad  implements java.io.Serializable {
               this.fechaRegistro.equals(other.getFechaRegistro()))) &&
             ((this.clases==null && other.getClases()==null) || 
              (this.clases!=null &&
-              java.util.Arrays.equals(this.clases, other.getClases())));
+              java.util.Arrays.equals(this.clases, other.getClases()))) &&
+            this.cantClases == other.getCantClases();
         __equalsCalc = null;
         return _equals;
     }
@@ -230,8 +255,8 @@ public class DtActividad  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getInstitucion() != null) {
-            _hashCode += getInstitucion().hashCode();
+        if (getNombreInstitucion() != null) {
+            _hashCode += getNombreInstitucion().hashCode();
         }
         if (getNombre() != null) {
             _hashCode += getNombre().hashCode();
@@ -255,6 +280,7 @@ public class DtActividad  implements java.io.Serializable {
                 }
             }
         }
+        _hashCode += getCantClases();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -266,9 +292,9 @@ public class DtActividad  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtActividad"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("institucion");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "institucion"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "institucionDeportiva"));
+        elemField.setFieldName("nombreInstitucion");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "nombreInstitucion"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -308,10 +334,16 @@ public class DtActividad  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("clases");
         elemField.setXmlName(new javax.xml.namespace.QName("", "clases"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "clase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("cantClases");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "cantClases"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 

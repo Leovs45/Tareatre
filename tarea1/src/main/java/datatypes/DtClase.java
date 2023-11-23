@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DtClase {
 	private String nombre;
-	private DtActividad actividad;
+	private String nombreActividad;
 	private Calendar fechaClase;
 	private String horaInicio;
 	private String url;
@@ -18,9 +18,9 @@ public class DtClase {
 
     public DtClase() {}
 
-	public DtClase(String nombre, DtActividad actividad, Calendar fechaClase, String horaInicio, String url, Calendar fechaRegistro, DtRegistro[] registros, int cantRegistros) {
+	public DtClase(String nombre, String nombreActividad, Calendar fechaClase, String horaInicio, String url, Calendar fechaRegistro, DtRegistro[] registros, int cantRegistros) {
 		this.nombre = nombre;
-		this.actividad = actividad;
+		this.nombreActividad = nombreActividad;
 		this.fechaClase = fechaClase;
 		this.horaInicio = horaInicio;
 		this.url = url;
@@ -35,8 +35,8 @@ public class DtClase {
 	}
 
 
-	public DtActividad getActividadDeportiva() {
-		return actividad;
+	public String getNombreActividad() {
+		return nombreActividad;
 	}
 
 

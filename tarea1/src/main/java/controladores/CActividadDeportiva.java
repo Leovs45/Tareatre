@@ -152,7 +152,7 @@ public class CActividadDeportiva implements IActividadDeportiva {
 	        Calendar calendarRegistro = Calendar.getInstance();
 			calendarRegistro.setTime(actividad.getFechaRegistro());
 	        
-	        DtActividad dt = new DtActividad(actividad.getInstitucion().getDtInstitucion(), actividad.getNombre(),actividad.getDescripcion(), actividad.getDuracionMinutos(), actividad.getCosto(), calendarRegistro, arrClase, claseActividad.size());
+	        DtActividad dt = new DtActividad(actividad.getNombre(), actividad.getNombre(),actividad.getDescripcion(), actividad.getDuracionMinutos(), actividad.getCosto(), calendarRegistro, arrClase, claseActividad.size());
 	        rankingDtActividades.add(dt);
 	    }
 

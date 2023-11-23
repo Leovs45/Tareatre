@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
   <modelVersion>4.0.0</modelVersion>
   <groupId>PApp</groupId>
   <artifactId>PApp</artifactId>
@@ -83,21 +83,11 @@
 	</dependency>
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 	<!-- Dependencias de Hibernate -->
-    <dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.4.21.Final</version>
-		</dependency>
-  
+
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
         <version>5.4.21.Final</version>
-    </dependency>
-    <dependency>
-    	<groupId>PApp</groupId>
-    	<artifactId>tarea2</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
     </dependency>
    </dependencies> 
 </project>

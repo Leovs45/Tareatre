@@ -44,6 +44,30 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     return publicadorTroesma;
   }
   
+  public publicadores.DtInstitucion getDtInstitucion(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.getDtInstitucion(arg0);
+  }
+  
+  public boolean existeActividadEnUnaInstitucion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeActividadEnUnaInstitucion(arg0, arg1);
+  }
+  
+  public boolean existeClaseDeActividad(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.existeClaseDeActividad(arg0, arg1, arg2);
+  }
+  
+  public void altaDictadoClase(java.lang.String arg0, publicadores.DtActividad arg1, java.util.Calendar arg2, java.lang.String arg3, java.lang.String arg4, java.lang.String arg5, java.util.Calendar arg6) throws java.rmi.RemoteException, publicadores.ClaseRepetidaException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    publicadorTroesma.altaDictadoClase(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+  }
+  
   public boolean existeActividad(java.lang.String arg0) throws java.rmi.RemoteException{
     if (publicadorTroesma == null)
       _initPublicadorTroesmaProxy();

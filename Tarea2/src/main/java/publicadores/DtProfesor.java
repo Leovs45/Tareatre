@@ -8,7 +8,7 @@
 package publicadores;
 
 public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Serializable {
-    private publicadores.InstitucionDeportiva institucion;
+    private publicadores.DtInstitucion institucion;
 
     private java.lang.String descripcionGeneral;
 
@@ -16,7 +16,9 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
 
     private java.lang.String sitioWeb;
 
-    private publicadores.Clase[] clases;
+    private publicadores.DtClase[] clases;
+
+    private int cantClases;
 
     public DtProfesor() {
     }
@@ -27,11 +29,12 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
            java.lang.String apellido,
            java.lang.String correoElectronico,
            java.util.Calendar fechaNacimiento,
-           publicadores.InstitucionDeportiva institucion,
+           publicadores.DtInstitucion institucion,
            java.lang.String descripcionGeneral,
            java.lang.String biografia,
            java.lang.String sitioWeb,
-           publicadores.Clase[] clases) {
+           publicadores.DtClase[] clases,
+           int cantClases) {
         super(
             nickname,
             nombre,
@@ -43,6 +46,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
         this.biografia = biografia;
         this.sitioWeb = sitioWeb;
         this.clases = clases;
+        this.cantClases = cantClases;
     }
 
 
@@ -51,7 +55,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @return institucion
      */
-    public publicadores.InstitucionDeportiva getInstitucion() {
+    public publicadores.DtInstitucion getInstitucion() {
         return institucion;
     }
 
@@ -61,7 +65,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @param institucion
      */
-    public void setInstitucion(publicadores.InstitucionDeportiva institucion) {
+    public void setInstitucion(publicadores.DtInstitucion institucion) {
         this.institucion = institucion;
     }
 
@@ -131,7 +135,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @return clases
      */
-    public publicadores.Clase[] getClases() {
+    public publicadores.DtClase[] getClases() {
         return clases;
     }
 
@@ -141,16 +145,36 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
      * 
      * @param clases
      */
-    public void setClases(publicadores.Clase[] clases) {
+    public void setClases(publicadores.DtClase[] clases) {
         this.clases = clases;
     }
 
-    public publicadores.Clase getClases(int i) {
+    public publicadores.DtClase getClases(int i) {
         return this.clases[i];
     }
 
-    public void setClases(int i, publicadores.Clase _value) {
+    public void setClases(int i, publicadores.DtClase _value) {
         this.clases[i] = _value;
+    }
+
+
+    /**
+     * Gets the cantClases value for this DtProfesor.
+     * 
+     * @return cantClases
+     */
+    public int getCantClases() {
+        return cantClases;
+    }
+
+
+    /**
+     * Sets the cantClases value for this DtProfesor.
+     * 
+     * @param cantClases
+     */
+    public void setCantClases(int cantClases) {
+        this.cantClases = cantClases;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -179,7 +203,8 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
               this.sitioWeb.equals(other.getSitioWeb()))) &&
             ((this.clases==null && other.getClases()==null) || 
              (this.clases!=null &&
-              java.util.Arrays.equals(this.clases, other.getClases())));
+              java.util.Arrays.equals(this.clases, other.getClases()))) &&
+            this.cantClases == other.getCantClases();
         __equalsCalc = null;
         return _equals;
     }
@@ -214,6 +239,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
                 }
             }
         }
+        _hashCode += getCantClases();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -227,7 +253,7 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("institucion");
         elemField.setXmlName(new javax.xml.namespace.QName("", "institucion"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "institucionDeportiva"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtInstitucion"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -255,10 +281,16 @@ public class DtProfesor  extends publicadores.DtUsuario  implements java.io.Seri
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("clases");
         elemField.setXmlName(new javax.xml.namespace.QName("", "clases"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "clase"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtClase"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("cantClases");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "cantClases"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 

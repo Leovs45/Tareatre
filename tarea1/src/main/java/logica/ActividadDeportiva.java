@@ -196,7 +196,7 @@ public class ActividadDeportiva {
 			arrClases[i] = clases.get(i).getDtClase();
 		}
 		
-		return new DtActividad(institucion.getDtInstitucion(), nombre, descripcion, duracionMinutos, costo, calendarRegistro, arrClases, clases.size());
+		return new DtActividad(institucion.getNombre(), nombre, descripcion, duracionMinutos, costo, calendarRegistro, arrClases, clases.size());
 	}
 
 }

@@ -103,7 +103,7 @@ public class CClase implements IClase {
 	        Calendar calendarRegistro = Calendar.getInstance();
 	        calendarRegistro.setTime(clase.getFechaRegistro());
 	        
-	        DtClase dt = new DtClase(clase.getNombreClase(), clase.getActividadDeportiva().getDtActividad(), calendarClase, clase.getHoraInicio(), clase.getUrlClase(), calendarRegistro, arrRegistro, claseRegistro.size());
+	        DtClase dt = new DtClase(clase.getNombreClase(), clase.getActividadDeportiva().getNombre(), calendarClase, clase.getHoraInicio(), clase.getUrlClase(), calendarRegistro, arrRegistro, claseRegistro.size());
 	        rankingDtClases.add(dt);
 	    }
 

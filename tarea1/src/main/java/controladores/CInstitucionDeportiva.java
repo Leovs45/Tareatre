@@ -128,7 +128,7 @@ public  class CInstitucionDeportiva implements IInstitucionDeportiva {
 		for(DtClase dtC : listDtC) {
 			arrDtClases[i] = dtC;
 		}
-		DtActividad dtAct = new	DtActividad(ins.getDtInstitucion(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), fecha, arrDtClases, listDtC.size());
+		DtActividad dtAct = new	DtActividad(ins.getNombre(), act.getNombre(), act.getDescripcion(), act.getDuracionMinutos(), act.getCosto(), fecha, arrDtClases, listDtC.size());
 		return dtAct;
 	}
 
