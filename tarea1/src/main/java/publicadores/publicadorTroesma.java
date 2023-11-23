@@ -126,13 +126,18 @@ public class publicadorTroesma {
 		List<DtActividad> dtactividad = iAct.getRankingActividades();
 		int i = 0;
 
-		DtActividad[] ret = new DtActividad[dtactividad.size()];
+		if (dtactividad.size() > 0) {
+			DtActividad[] ret = new DtActividad[dtactividad.size()];
 
-		for(DtActividad a: dtactividad) {
-			ret[i]=a;
-			i++;
+			for(DtActividad a: dtactividad) {
+				ret[i]=a;
+				i++;
+			}
+			
+			return ret;
+		} else {
+			return null;
 		}
-		return ret;
 	}
 	
 	@WebMethod
@@ -156,14 +161,30 @@ public class publicadorTroesma {
 	public DtClase obtenerDtClasePorNombre(String nombreClase) {
 		return iCls.getDtClase(nombreClase);
 	}
+	
+	@WebMethod
+	public DtClase[] getRankingClases() {
+		List<DtClase> dtClases = iCls.getRankingClases();
+		
+		if (dtClases.size() > 0) {
+			DtClase[] arrClases = new DtClase[dtClases.size()];
+			int i = 0;
+			
+			for (DtClase dtC: dtClases) {
+				arrClases[i] = dtC;
+				i++;
+			}
+			
+			return arrClases;
+		} else {
+			return null;
+		}
+	}
+	
+	@WebMethod
+	public boolean jj() {
+		return true;
+	}
 
-	/*@WebMethod
-	public DtRegistro[] getRegistros(String nickname){
-		DtSocio sociardo = iUs.getDtSocio(nickname);
-		List<DtRegistro> dtregistros = sociardo.getRegistros();
-		DtRegistro[] ret = dtregistros.toArray(new DtRegistro[0]);
-
-		//Foo[] array = list.toArray(new Foo[0]);
-		return ret;
-	}*/
+	
 }

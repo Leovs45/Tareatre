@@ -36,7 +36,8 @@
 
        <div class="container-fluid">
 
-         <% String nick=(String) session.getAttribute("nickname"); if (nick !=null) { %>
+         <% String nick=(String) session.getAttribute("nickname"); if (nick !=null) { 
+         %>
            <div class="row">
              <div class="col-sm-6">Nickname</div>
              <div class="col-sm-6">${usuario.nickname}</div>
@@ -178,6 +179,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
           <% } %>
      </div>
    
+   </div>
    </div>
 
     <!-- Incluye el pie de página desde footer.jsp -->

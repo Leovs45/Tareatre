@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.rpc.ServiceException;
 
-import datatypes.*;
-
 import excepciones.UsuarioNoEsProfesorException;
 import publicadores.PublicadorTroesma;
 import publicadores.PublicadorTroesmaService;

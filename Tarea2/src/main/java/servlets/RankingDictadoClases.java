@@ -8,10 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
 import datatypes.DtClase;
 import interfaces.Fabrica;
 import interfaces.IClase;
+import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
 
 /**
  * Servlet implementation class RankingDictadoClases
@@ -43,10 +47,7 @@ public class RankingDictadoClases extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Fabrica fabric = Fabrica.getInstancia();
-	    IClase iAD = fabric.getIClase();
-	    List<DtClase> claseOrdenadas;
-	    claseOrdenadas = iAD.getRankingClases();
+	    List<DtClase> claseOrdenadas = iAD.getRankingClases();
 		try {
 
 			if(claseOrdenadas != null) {
@@ -61,6 +62,12 @@ public class RankingDictadoClases extends HttpServlet {
 	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 	    	}
+	}
+	
+	public List<publicadores.DtClase> getRankingClases() throws ServiceException {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
 	}
 
 }
