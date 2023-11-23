@@ -92,17 +92,17 @@ public class CClase implements IClase {
 	    for (Clase clase : clasesOrdenadas) {
 	        List<Registro> claseRegistro = clase.getArrayRegistro();
 	        DtRegistro[] arrRegistro = new DtRegistro[900];
-	        
+
 	        for (int c = 0; c < claseRegistro.size(); c++) {
 	        	arrRegistro[c] = claseRegistro.get(c).getDtRegistro();
 	        }
-	        
+
 	        Calendar calendarClase = Calendar.getInstance();
 	        calendarClase.setTime(clase.getFechaClase());
-			
+
 	        Calendar calendarRegistro = Calendar.getInstance();
 	        calendarRegistro.setTime(clase.getFechaRegistro());
-	        
+
 	        DtClase dt = new DtClase(clase.getNombreClase(), clase.getActividadDeportiva().getNombre(), calendarClase, clase.getHoraInicio(), clase.getUrlClase(), calendarRegistro, arrRegistro, claseRegistro.size());
 	        rankingDtClases.add(dt);
 	    }

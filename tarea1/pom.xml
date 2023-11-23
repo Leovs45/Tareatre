@@ -89,6 +89,11 @@
         <artifactId>hibernate-core</artifactId>
         <version>5.4.21.Final</version>
     </dependency>
+    <dependency>
+    	<groupId>PApp</groupId>
+    	<artifactId>tarea2</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
    </dependencies> 
 </project>
         

@@ -35,7 +35,7 @@ public class DtActividad{
 	public String getNombreInstitucion() {
 		return nombreInstitucion;
 	}
-	
+
 	public DtInstitucion getDtInstitucion() {
 		Fabrica f = Fabrica.getInstancia();
 		IInstitucionDeportiva iInstitucion = f.getIInstitucionDeportiva();
@@ -76,7 +76,7 @@ public class DtActividad{
 	public DtClase[] getClases() {
 		return clases;
 	}
-	
+
 	public void restarUnaClase() {
 		cantClases = cantClases - 1;
 	}

@@ -63,11 +63,11 @@ public class DtClase {
 	public int getCantidadClases() {
         return cantRegistros;
     }
-	
+
 	public void restarUnRegistro() {
 		cantRegistros = cantRegistros - 1;
 	}
-	
+
 	public DtRegistro[] getRegistros() {
 		return registros;
 	}

@@ -45,11 +45,11 @@ public class DtProfesor extends DtUsuario {
     public String getSitioWeb() {
         return sitioWeb;
     }
-    
+
     public int getCantClases() {
     	return cantClases;
     }
-    
+
     public void restarUnaClase() {
     	cantClases = cantClases - 1;
     }

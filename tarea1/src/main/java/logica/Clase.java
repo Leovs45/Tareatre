@@ -134,18 +134,18 @@ public class Clase {
 		for (int i = 0; i < registros.size(); i++) {
 			arrRegistros[i] = registros.get(i).getDtRegistro();
 		}
-		
+
 		Calendar calendarRegistro = Calendar.getInstance();
 		Calendar calendarClase = Calendar.getInstance();
-		
+
 		if (fechaRegistro != null) {
 			calendarRegistro.setTime(fechaRegistro);
 			}
-		
+
 		if (fechaClase != null) {
 			calendarClase.setTime(fechaClase);
 		}
-		
+
 		return new DtClase(nombreClase, actividadDeportiva.getNombre(), calendarClase, horaInicio, urlClase, calendarRegistro, arrRegistros, registros.size());
 	}
 

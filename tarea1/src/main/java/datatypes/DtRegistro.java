@@ -21,11 +21,11 @@ public class DtRegistro {
     public Calendar getFechaRegistro() {
         return fechaRegistro;
     }
-    
+
     public String getNombreSocio() {
     	return nombreSocio;
     }
-    
+
     public String getNombreClase() {
     	return nombreClase;
     }

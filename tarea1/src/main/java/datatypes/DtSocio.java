@@ -16,11 +16,11 @@ public class DtSocio extends DtUsuario {
         this.registros = registros;
         this.cantRegistros = cantRegistros;
     }
-    
+
     public int getCantidadRegistros() {
     	return cantRegistros;
     }
-    
+
     public void restarUnRegistro() {
     	cantRegistros = cantRegistros - 1;
     }
