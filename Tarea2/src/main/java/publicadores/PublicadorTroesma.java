@@ -23,4 +23,5 @@ public interface PublicadorTroesma extends java.rmi.Remote {
     public void modificarNombre(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public void modificarApellido(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
     public void modificarFechaNacimiento(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.ParseException;
+    public publicadores.DtClase obtenerDtClasePorNombre(java.lang.String arg0) throws java.rmi.RemoteException;
 }

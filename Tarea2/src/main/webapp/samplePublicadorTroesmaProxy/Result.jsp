@@ -662,6 +662,119 @@ case 167:
         }
         samplePublicadorTroesmaProxyid.modificarFechaNacimiento(arg0_33idTemp,arg1_34idTemp);
 break;
+case 174:
+        gotMethod = true;
+        String arg0_35id=  request.getParameter("arg0191");
+            java.lang.String arg0_35idTemp = null;
+        if(!arg0_35id.equals("")){
+         arg0_35idTemp  = arg0_35id;
+        }
+        publicadores.DtClase obtenerDtClasePorNombre174mtemp = samplePublicadorTroesmaProxyid.obtenerDtClasePorNombre(arg0_35idTemp);
+if(obtenerDtClasePorNombre174mtemp == null){
+%>
+<%=obtenerDtClasePorNombre174mtemp %>
+<%
+}else{
+%>
+<TABLE>
+<TR>
+<TD COLSPAN="3" ALIGN="LEFT">returnp:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">url:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.lang.String typeurl177 = obtenerDtClasePorNombre174mtemp.getUrl();
+        String tempResulturl177 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl177));
+        %>
+        <%= tempResulturl177 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">horaInicio:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.lang.String typehoraInicio179 = obtenerDtClasePorNombre174mtemp.getHoraInicio();
+        String tempResulthoraInicio179 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typehoraInicio179));
+        %>
+        <%= tempResulthoraInicio179 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombreActividad:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.lang.String typenombreActividad181 = obtenerDtClasePorNombre174mtemp.getNombreActividad();
+        String tempResultnombreActividad181 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombreActividad181));
+        %>
+        <%= tempResultnombreActividad181 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">fechaRegistro:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.util.Calendar typefechaRegistro183 = obtenerDtClasePorNombre174mtemp.getFechaRegistro();
+        java.text.DateFormat dateFormatfechaRegistro183 = java.text.DateFormat.getDateInstance();
+        java.util.Date datefechaRegistro183 = typefechaRegistro183.getTime();
+        String tempResultfechaRegistro183 = org.eclipse.jst.ws.util.JspUtils.markup(dateFormatfechaRegistro183.format(datefechaRegistro183));
+        %>
+        <%= tempResultfechaRegistro183 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">fechaClase:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.util.Calendar typefechaClase185 = obtenerDtClasePorNombre174mtemp.getFechaClase();
+        java.text.DateFormat dateFormatfechaClase185 = java.text.DateFormat.getDateInstance();
+        java.util.Date datefechaClase185 = typefechaClase185.getTime();
+        String tempResultfechaClase185 = org.eclipse.jst.ws.util.JspUtils.markup(dateFormatfechaClase185.format(datefechaClase185));
+        %>
+        <%= tempResultfechaClase185 %>
+        <%
+}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">cantRegistros:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+%>
+<%=obtenerDtClasePorNombre174mtemp.getCantRegistros()
+%><%}%>
+</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
+<TD>
+<%
+if(obtenerDtClasePorNombre174mtemp != null){
+java.lang.String typenombre189 = obtenerDtClasePorNombre174mtemp.getNombre();
+        String tempResultnombre189 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre189));
+        %>
+        <%= tempResultnombre189 %>
+        <%
+}%>
+</TD>
+</TABLE>
+<%
+}
+break;
 }
 } catch (Exception e) { 
 %>

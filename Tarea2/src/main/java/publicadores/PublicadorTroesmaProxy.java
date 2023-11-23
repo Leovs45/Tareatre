@@ -134,5 +134,11 @@ public class PublicadorTroesmaProxy implements publicadores.PublicadorTroesma {
     publicadorTroesma.modificarFechaNacimiento(arg0, arg1);
   }
   
+  public publicadores.DtClase obtenerDtClasePorNombre(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (publicadorTroesma == null)
+      _initPublicadorTroesmaProxy();
+    return publicadorTroesma.obtenerDtClasePorNombre(arg0);
+  }
+  
   
 }

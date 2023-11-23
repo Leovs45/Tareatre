@@ -23,6 +23,7 @@
 <LI><A HREF="Input.jsp?method=153" TARGET="inputs"> modificarNombre(java.lang.String,java.lang.String)</A></LI>
 <LI><A HREF="Input.jsp?method=160" TARGET="inputs"> modificarApellido(java.lang.String,java.lang.String)</A></LI>
 <LI><A HREF="Input.jsp?method=167" TARGET="inputs"> modificarFechaNacimiento(java.lang.String,java.lang.String)</A></LI>
+<LI><A HREF="Input.jsp?method=174" TARGET="inputs"> obtenerDtClasePorNombre(java.lang.String)</A></LI>
 </UL>
 </BODY>
 </HTML>

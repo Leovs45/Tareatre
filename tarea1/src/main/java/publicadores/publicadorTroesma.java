@@ -14,6 +14,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 
 import datatypes.DtActividad;
+import datatypes.DtClase;
 import datatypes.DtInstitucion;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
@@ -149,6 +150,11 @@ public class publicadorTroesma {
 		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date nuevaFecha = (Date) sdf.parse(nuevaFechaStr);
 		iUs.modificarFechaNacimiento(nickname, nuevaFecha);
+	}
+	
+	@WebMethod
+	public DtClase obtenerDtClasePorNombre(String nombreClase) {
+		return iCls.getDtClase(nombreClase);
 	}
 
 	/*@WebMethod
