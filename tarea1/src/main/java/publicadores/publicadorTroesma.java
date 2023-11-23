@@ -49,7 +49,7 @@ public class publicadorTroesma {
     public void publicar(){
          endpoint = Endpoint.publish("http://localhost:1981/publicado", this); //pregunta para el profe se publica cada servicio en un puerto distinto?
     }
-	
+
 	@WebMethod(exclude = true)
     public Endpoint getEndpoint() {
             return endpoint;
@@ -79,7 +79,7 @@ public class publicadorTroesma {
 
 
 
-	
+
 	@WebMethod
 	public boolean existeActividad(String nombreActividad){
 		//quizas evaular que nombreActividad no sea null
@@ -133,58 +133,58 @@ public class publicadorTroesma {
 				ret[i]=a;
 				i++;
 			}
-			
+
 			return ret;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@WebMethod
 	public void modificarNombre(String nickname, String nuevoNombre) {
 		iUs.modificarNombre(nickname, nuevoNombre);
 	}
-	
+
 	@WebMethod
 	public void modificarApellido(String nickname, String nuevoApellido) {
 		iUs.modificarApellido(nickname, nuevoApellido);
 	}
-	
+
 	@WebMethod
 	public void modificarFechaNacimiento(String nickname, String nuevaFechaStr) throws ParseException {
 		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date nuevaFecha = (Date) sdf.parse(nuevaFechaStr);
 		iUs.modificarFechaNacimiento(nickname, nuevaFecha);
 	}
-	
+
 	@WebMethod
 	public DtClase obtenerDtClasePorNombre(String nombreClase) {
 		return iCls.getDtClase(nombreClase);
 	}
-	
+
 	@WebMethod
 	public DtClase[] getRankingClases() {
 		List<DtClase> dtClases = iCls.getRankingClases();
-		
+
 		if (dtClases.size() > 0) {
 			DtClase[] arrClases = new DtClase[dtClases.size()];
 			int i = 0;
-			
+
 			for (DtClase dtC: dtClases) {
 				arrClases[i] = dtC;
 				i++;
 			}
-			
+
 			return arrClases;
 		} else {
 			return null;
 		}
 	}
-	
+
 	@WebMethod
 	public boolean jj() {
 		return true;
 	}
 
-	
+
 }

@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,10 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
 import datatypes.DtActividad;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
+import publicadores.PublicadorTroesma;
+import publicadores.PublicadorTroesmaService;
+import publicadores.PublicadorTroesmaServiceLocator;
 
 /**
  * Servlet implementation class RankingActividades
@@ -43,10 +49,14 @@ public class RankingActividades extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Fabrica fabric = Fabrica.getInstancia();
-	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
-	    List<DtActividad> actividadesOrdenadas;
-	    actividadesOrdenadas = iAD.getRankingActividades();
+	    List<publicadores.DtActividad> actividadesOrdenadas = new ArrayList<publicadores.DtActividad>();
+	    
+		try {
+			actividadesOrdenadas = getRankingActividades();
+		} catch (RemoteException | ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 
 			if(actividadesOrdenadas != null) {
@@ -62,6 +72,24 @@ public class RankingActividades extends HttpServlet {
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 	    	}
 
+	}
+	
+	public List<publicadores.DtActividad> getRankingActividades() throws ServiceException, RemoteException {
+		PublicadorTroesmaService cpt = new PublicadorTroesmaServiceLocator();
+		PublicadorTroesma port;
+		port = cpt.getpublicadorTroesmaPort();
+		publicadores.DtActividad[] arrActividades = port.getRankingActividades();
+		
+		if (arrActividades.length > 0) {
+			List<publicadores.DtActividad> listAct = new ArrayList<>();
+			for (int i = 0; i < arrActividades.length; i++) {
+				listAct.add(arrActividades[i]);
+			}
+			
+			return listAct;
+		}
+		
+		return null;
 	}
 
 }
