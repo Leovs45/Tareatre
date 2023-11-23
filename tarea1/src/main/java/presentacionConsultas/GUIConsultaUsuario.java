@@ -196,10 +196,13 @@ public class GUIConsultaUsuario extends JInternalFrame {
 						sitioWeb.setText("");
 
 						modelRegistro.setRowCount(0);
-
-						List<DtRegistro> registros = socio.getRegistros();
+						DtRegistro[] dtReg = socio.getRegistros();
+						List<DtRegistro> registros = new ArrayList<>();
+						for(int i=0 ; i<dtReg.length; i++) {
+							registros.add(dtReg[i]);
+						}
 						for (DtRegistro r: registros) {
-							modelRegistro.addRow(new Object[] {r.getClase().getNombre(), r.getFechaRegistro().toString()});
+							modelRegistro.addRow(new Object[] {r.getNombreClase(), r.getFechaRegistro().toString()});
 						}
 
 						tablaRegistro.setVisible(true);
@@ -224,7 +227,11 @@ public class GUIConsultaUsuario extends JInternalFrame {
 						sitioWeb.setText(profesor.getSitioWeb());
 
 						modelClases.setRowCount(0);
-						List<DtClase> clases = profesor.getClases();
+						DtClase[] dtCls = profesor.getClases();
+						List<DtClase> clases = new ArrayList<>();
+						for(int i=0; i<dtCls.length; i++) {
+							clases.add(dtCls[i]);
+						}
 						for(DtClase c: clases) {
 							modelClases.addRow(new Object[] {c.getNombre(), c.getFechaClase().toString(), c.getHoraInicio()});
 						}

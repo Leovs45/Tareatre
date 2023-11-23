@@ -117,7 +117,7 @@ public class Clase {
 
 	public void registroClase(Socio socio, Clase clase) {
 		Date date = new Date();
-		Registro registro = new Registro(date, socio.getNickname(), clase.getNombreClase());
+		Registro registro = new Registro(date, socio, clase);
 		registros.add(registro);
 		socio.agregarRegistro(registro);
 	}
